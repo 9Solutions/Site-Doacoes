@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Asap;
+    color: #FFFFFF;
+}
+
+.footer {
+    background-color: #FDAF2D;
+    justify-content: center;
+    display: flex;
+}
+.links-endereco{
+    width: 30%;
+    flex-wrap: wrap;
+}
+li {
+    font-weight: 500;
+}
+
+ul{
+    padding: 0;
+    margin-left: 2%;
+    align-content: center;
+}
+
+a {
+    color: #FFFFFF;
+}
+img{
+    width: 60px;
+}
+.images{
+    margin-left: 2%;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
