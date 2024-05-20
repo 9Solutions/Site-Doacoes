@@ -6,7 +6,6 @@ body {
 .nav-wrapper {
     display: flex;
     background-color: #008816;
-    display: flex;
     align-items: center;
     height: 90px;
 }

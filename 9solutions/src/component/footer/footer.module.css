@@ -10,15 +10,17 @@ body {
     justify-content: center;
     display: flex;
 }
-.links-endereco{
+
+.links-endereco {
     width: 30%;
     flex-wrap: wrap;
 }
+
 li {
     font-weight: 500;
 }
 
-ul{
+ul {
     padding: 0;
     margin-left: 2%;
     align-content: center;
@@ -27,10 +29,12 @@ ul{
 a {
     color: #FFFFFF;
 }
-img{
+
+img {
     width: 60px;
 }
-.images{
+
+.images {
     margin-left: 2%;
     justify-content: center;
     flex-wrap: wrap;
