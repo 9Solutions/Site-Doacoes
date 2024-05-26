@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: Asap;
+    color: #008816;
+}
+
+h2 {
+    margin-left: 16%;
+    font-size: 48px;
+    border-bottom: 4px solid #008816;
+    width: 9%;
+    font-weight: 500;
+}
+
+.div-cadastro {
+    margin-left: 14%;
+    margin-right: 14%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #008816;
+    padding: 3% 4% 3% 4%;
+}
+
+label {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+input {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding: 1%;
+    border: 1px solid #C1C1C1;
+    color: #818080;
+}
+
+a {
+    margin-top: 0;
+    text-decoration: none;
+    color: #9A9C9A;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+button {
+    background-color: #F79A00;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    font-weight: 300;
+    border-radius: 7px;
+    margin-top: 2%;
+    width: 40%;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.link {
+    text-decoration: underline;
+    color: #477BFF;
+}
+
+#forgot-passaword {
+    margin-right: 30%;
+}
+
+img {
+    height: 41px;
+}
+
+h3 {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+p {
+    align-self: center;
+
+}
