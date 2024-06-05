@@ -13,8 +13,7 @@ h2 {
 }
 
 .div-login {
-    margin-left: 14%;
-    margin-right: 14%;
+    margin: 0 14% 5% 14%;
     display: flex;
     flex-direction: column;
     border: 2px solid #008816;
@@ -34,7 +33,7 @@ input {
     color: #818080;
 }
 
-a {
+p a {
     margin-top: 0;
     text-decoration: none;
     color: #9A9C9A;
@@ -42,15 +41,16 @@ a {
     font-size: 24px;
 }
 
-button {
+.login-button {
     background-color: #F79A00;
     color: #FFFFFF;
     border: none;
-        font-size: 24px;
+    font-size: 24px;
     font-weight: 300;
     border-radius: 7px;
     margin-top: 2%;
     width: 40%;
+    height: 5.5vh;
     display: flex;
     align-self: center;
     align-items: center;
@@ -62,8 +62,8 @@ button {
     color: #477BFF;
 }
 
-#forgot-passaword{
-    margin-right: 30%;
+#forgot-password{
+    margin-right: 46%;
 }
 
 img{

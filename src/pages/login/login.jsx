@@ -24,15 +24,15 @@ const Login = () => {
             Crie aqui
           </a>
         </p>
-        <button>
+        <button className={styles["login-button"]}>
           <img src={instagramIcon} alt="" />
           Entrar com Instagram
         </button>
-        <button>
+        <button className={styles["login-button"]}>
           <img src={facebookIcon} alt="" />
           Entrar com Facebook
         </button>
-        <button>Fazer login</button>
+        <button className={styles["login-button"]}>Fazer login</button>
       </div>
       <Footer />
     </>

@@ -10,13 +10,13 @@ body {
     height: 90px;
 }
 
-img {
+.logo {
     margin-left: 8%;
     height: 70px;
     align-content: center;
 }
 
-ul {
+.navbar-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -30,12 +30,12 @@ ul {
     font-size: 22px;
 }
 
-a {
+.navbar-list-item {
     text-decoration: none;
     color: #FFFFFF;
 }
 
-button {
+.button {
     background-color: #F79A00;
     color: #FFFFFF;
     border: none;

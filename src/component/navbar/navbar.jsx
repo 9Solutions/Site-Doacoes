@@ -7,22 +7,22 @@ const navBar = () => {
     <>
       <nav>
         <div className={styles["nav-wrapper"]}>
-          <img src={logo} alt="logo" />
-          <ul>
+          <img className={styles["logo"]} src={logo} alt="logo" />
+          <ul className={styles["navbar-list"]}>
             <li>
-              <a href="">HOME</a>
+              <a className={styles["navbar-list-item"]} href="">HOME</a>
             </li>
             <li>
-              <a href="">O PROJETO</a>
+              <a className={styles["navbar-list-item"]} href="">O PROJETO</a>
             </li>
             <li>
-              <a href="">FAÇA SUA DOAÇÃO</a>
+              <a className={styles["navbar-list-item"]} href="">FAÇA SUA DOAÇÃO</a>
             </li>
             <li>
-              <a href="">PARTICIPE</a>
+              <a className={styles["navbar-list-item"]} href="">PARTICIPE</a>
             </li>
           </ul>
-          <button>DOE</button>
+          <button className={styles["button"]}>DOE</button>
         </div>
       </nav>
     </>

@@ -1,36 +1,27 @@
 body {
     margin: 0;
-    padding: 0;
     font-family: Asap;
-    color: #FFFFFF;
 }
 
 .footer {
     background-color: #FDAF2D;
     justify-content: center;
     display: flex;
+    color: #FFFFFF;
 }
 
 .links-endereco {
     width: 30%;
     flex-wrap: wrap;
-}
+    padding: 0;
+    margin-left: 2%;
+    align-content: center;}
 
-li {
+.links-endereco-item {
     font-weight: 500;
 }
 
-ul {
-    padding: 0;
-    margin-left: 2%;
-    align-content: center;
-}
-
-a {
-    color: #FFFFFF;
-}
-
-img {
+.image {
     width: 60px;
 }
 
