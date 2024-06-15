@@ -29,7 +29,7 @@ const Login = () => {
           return;
         }
 
-        navigate("/cadastro");
+        navigate("");
       })
       .catch((error) => {
         console.log(error);
@@ -48,7 +48,7 @@ const Login = () => {
         <input
           type="text"
           placeholder="exemplo@email.com"
-          inputRef={emailRef}
+          ref={emailRef}
         />
         <label className={styles["label-login"]} htmlFor="Senha">
           Senha:
@@ -56,7 +56,7 @@ const Login = () => {
         <input
           type="password"
           placeholder="****************"
-          inputRef={senhaRef}
+          ref={senhaRef}
         />
         <p>
           <a id={styles["forgot-password"]}>
