@@ -1,10 +1,9 @@
 body {
     margin: 0;
     font-family: Asap;
-    color: #008816;
 }
 
-h2 {
+.titulo {
     margin-left: 16%;
     font-size: 48px;
     border-bottom: 4px solid #008816;
@@ -15,18 +14,19 @@ h2 {
 .div-cadastro {
     margin-left: 14%;
     margin-right: 14%;
+    color: #008816;
     display: flex;
     flex-direction: column;
     border: 2px solid #008816;
     padding: 3% 4% 3% 4%;
 }
 
-label {
+.label-cadastro {
     font-size: 24px;
     font-weight: 400;
 }
 
-input {
+.input-cadastro {
     margin-bottom: 2%;
     margin-top: 2%;
     padding: 1%;
@@ -34,7 +34,7 @@ input {
     color: #818080;
 }
 
-a {
+.a-cadastro {
     margin-top: 0;
     text-decoration: none;
     color: #9A9C9A;
@@ -42,7 +42,7 @@ a {
     font-size: 24px;
 }
 
-button {
+.botao-cadastro {
     background-color: #F79A00;
     color: #FFFFFF;
     border: none;
@@ -66,16 +66,15 @@ button {
     margin-right: 30%;
 }
 
-img {
+.imagem-cadastro {
     height: 41px;
 }
 
-h3 {
+.titulo-medio {
     font-size: 36px;
     font-weight: 500;
 }
 
-p {
+.p-cadastro {
     align-self: center;
-
 }

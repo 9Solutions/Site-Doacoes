@@ -4,7 +4,7 @@ body {
     color: #008816;
 }
 
-h2 {
+.titulo-login {
     margin-left: 16%;
     font-size: 48px;
     border-bottom: 4px solid #008816;
@@ -20,7 +20,7 @@ h2 {
     padding: 3% 4% 3% 4%;
 }
 
-label {
+.label-login {
     font-size: 24px;
     font-weight: 400;
 }
@@ -33,7 +33,7 @@ input {
     color: #818080;
 }
 
-p a {
+.div-login p a {
     margin-top: 0;
     text-decoration: none;
     color: #9A9C9A;
@@ -63,7 +63,7 @@ p a {
 }
 
 #forgot-password{
-    margin-right: 46%;
+    margin-right: 23.4vw;
 }
 
 img{
