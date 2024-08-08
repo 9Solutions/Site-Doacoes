@@ -52,6 +52,10 @@ function Cadastro() {
     navigate("http://localhost:3000/");
   };
 
+  const toLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <>
       <NavBar />
@@ -137,10 +141,10 @@ function Cadastro() {
         </button>
         <p className={styles["p-cadastro"]}>
           <a className={styles["a-cadastro"]} href="">
-            Não possui uma conta?
+            Já possui uma conta?
           </a>
-          <a className={styles["a-cadastro"]} class="link" href="">
-            Crie aqui
+          <a className={styles["a-cadastro", "link"]} onClick={toLogin}>
+            Entre aqui
           </a>
         </p>
       </div>
