@@ -69,6 +69,7 @@ function Cadastro() {
         <input
           className={styles["input-cadastro"]}
           value={nomeCompleto}
+          placeholder= "Ex. Ana"
           type="text"
           onChange={(e) => handleInputChange(e, setNomeCompleto)}
         />
@@ -77,6 +78,7 @@ function Cadastro() {
         <input
           className={styles["input-cadastro"]}
           value={identificador}
+          placeholder= "11122233344"
           type="text"
           onChange={(e) => handleInputChange(e, setIdentificador)}
         />
@@ -87,22 +89,24 @@ function Cadastro() {
         <input
           className={styles["input-cadastro"]}
           value={email}
+          placeholder= "ana@email.com"
           type="text"
           onChange={(e) => handleInputChange(e, setEmail)}
         />
 
         <label className={styles["label-cadastro"]} htmlFor="repetir-email">Repetir E-mail:</label>
-        <input className={styles["input-cadastro"]} type="text" />
+        <input className={styles["input-cadastro"]} type="text" placeholder= "ana@email.com"/>
         <label className={styles["label-cadastro"]} htmlFor="senha">Senha:</label>
         <input
           className={styles["input-cadastro"]}
           value={senha}
           type="password"
+          placeholder="********" 
           onChange={(e) => handleInputChange(e, setSenha)}
         />
 
         <label className={styles["label-cadastro"]} htmlFor="repetir-senha">Repetir a senha:</label>
-        <input className={styles["input-cadastro"]} type="password" />
+        <input className={styles["input-cadastro"]} type="password" placeholder="********" />
 
         <h3>Informações adicionais</h3>
 
@@ -110,6 +114,7 @@ function Cadastro() {
         <input
           className={styles["input-cadastro"]}
           value={telefone}
+          placeholder="11222223333"
           type="text"
           onChange={(e) => handleInputChange(e, setTelefone)}
         />

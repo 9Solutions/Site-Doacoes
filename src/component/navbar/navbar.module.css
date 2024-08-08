@@ -35,6 +35,10 @@ body {
     color: #FFFFFF;
 }
 
+.navbar-list-item:hover {
+    border-bottom: 1px solid #FFFFFF;
+}
+
 .button {
     background-color: #F79A00;
     color: #FFFFFF;
