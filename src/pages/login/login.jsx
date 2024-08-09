@@ -37,6 +37,10 @@ const Login = () => {
       });
   };
 
+  const toCadastro = () => {
+    navigate("/cadastro");
+  };
+
   return (
     <>
       <NavBar />
@@ -51,9 +55,11 @@ const Login = () => {
         </label>
         <input type="password" placeholder="****************" ref={senhaRef} />
         <p>
-          <a id={styles["forgot-password"]}>Esqueci minha senha</a>
-          <a href>Não possui uma conta?</a>
-          <a className={styles["link"]}>Crie aqui</a>
+          <a id={styles["forgot-password"]}>
+            Esqueci minha senha  
+          </a>
+          <a href="">Não possui uma conta?</a>
+          <a className={styles["link"]} onClick={toCadastro}>Crie aqui</a>
         </p>
         <button className={styles["login-button"]}>
           <img src={instagramIcon} alt="" />

@@ -35,13 +35,24 @@ body {
     color: #FFFFFF;
 }
 
+.navbar-list-item:hover {
+    border-bottom: 1px solid #FFFFFF;
+}
+
 .button {
     background-color: #F79A00;
     color: #FFFFFF;
     border: none;
-    width: 70px;
-    height: 32px;
+    width: 5vw;
+    height: 5vh;
     margin-right: 8%;
-    font-size: 16px;
-    border-radius: 15%;
+    font-size: 20px;
+    border-radius: 8%;
+    
+}
+
+.button:hover {
+    color: #F79A00;
+    background-color: #FFFFFF;
+    border: 1px solid #F79A00;
 }
