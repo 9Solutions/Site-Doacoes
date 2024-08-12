@@ -1,0 +1,332 @@
+body {
+    margin: 0;
+    font-family: Asap;
+    color: #008816;
+}
+
+.barra{
+    color: gray;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -50px;
+}
+
+.barra p {
+    position: relative; /* Para posicionar a barra em relação ao texto */
+    margin: 0; /* Remove a margem padrão */
+    padding: 10px 0; /* Adiciona espaçamento ao redor do texto */
+    cursor: pointer; /* Indica que o item é clicável */
+}
+
+.barra p::after {
+    content: ''; /* Necessário para criar um elemento vazio */
+    position: absolute;
+    left: 0;
+    bottom: -8px; /* Move a barra 8px abaixo do texto */
+    width: 0%;
+    height: 5px; /* Aumenta a altura da barra para 5px */
+    background-color: green; /* Cor da barra */
+    transition: width 0.3s ease; /* Transição suave para o hover */
+}
+
+.barra p:hover::after {
+    width: 100%; /* Aumenta a largura da barra para 100% durante o hover */
+}
+
+.titulo-pagamento {
+    margin-left: 13%;
+    font-size: 48px;
+    border-bottom: 4px solid #008816;
+    width: 13%;
+    font-weight: 500;
+    color: black;
+}
+
+.div-pagamento {
+    margin: 0 14% 5% 14%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid gray;
+    padding: 3% 4% 3% 4%;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.inputs-valores{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.div-pagamento-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(235, 235, 235);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width: 150px;
+    height: 170px;
+    margin-top: 2%;
+    position: relative;
+    top: -400px; /* Ajuste conforme necessário */
+    transition: border-color 0.3s ease; /* Transição suave para a borda */
+}
+
+.div-pagamento-pix {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(235, 235, 235);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    width: 750px;
+    height: 500px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    position: relative;
+}
+
+.div-pagamento-pix img {
+    width: 30%; /* Faz a imagem ocupar 100% da largura da caixa */
+    height: auto; /* Mantém a proporção original da imagem */
+    object-fit: cover; /* Opcional: cobre toda a área da caixa, cortando a imagem se necessário */
+    border-radius: 5px; 
+    margin-left: 450px;
+    display: flex;
+    /* Opcional: dá uma borda arredondada à imagem */
+}
+
+
+.div-pagamento-2:hover {
+    cursor: pointer;
+    border-color: green;
+    border-width: 3px; 
+}
+
+.div-pagamento-2.active {
+    border-color: green; /* Cor da borda quando clicado */
+}
+
+
+
+.caixa{
+    display: flex;
+    margin-left: auto;
+    margin-top: 2%;
+}
+
+
+.valores{
+    color: black;
+    font-size: 30px;
+    margin-left: 70%;
+    font-family: Asap;
+    font-weight: normal;
+    position: relative;
+    bottom: 245px;
+}
+
+.div-pagamento-caixa {
+    margin: 0 10% 5% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(235, 235, 235);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    width: 450px;
+    height: 300px;
+}
+
+.div-pagamento-caixa img {
+    width: 90%; /* Faz a imagem ocupar 100% da largura da caixa */
+    height: auto; /* Mantém a proporção original da imagem */
+    object-fit: cover; /* Opcional: cobre toda a área da caixa, cortando a imagem se necessário */
+    border-radius: 5px; /* Opcional: dá uma borda arredondada à imagem */
+}
+
+hr {
+    width: 100%;
+    color: gray;
+    border: none;
+    border-top: 3px solid gray; 
+}
+
+.inputs-boleto p{
+    color: black;
+    font-size: 24px;
+}
+
+.inputs-boleto a{
+    color: gray;
+    font-size: 24px;
+}
+
+
+
+.container-pagamentos {
+    display: flex;
+    align-items: flex-start; /* Alinha as caixas ao topo */
+    margin-right: auto;
+    width: 100%;
+    gap: 100px; /* Adiciona um espaço entre as caixas */
+    padding: 20px; /* Espaçamento dentro do contêiner */
+}
+
+.container-pagamentos p{
+    color: black;
+    font-size: 20px;
+}
+
+
+input{
+    height: 20px;
+    width: 60%;
+}
+
+select {
+    height: 40px;
+    width: 60%;
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    border: none; /* Remove as bordas */
+    outline: none; /* Remove o contorno */
+    background-color: #f5f5f5; /* Altera a cor de fundo (opcional) */
+    padding: 8px; /* Adiciona espaço interno para o texto */
+    border-radius: 4px; /* Adiciona bordas arredondadas */
+    appearance: none; /* Remove o estilo padrão do select */
+    -webkit-appearance: none; /* Remove o estilo padrão no Safari/Chrome */
+    -moz-appearance: none; /* Remove o estilo padrão no Firefox */
+}
+
+
+.inputs-credit {
+    display: flex;
+    flex-direction: column; /* Alinha os inputs verticalmente */
+    gap: 10px; /* Espaçamento entre os inputs */
+    position: relative;
+}
+
+
+.div-pagamento-2 img {
+    width: 90%; /* Faz a imagem ocupar 100% da largura da caixa */
+    height: auto; /* Mantém a proporção original da imagem */
+    object-fit: cover; /* Opcional: cobre toda a área da caixa, cortando a imagem se necessário */
+    border-radius: 5px; /* Opcional: dá uma borda arredondada à imagem */
+}
+
+.label-pagamento {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.label-pagamento-2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-left: 250px;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.confirm-button {
+    background-color: #F79A00;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    font-weight: 300;
+    border-radius: 7px;
+    width: 17%;
+    height: 5.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2%; /* Pequena margem entre os botões */
+}
+
+.cancel-button {
+    background-color: gray;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    font-weight: 300;
+    border-radius: 7px;
+    width: 17%;
+    height: 5.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%; /* Opcional, para manter simetria */
+}
+
+.ok-button {
+    background-color: green;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    font-weight: 300;
+    border-radius: 7px;
+    width: 10%;
+    height: 4vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2%; /* Opcional, para manter simetria */
+}
+
+
+input {
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding: 1%;
+    border: 1px solid #C1C1C1;
+    color: #818080;
+}
+
+.div-login p a {
+    margin-top: 0;
+    text-decoration: none;
+    color: #9A9C9A;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+
+.barra p {
+    cursor: pointer;
+    transition: color 0.3s, text-decoration 0.3s;
+}
+
+.barra p:hover {
+    color: green;
+}
+
+.barra p.active {
+    color: green;
+}
+
+
+
+.link{
+    text-decoration: underline;
+    color: #477BFF;
+}
+
+#forgot-password{
+    margin-right: 23.4vw;
+}
+
+img{
+    height: 41px;
+}

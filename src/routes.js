@@ -3,6 +3,7 @@ import { Route, BrowserRouter, Routes} from "react-router-dom";
 
 import Login from "./pages/login/login";
 import Cadastro from "./pages/cadastro/cadastro";
+import Pagamento from "./pages/pagamento/pagamento";
 
 const rotas = () => {
     return(
@@ -10,6 +11,7 @@ const rotas = () => {
              <Routes>
                  <Route path="/login" element={<Login/>} exact />
                  <Route path="/cadastro" element={<Cadastro/>} exact />
+                 <Route path="/pagamento" element={<Pagamento/>} exact />
                  {/*<Route path="*" element={<NotFound />} />*/}
              </Routes>
         </BrowserRouter>
