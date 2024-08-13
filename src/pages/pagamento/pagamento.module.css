@@ -342,6 +342,21 @@ select {
     margin-left: 2%; 
 }
 
+.next-button{ 
+    background-color: #F79A00;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    font-weight: 300;
+    border-radius: 7px;
+    width: 17%;
+    height: 5.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 2%; 
+}
+
 .cancel-button {
     background-color: gray;
     color: #FFFFFF;
