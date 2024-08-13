@@ -34,6 +34,53 @@ body {
     width: 100%; 
 }
 
+.container-dados {
+    position: relative;
+  }
+  
+  .form-section {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .input-group-left {
+    width: 60%;
+  }
+  
+  .input-group-right {
+    width: 60%;
+    position: absolute;
+    top: 100px;
+    right: -300px;
+    padding: 10px;
+  }
+  
+
+
+.container-dados h1{
+    margin-left: 2%;
+    font-size: 35px;
+    width: 25%;
+    font-weight: 500;
+    color: black;
+}
+
+
+.conjunto-inputs-dados{
+    margin-left: auto;
+}
+
+.container-dados input{
+    margin-top: 2%;
+    color: #818080;
+    border: 1px solid #C1C1C1;
+    padding: 1%;
+}
+
+.container-dados select {
+    width: 50%;
+}
+
 .titulo-pagamento {
     margin-left: 13%;
     font-size: 48px;
