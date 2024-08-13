@@ -116,7 +116,8 @@ const Pagamento = () => {
                 <label className={styles["label-pagamento"]} htmlFor="cpf">
                   CPF:
                 </label><br></br>
-                <input type="text" id="cpf" /><br></br>
+                <input type="text" placeholder="123.456.789-09" ref={emailRef} /><br></br>
+
 
                 <label className={styles["label-pagamento"]} htmlFor="email">
                   Email:
@@ -206,7 +207,8 @@ const Pagamento = () => {
                   <label className={styles["label-pagamento"]} htmlFor="identificador">
                     Número do Cartão:
                   </label>
-                  <input type="text" ref={emailRef} />
+                  <input type="text" placeholder="0000 0000 0000 0000" ref={emailRef} />
+
 
                   <label className={styles["label-pagamento"]} htmlFor="parcelas">
                     Parcelas:
@@ -227,22 +229,26 @@ const Pagamento = () => {
                   <label className={styles["label-pagamento"]} htmlFor="validade">
                     Validade:
                   </label>
-                  <input type="text" ref={emailRef} />
+                  <input type="text" placeholder="MM/AA" ref={emailRef} />
+
 
                   <label className={styles["label-pagamento"]} htmlFor="codigo">
                     Código de Segurança:
                   </label>
-                  <input type="text" ref={emailRef} />
+                  <input type="text" placeholder="CVV" ref={emailRef} />
+
 
                   <label className={styles["label-pagamento"]} htmlFor="numero-impresso">
                     Número Impresso:
                   </label>
-                  <input type="text" ref={emailRef} />
+                  <input type="text" placeholder="0000 0000 0000 0000" ref={emailRef} />
+
 
                   <label className={styles["label-pagamento"]} htmlFor="cpf-titular">
                     CPF do Titular:
                   </label>
-                  <input type="text" ref={emailRef} />
+                  <input type="text" placeholder="123.456.789-09" ref={emailRef} />
+
                 </div>
               )}
 
@@ -263,7 +269,10 @@ const Pagamento = () => {
                 </div>
               )}
 
-              {showLabel.pix && (
+
+              {/* Input para PIX */}
+
+              {/* {showLabel.pix && (
                 <div className={styles["inputs-pix"]}>
                   <label htmlFor="pix-opcoes">Opções de Pagamento via PIX:</label>
                   <select
@@ -292,10 +301,65 @@ const Pagamento = () => {
                     </div>
                   )}
                 </div>
+                  )} */}
+
+
+              {/* Input para PIX */}
+              {showLabel.pix && (
+                <div className={styles["inputs-pix"]}>
+                  <label className={styles["label-pagamento"]} htmlFor="pixOption">
+                    QR Code ou Copia e Cola
+                  </label><br></br>
+                  <select
+                    id="pixOption"
+                    className={styles["select-pagamento"]}
+                    onChange={(e) => handleSelect(e.target.value)}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Selecione opção</option>
+                    <option value="pix1">QR Code</option>
+                    <option value="pix2">Copia e Cola</option>
+                  </select>
+
+                  {selectedOption && (
+                    <div className={styles["div-pagamento-pix"]}>
+                      {selectedOption === "pix1" && (
+                        <>
+                          <div className={styles["div-pix-contexto"]}>
+                            <img src={qrcode} alt="QR Code para pagamento" />
+                            <p>
+                              1. Acesse seu Internet Banking ou app de pagamentos. <br></br>
+                              2. Escolha pagar via Pix. <br></br>
+                              3. Escolha a opção Pagar Pix com QR Code.
+                            </p>
+                          </div>
+                        </>
+                      )}
+
+                      {selectedOption === "pix2" && (
+                        <div className={styles["div-pagamento-pix-2"]}>
+                          <p>
+                            1. Acesse seu Internet Banking ou app de pagamentos.<br></br>
+                            2. Escolha pagar via Pix.<br></br>
+                            3. Cole o seguinte código:
+                          </p>
+                          <input
+                            type="text"
+                            placeholder="00020126540014br.gov.bcb.pix0132pix_marketplace@m"
+                            ref={emailRef}
+                          />
+                          <button className={styles["copy-button"]}>Copiar Código</button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               )}
+
             </div>
           </div>
         )}
+
 
         {/* Condicional para exibir os botões apenas na aba de pagamento */}
         {activeTab === 'Pagamento' && (
@@ -304,7 +368,9 @@ const Pagamento = () => {
             <button className={styles["confirm-button"]}>Confirmar</button>
           </div>
         )}
+
       </div>
+
       <Footer />
     </>
   );

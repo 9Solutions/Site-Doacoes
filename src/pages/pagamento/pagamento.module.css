@@ -159,9 +159,9 @@ body {
 }
 
 .div-pagamento-pix p {
-    font-size: 26px;
+    font-size: 24px;
     color: black;
-    margin-right: 200px;
+    margin-right: auto;
 }
 
 .div-pagamento-pix-2{
@@ -291,6 +291,21 @@ select {
     -webkit-appearance: none; 
     -moz-appearance: none; 
 }
+
+.select-pagamento{
+    height: 40px;
+    width: 100%;
+    font-size: 18px; 
+    border: none;
+    outline: none; 
+    background-color: #f5f5f5; 
+    padding: 8px; 
+    border-radius: 4px; 
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+}
+
 
 
 .inputs-credit {
