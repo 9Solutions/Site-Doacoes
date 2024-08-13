@@ -80,20 +80,20 @@ const Pagamento = () => {
       </h6>
       <div className={styles["div-pagamento"]}>
         <div className={styles["barra"]}>
-          <p 
-            onClick={() => handleNavigationClick('Dados')} 
+          <p
+            onClick={() => handleNavigationClick('Dados')}
             className={activeTab === 'Dados' ? styles["active-tab"] : ""}
           >
             Dados
           </p>
-          <p 
-            onClick={() => handleNavigationClick('Pagamento')} 
+          <p
+            onClick={() => handleNavigationClick('Pagamento')}
             className={activeTab === 'Pagamento' ? styles["active-tab"] : ""}
           >
             Pagamento
           </p>
-          <p 
-            onClick={() => handleNavigationClick('Finalização')} 
+          <p
+            onClick={() => handleNavigationClick('Finalização')}
             className={activeTab === 'Finalização' ? styles["active-tab"] : ""}
           >
             Finalização
@@ -243,6 +243,23 @@ const Pagamento = () => {
                     CPF do Titular:
                   </label>
                   <input type="text" ref={emailRef} />
+                </div>
+              )}
+
+
+              {/* Input para Boleto */}
+              {showLabel.boleto && (
+                <div className={styles["inputs-boleto"]}>
+                  <p>
+                    O boleto será enviado via email. Complete o pagamento até 10/04/2024. <br></br>
+                    Após o pagamento o status do pedido será atualizado em até X dias úteis.
+                  </p>
+                  <label className={styles["label-pagamento"]} htmlFor="identificador">
+                    Confirme seu email:
+                  </label><br></br>
+                  <input type="text" ref={emailRef} />
+                  <button className={styles["ok-button"]}>OK</button>
+                  <a>Não recebi meu email</a>
                 </div>
               )}
 
