@@ -146,10 +146,13 @@ body {
 }
 
 .div-pagamento-pix img {
-    width: 40%;
-    height: 100%; 
+    /* width: 40%;
+    height: 100%;  */
     object-fit: cover; 
     display: flex;
+    width: auto;
+    height: auto;
+    margin-right: 40px;
 }
 
 .div-pix-contexto{

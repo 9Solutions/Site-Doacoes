@@ -111,7 +111,7 @@ const Pagamento = () => {
                 <label className={styles["label-pagamento"]} htmlFor="nome">
                   Nome Completo:
                 </label><br></br>
-                <input type="text" id="nome" /><br></br>
+                <input type="text" placeholder="Fulano da Silva" id="nome" /><br></br>
 
                 <label className={styles["label-pagamento"]} htmlFor="cpf">
                   CPF:
@@ -122,7 +122,7 @@ const Pagamento = () => {
                 <label className={styles["label-pagamento"]} htmlFor="email">
                   Email:
                 </label><br></br>
-                <input type="email" id="email" /><br></br>
+                <input type="email" placeholder = "fulano.silva@gmail.com" id="email" /><br></br>
 
                 <label className={styles["label-pagamento"]} htmlFor="endereco">
                   Endereço:
@@ -142,7 +142,7 @@ const Pagamento = () => {
                 <label className={styles["label-pagamento"]} htmlFor="telefone">
                   Telefone:
                 </label><br></br>
-                <input type="text" id="telefone" /><br></br>
+                <input type="text" placeholder = "(11) 11111-1111" id="telefone" /><br></br>
 
                 <label className={styles["label-pagamento"]} htmlFor="conheceu-projeto">
                   Como conheceu o projeto?
