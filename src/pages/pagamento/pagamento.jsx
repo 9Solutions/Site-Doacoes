@@ -11,7 +11,6 @@ import caixa from '../../img/caixa.png';
 import qrcode from '../../img/qrcode.png';
 import { toast } from "react-toastify";
 
-
 // Função de validação
 const validar = async (email, senha) => {
   if (email.length === 0 || senha.length === 0) return;
@@ -20,6 +19,7 @@ const validar = async (email, senha) => {
 
 const Pagamento = () => {
   const [showLabel, setShowLabel] = useState({ cartao: false, boleto: false, pix: false }); // Gerencia o estado
+  const [showPaymentContent, setShowPaymentContent] = useState(false); // Gerencia se o conteúdo de pagamento deve ser mostrado
   const navigate = useNavigate();
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
@@ -50,14 +50,24 @@ const Pagamento = () => {
   };
 
   const handleClickPagamento = (method) => {
+    setShowPaymentContent(true); // Ativa a exibição do conteúdo de pagamento quando qualquer método é selecionado
+
     if (method === 'cartao') {
-      setShowLabel({ cartao: true, boleto: false, pix: false }); // Mostra os inputs do cartão
+      setShowLabel({ cartao: true, boleto: false, pix: false }); 
     } else if (method === 'boleto') {
-      setShowLabel({ cartao: false, boleto: true, pix: false }); // Mostra o input de E-mail/CPF para boleto
+      setShowLabel({ cartao: false, boleto: true, pix: false }); 
     } else if (method === 'pix') {
-      setShowLabel({ cartao: false, boleto: false, pix: true }); // Mostra o select para PIX
+      setShowLabel({ cartao: false, boleto: false, pix: true }); 
     } else {
-      setShowLabel({ cartao: false, boleto: false, pix: false }); // Reseta os inputs
+      setShowLabel({ cartao: false, boleto: false, pix: false }); 
+    }
+  };
+
+  const handleNavigationClick = (tab) => {
+    if (tab === 'Pagamento') {
+      setShowPaymentContent(true); // Mostra o conteúdo de pagamento ao clicar em "Pagamento"
+    } else {
+      setShowPaymentContent(false); // Esconde o conteúdo de pagamento se outra aba for selecionada
     }
   };
 
@@ -70,177 +80,170 @@ const Pagamento = () => {
       </h6>
       <div className={styles["div-pagamento"]}>
         <div className={styles["barra"]}>
-          <p>Dados</p>
-          <p>Pagamento</p>
-          <p>Finalização</p>
+          <p onClick={() => handleNavigationClick('Dados')}>Dados</p>
+          <p onClick={() => handleNavigationClick('Pagamento')}>Pagamento</p>
+          <p onClick={() => handleNavigationClick('Finalização')}>Finalização</p>
         </div>
         <hr />
 
-
-        <div className={styles["container-top"]}>
-
-          <div className={styles["container-pagamentos"]}>
-            <div
-              className={styles["div-pagamento-2"]}
-              onClick={() => handleClickPagamento('cartao')}
-            >
-              <img src={cartaodecredito} alt="Logo cartao de credito" />
-              <p>Cartão de Crédito</p>
-            </div>
-            <div
-              className={styles["div-pagamento-2"]}
-              onClick={() => handleClickPagamento('boleto')}
-            >
-              <img src={codigobarras} alt="Logo codigo de barras" />
-              <p>Boleto</p>
-            </div>
-            <div
-              className={styles["div-pagamento-2"]}
-              onClick={() => handleClickPagamento('pix')}
-            >
-              <img src={pix} alt="Logo PIX" />
-              <p>PIX</p>
-            </div>
-            <div className={styles["caixa"]}>
-              <div className={styles["div-pagamento-caixa"]}>
-                <img src={caixa} alt="Caixa" />
+        {/* Exibe o conteúdo de pagamento somente se a aba Pagamento estiver selecionada */}
+        {showPaymentContent && (
+          <div className={styles["container-top"]}>
+            <div className={styles["container-pagamentos"]}>
+              <div
+                className={styles["div-pagamento-2"]}
+                onClick={() => handleClickPagamento('cartao')}
+              >
+                <img src={cartaodecredito} alt="Logo cartao de credito" />
+                <p>Cartão de Crédito</p>
+              </div>
+              <div
+                className={styles["div-pagamento-2"]}
+                onClick={() => handleClickPagamento('boleto')}
+              >
+                <img src={codigobarras} alt="Logo codigo de barras" />
+                <p>Boleto</p>
+              </div>
+              <div
+                className={styles["div-pagamento-2"]}
+                onClick={() => handleClickPagamento('pix')}
+              >
+                <img src={pix} alt="Logo PIX" />
+                <p>PIX</p>
+              </div>
+              <div className={styles["caixa"]}>
+                <div className={styles["div-pagamento-caixa"]}>
+                  <img src={caixa} alt="Caixa" />
+                </div>
               </div>
             </div>
-
           </div>
-
-        </div>
-
-        <div className={styles["container-valores-inputs"]}>
-          <div className={styles["valores"]}>
-            <p>Valor Total:</p>
-            <p>Qtde. de Itens:</p>
-          </div>
-
-
-          <div className={styles["inputs-valores"]}>
-            {/* Inputs para Cartão de Crédito */}
-            {showLabel.cartao && (
-              <div className={styles["inputs-credit"]}>
-                <label className={styles["label-pagamento"]} htmlFor="identificador">
-                  Número do Cartão:
-                </label>
-                <input type="text" ref={emailRef} />
-
-                <label className={styles["label-pagamento"]} htmlFor="parcelas">
-                  Parcelas:
-                </label>
-                <select name="parcelas" id="">
-                  <option value="1">1</option>
-                  <option value="1">2</option>
-                  <option value="1">3</option>
-                  <option value="1">4</option>
-                  <option value="1">5</option>
-                  <option value="1">6</option>
-                  <option value="1">7</option>
-                  <option value="1">8</option>
-                  <option value="1">9</option>
-                  <option value="1">10</option>
-                </select>
-
-                <label className={styles["label-pagamento"]} htmlFor="validade">
-                  Validade:
-                </label>
-                <input type="text" ref={emailRef} />
-
-                <label className={styles["label-pagamento"]} htmlFor="codigo-seguranca">
-                  Código de Segurança:
-                </label>
-                <input type="text" ref={emailRef} />
-
-                <label className={styles["label-pagamento"]} htmlFor="numero-impresso">
-                  Número impresso do cartão:
-                </label>
-                <input type="text" ref={emailRef} />
-
-                <label className={styles["label-pagamento"]} htmlFor="cpf-titular">
-                  CPF do titular:
-                </label>
-                <input type="text" ref={emailRef} />
-              </div>
-            )}
-
-            {/* Input para Boleto */}
-            {showLabel.boleto && (
-              <div className={styles["inputs-boleto"]}>
-                <p>O boleto será enviado via email. Complete o pagamento até 10/04/2024. <br></br>
-                  Após o pagamento o status do pedido será atualizado em até X dias úteis. </p>
-                <label className={styles["label-pagamento"]} htmlFor="identificador">
-                  Confirme seu email:
-                </label><br></br>
-                <input type="text" ref={emailRef} />
-                <button className={styles["ok-button"]}>OK</button>
-                <a>Não recebi meu email</a>
-              </div>
-            )}
-
-
-           
-{/* Select para PIX */}
-{showLabel.pix && (
-  <div className={styles["inputs-pix"]}>
-    <label className={styles["label-pagamento"]} htmlFor="pixOption">
-      QR Code ou Copia e Cola
-    </label><br></br>
-    <select
-      id="pixOption"
-      className={styles["select-pagamento"]}
-      onChange={(e) => handleSelect(e.target.value)}
-      defaultValue=""
-    >
-      <option value="" disabled>Selecione opção</option>
-      <option value="pix1">QR Code</option>
-      <option value="pix2">Copia e Cola</option>
-    </select>
-
-    {/* Só exibe a div se uma opção for selecionada */}
-    {selectedOption && (
-      <div className={styles["div-pagamento-pix"]}>
-        {selectedOption === "pix1" && (
-          <>
-            <div className={styles["div-pix-contexto"]}>
-              <img src={qrcode} alt="QR Code para pagamento" />
-              <p>
-                1. Acesse seu Internet Banking ou app de pagamentos. <br></br>
-                2. Escolha pagar via Pix. <br></br>
-                3. Escolha a opção Pagar Pix com QR Code.
-              </p>
-            </div>
-          </>
         )}
 
-        {selectedOption === "pix2" && (
-          <div className={styles["div-pagamento-pix-2"]}>
-            <p>
-              1. Acesse seu Internet Banking ou app de pagamentos.<br></br>
-              2. Escolha pagar via Pix.<br></br>
-              3. Cole o seguinte código:
-            </p>
-            <input 
-              type="text" 
-              placeholder="00020126540014br.gov.bcb.pix0132pix_marketplace@m" 
-              ref={emailRef} 
-            />
-            <button className={styles["copy-button"]}>Copiar Código</button>
+        {/* Exibe os inputs de valores e opções de pagamento */}
+        {showPaymentContent && (
+          <div className={styles["container-valores-inputs"]}>
+            <div className={styles["valores"]}>
+              <p>Valor Total:</p>
+              <p>Qtde. de Itens:</p>
+            </div>
+
+            <div className={styles["inputs-valores"]}>
+              {showLabel.cartao && (
+                <div className={styles["inputs-credit"]}>
+                  <label className={styles["label-pagamento"]} htmlFor="identificador">
+                    Número do Cartão:
+                  </label>
+                  <input type="text" placeholder="0000 0000 0000 0000" ref={emailRef} />
+
+                  <label className={styles["label-pagamento"]} htmlFor="parcelas">
+                    Parcelas:
+                  </label>
+                  <select name="parcelas" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                  </select>
+
+                  <label className={styles["label-pagamento"]} htmlFor="validade">
+                    Validade:
+                  </label>
+                  <input type="text" placeholder="MM/AA" ref={emailRef} />
+
+                  <label className={styles["label-pagamento"]} htmlFor="codigo-seguranca">
+                    Código de Segurança:
+                  </label>
+                  <input type="text" placeholder="CVV" ref={emailRef} />
+
+                  <label className={styles["label-pagamento"]} htmlFor="numero-impresso">
+                    Número impresso do cartão:
+                  </label>
+                  <input type="text" placeholder = "0000 0000 0000 0000" ref={emailRef} />
+
+                  <label className={styles["label-pagamento"]} htmlFor="cpf-titular">
+                    CPF do titular:
+                  </label>
+                  <input type="text" placeholder="123.456.789-09" ref={emailRef} />
+                </div>
+              )}
+
+              {/* Input para Boleto */}
+              {showLabel.boleto && (
+                <div className={styles["inputs-boleto"]}>
+                  <p>
+                    O boleto será enviado via email. Complete o pagamento até 10/04/2024. <br></br>
+                    Após o pagamento o status do pedido será atualizado em até X dias úteis.
+                  </p>
+                  <label className={styles["label-pagamento"]} htmlFor="identificador">
+                    Confirme seu email:
+                  </label><br></br>
+                  <input type="text" placeholder="fulano.silva@gmail.com" ref={emailRef} />
+                  <button className={styles["ok-button"]}>OK</button>
+                  <a>Não recebi meu email</a>
+                </div>
+              )}
+
+              {/* Input para PIX */}
+              {showLabel.pix && (
+                <div className={styles["inputs-pix"]}>
+                  <label className={styles["label-pagamento"]} htmlFor="pixOption">
+                    QR Code ou Copia e Cola
+                  </label><br></br>
+                  <select
+                    id="pixOption"
+                    className={styles["select-pagamento"]}
+                    onChange={(e) => handleSelect(e.target.value)}
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Selecione opção</option>
+                    <option value="pix1">QR Code</option>
+                    <option value="pix2">Copia e Cola</option>
+                  </select>
+
+                  {selectedOption && (
+                    <div className={styles["div-pagamento-pix"]}>
+                      {selectedOption === "pix1" && (
+                        <>
+                          <div className={styles["div-pix-contexto"]}>
+                            <img src={qrcode} alt="QR Code para pagamento" />
+                            <p>
+                              1. Acesse seu Internet Banking ou app de pagamentos. <br></br>
+                              2. Escolha pagar via Pix. <br></br>
+                              3. Escolha a opção Pagar Pix com QR Code.
+                            </p>
+                          </div>
+                        </>
+                      )}
+
+                      {selectedOption === "pix2" && (
+                        <div className={styles["div-pagamento-pix-2"]}>
+                          <p>
+                            1. Acesse seu Internet Banking ou app de pagamentos.<br></br>
+                            2. Escolha pagar via Pix.<br></br>
+                            3. Cole o seguinte código:
+                          </p>
+                          <input 
+                            type="text" 
+                            placeholder="00020126540014br.gov.bcb.pix0132pix_marketplace@m" 
+                            ref={emailRef} 
+                          />
+                          <button className={styles["copy-button"]}>Copiar Código</button>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
           </div>
         )}
-      </div>
-    )}
-  </div>
-)}
-
-
-
-
-          </div>
-
-
-        </div>
 
         <div className={styles["buttons"]}>
           <button className={styles["cancel-button"]} onClick={handleLogin}>
