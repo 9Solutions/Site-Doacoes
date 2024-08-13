@@ -180,49 +180,62 @@ const Pagamento = () => {
             )}
 
 
-            {/* Select para PIX */}
-            {showLabel.pix && (
-              <div className={styles["inputs-pix"]}>
-                <label className={styles["label-pagamento"]} htmlFor="pixOption">
-                  QR Code ou Copia e Cola
-                </label><br></br>
-                <select
-                  id="pixOption"
-                  className={styles["select-pagamento"]}
-                  onChange={(e) => handleSelect(e.target.value)}
-                >
-                  <option value="pix1">QR Code</option>
-                  <option value="pix2">Copia e Cola</option>
-                </select>
-                <div className={styles["div-pagamento-pix"]}>
-                  {selectedOption === "pix1" && (
-                    <>
-                      <div className={styles["div-pix-contexto"]}>
-                        <img src={qrcode} alt="QR Code para pagamento" />
-                        <p>
-                          1. Acesse seu Internet Banking ou app de pagamentos. <br></br>
-                          2. Escolha pagar via Pix. <br></br>
-                          3. Escolha a opção Pagar Pix com QR Code.
-                        </p>
-                      </div>
-                    </>
-                  )}
+           
+{/* Select para PIX */}
+{showLabel.pix && (
+  <div className={styles["inputs-pix"]}>
+    <label className={styles["label-pagamento"]} htmlFor="pixOption">
+      QR Code ou Copia e Cola
+    </label><br></br>
+    <select
+      id="pixOption"
+      className={styles["select-pagamento"]}
+      onChange={(e) => handleSelect(e.target.value)}
+      defaultValue=""
+    >
+      <option value="" disabled>Selecione opção</option>
+      <option value="pix1">QR Code</option>
+      <option value="pix2">Copia e Cola</option>
+    </select>
 
-                  {/* Exibe conteúdo para Copia e Cola */}
-                  {selectedOption === "pix2" && (
-                    <div className={styles["div-pagamento-pix-2"]}>
-                      <p>
-                        1. Acesse seu Internet Banking ou app de pagamentos.<br></br>
-                        2. Escolha pagar via Pix.<br></br>
-                        3. Cole o seguinte código:
-                      </p>
-                      <input type="text" placeholder="00020126540014br.gov.bcb.pix0132pix_marketplace@m" ref={emailRef} />
-                      <button className={styles["copy-button"]}>Copiar Código</button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            )}
+    {/* Só exibe a div se uma opção for selecionada */}
+    {selectedOption && (
+      <div className={styles["div-pagamento-pix"]}>
+        {selectedOption === "pix1" && (
+          <>
+            <div className={styles["div-pix-contexto"]}>
+              <img src={qrcode} alt="QR Code para pagamento" />
+              <p>
+                1. Acesse seu Internet Banking ou app de pagamentos. <br></br>
+                2. Escolha pagar via Pix. <br></br>
+                3. Escolha a opção Pagar Pix com QR Code.
+              </p>
+            </div>
+          </>
+        )}
+
+        {selectedOption === "pix2" && (
+          <div className={styles["div-pagamento-pix-2"]}>
+            <p>
+              1. Acesse seu Internet Banking ou app de pagamentos.<br></br>
+              2. Escolha pagar via Pix.<br></br>
+              3. Cole o seguinte código:
+            </p>
+            <input 
+              type="text" 
+              placeholder="00020126540014br.gov.bcb.pix0132pix_marketplace@m" 
+              ref={emailRef} 
+            />
+            <button className={styles["copy-button"]}>Copiar Código</button>
+          </div>
+        )}
+      </div>
+    )}
+  </div>
+)}
+
+
+
 
           </div>
 
