@@ -1,14 +1,88 @@
 .div-banner{
-    
-    background-image: url('../../utils/img/pexels-rebecca-zaal-252062-764681\ 1.png');
+    position: relative;
     text-align: center;
     color: white;
 }
 
-.div-banner h3{
+.div-texto-overlay{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.div-texto-overlay h3{
     font-size: 70px;
 }
 
-.div-banner p{
+.div-texto-overlay p{
     font-size: 36px;
+}
+
+.div-banner img {
+    width: 100%;
+    height: 80vh;
+}
+
+
+
+.div-info-banner ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+.info-banner-item{
+    width: 15vw;
+    height: 15vw;
+    color: #1f1f1f;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-banner-item img{
+    width: 40%;
+    height: 40%;
+}
+
+.info-banner-item h4 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.info-banner-item p {
+    margin-bottom: 0;
+}
+
+.div-nav-cards{
+    background-color: #008816;
+}
+
+.div-nav-cards ul{
+    padding: 4% 0% 4% 0%;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+.div-nav-cards ul li {
+    width: 20%;
+    background-color: white;
+    text-align: center;
+}
+
+.div-nav-cards ul h5{
+    margin: 0;
+}
+
+.div-nav-cards ul li img{
+    width: 100%;
+    height: 12vw;
 }
