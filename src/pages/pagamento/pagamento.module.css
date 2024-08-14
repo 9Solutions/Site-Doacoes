@@ -314,7 +314,7 @@ select {
 
 .select-pagamento{
     height: 40px;
-    width: 50%;
+    width: 60%;
     font-size: 18px; 
     border: none;
     outline: none; 
@@ -485,7 +485,6 @@ input {
 }
 
 
-
 .link{
     text-decoration: underline;
     color: #477BFF;
@@ -498,3 +497,4 @@ input {
 img{
     height: 41px;
 }
+  

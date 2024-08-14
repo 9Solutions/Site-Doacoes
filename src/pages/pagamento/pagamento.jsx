@@ -86,7 +86,7 @@ const Pagamento = () => {
             className={activeTab === 'Dados' ? styles["active-tab"] : ""}
           >
             Dados
-          </p>
+          </p>       
           <p
             onClick={() => handleNavigationClick('Pagamento')}
             className={activeTab === 'Pagamento' ? styles["active-tab"] : ""}
@@ -252,7 +252,7 @@ const Pagamento = () => {
                   <label className={styles["label-pagamento"]} htmlFor="identificador">
                     Confirme seu email:
                   </label><br></br>
-                  <input type="text" ref={emailRef} />
+                  <input type="text" placeholder="fulano.silva@gmail.com" ref={emailRef} />
                   <button className={styles["ok-button"]}>OK</button>
                   <a>Não recebi meu email</a>
                 </div>
