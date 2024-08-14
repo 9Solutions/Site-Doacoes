@@ -10,8 +10,10 @@ import codigobarras from '../../img/codigo-de-barras.png';
 import caixa from '../../img/caixa.png';
 import qrcode from '../../img/qrcode.png';
 import { toast } from "react-toastify";
+import caixaAnimada from '../../img/caixaAnimation.gif'
+import caixaAnimada2 from '../../img/caixaAnimada2.gif'
+import check from '../../img/check.gif'
 
-// Função de validação
 const validar = async (email, senha) => {
   if (email.length === 0 || senha.length === 0) return;
   return api.post(`/doadores/login`, { email: email, senha: senha });
@@ -50,8 +52,7 @@ const Pagamento = () => {
   };
 
   const handleClickPagamento = (method) => {
-    setActiveTab('Pagamento'); // Define a aba "Pagamento" como ativa
-
+    setActiveTab('Pagamento'); 
     if (method === 'cartao') {
       setShowLabel({ cartao: true, boleto: false, pix: false });
     } else if (method === 'boleto') {
@@ -64,7 +65,7 @@ const Pagamento = () => {
   };
 
   const handleNavigationClick = (tab) => {
-    setActiveTab(tab); // Atualiza a aba ativa com a seleção do usuário
+    setActiveTab(tab); 
   };
 
   const handleNextStep = () => {
@@ -193,7 +194,6 @@ const Pagamento = () => {
           </div>
         )}
 
-        {/* Exibe os inputs de valores e opções de pagamento */}
         {activeTab === 'Pagamento' && (
           <div className={styles["container-valores-inputs"]}>
             <div className={styles["valores"]}>
@@ -208,8 +208,6 @@ const Pagamento = () => {
                     Número do Cartão:
                   </label>
                   <input type="text" placeholder="0000 0000 0000 0000" ref={emailRef} />
-
-
                   <label className={styles["label-pagamento"]} htmlFor="parcelas">
                     Parcelas:
                   </label>
@@ -225,33 +223,24 @@ const Pagamento = () => {
                     <option value="9">9</option>
                     <option value="10">10</option>
                   </select>
-
                   <label className={styles["label-pagamento"]} htmlFor="validade">
                     Validade:
                   </label>
                   <input type="text" placeholder="MM/AA" ref={emailRef} />
-
-
                   <label className={styles["label-pagamento"]} htmlFor="codigo">
                     Código de Segurança:
                   </label>
                   <input type="text" placeholder="CVV" ref={emailRef} />
-
-
                   <label className={styles["label-pagamento"]} htmlFor="numero-impresso">
                     Número Impresso:
                   </label>
                   <input type="text" placeholder="0000 0000 0000 0000" ref={emailRef} />
-
-
                   <label className={styles["label-pagamento"]} htmlFor="cpf-titular">
                     CPF do Titular:
                   </label>
                   <input type="text" placeholder="123.456.789-09" ref={emailRef} />
-
                 </div>
               )}
-
 
               {/* Input para Boleto */}
               {showLabel.boleto && (
@@ -268,41 +257,6 @@ const Pagamento = () => {
                   <a>Não recebi meu email</a>
                 </div>
               )}
-
-
-              {/* Input para PIX */}
-
-              {/* {showLabel.pix && (
-                <div className={styles["inputs-pix"]}>
-                  <label htmlFor="pix-opcoes">Opções de Pagamento via PIX:</label>
-                  <select
-                    id="pix-opcoes"
-                    value={selectedOption}
-                    onChange={(e) => handleSelect(e.target.value)}
-                  >
-                    <option value="">Selecione uma opção</option>
-                    <option value="qr">QR Code</option>
-                    <option value="copia">Copia e Cola</option>
-                  </select>
-
-                  {selectedOption === 'qr' && (
-                    <div>
-                      <img src={qrcode} alt="QR Code" />
-                      <p>Use o QR Code acima para realizar o pagamento.</p>
-                    </div>
-                  )}
-
-                  {selectedOption === 'copia' && (
-                    <div className={styles["pix-content"]}>
-                      <p>
-                        Acesse seu Internet Banking ou app de pagamentos. Escolha pagar via Pix. Cole
-                        o seguinte código:
-                      </p>
-                    </div>
-                  )}
-                </div>
-                  )} */}
-
 
               {/* Input para PIX */}
               {showLabel.pix && (
@@ -355,22 +309,36 @@ const Pagamento = () => {
                   )}
                 </div>
               )}
-
             </div>
           </div>
         )}
 
+           {/* Conteúdo da aba "Finalização" */}
+           {activeTab === 'Finalização' && (
+          <div className={styles["container-finalizacao"]}>
+            <center>
+            <img src={check} alt="Imagem de finalização" className={styles["imagem-finalizacao"]} />
+            <h1 id="P1">Ficamos super felizes com a sua contribuição!</h1>
+            <p>Que tal acompanhar o status da sua doação?</p>
+            </center>
 
-        {/* Condicional para exibir os botões apenas na aba de pagamento */}
+
+            <div className={styles["buttons"]}>
+              <button className={styles["accompany-button"]} onClick={handleNextStep}>
+                Acompanhar
+              </button>
+            </div>
+          </div>
+          
+        )}
+
         {activeTab === 'Pagamento' && (
           <div className={styles["buttons"]}>
             <button className={styles["cancel-button"]}>Cancelar</button>
             <button className={styles["confirm-button"]}>Confirmar</button>
           </div>
         )}
-
       </div>
-
       <Footer />
     </>
   );
