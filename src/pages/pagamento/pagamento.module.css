@@ -473,7 +473,7 @@ input {
 
 .barra p {
     cursor: pointer;
-    transition: color 0.3s, text-decoration 0.3s;
+    transition: color 0.4s, text-decoration 0.4s;
 }
 
 .barra p:hover {
