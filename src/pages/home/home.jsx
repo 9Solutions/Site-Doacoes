@@ -11,6 +11,17 @@ import caixa from "../../utils/img/pexels-cup-of-couple-8015700 1.png";
 import facilitador from "../../utils/img/69555ee342bbe0ef1058bd96ead77ed5 2.png";
 import anjo from "../../utils/img/image 83.png";
 import parceiro from "../../utils/img/69555ee342bbe0ef1058bd96ead77ed5.png";
+import historiasInspiradoras from "../../utils/img/imagem 1.png";
+import philipsLogo from "../../utils/img/Philips.png";
+import hpLogo from "../../utils/img/hp.png";
+import mackenzieLogo from "../../utils/img/mackenzie.png";
+import organicoLogo from "../../utils/img/organico.png";
+import tquimLogo from "../../utils/img/tquim.png";
+import hpeLogo from "../../utils/img/hpe.png";
+import projetocaixasapatoLogo from "../../utils/img/Screen Shot 2019-01-19 at 22.49 1.png";
+import whatsapp from "../../utils/img/whatsapp.png";
+import qrcode from "../../utils/img/qrcode.png";
+import criancas2 from "../../utils/img/kids-1093758_1280 1.png";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -25,6 +36,7 @@ const Home = () => {
             É uma oportunidade única de espalhar alegria, amor e esperança para
             alguém que precisa
           </p>
+          <button className={styles["default-button"]}>FAÇA SUA CAIXA</button>
         </div>
       </div>
       <div className={styles["div-info-banner"]}>
@@ -60,7 +72,7 @@ const Home = () => {
               Você pode montar sua caixinha e escrever sua cartinha, tudo
               online!!
             </p>
-            <button>MONTAR CAIXA</button>
+            <button className={styles["default-button"]}>MONTAR CAIXA</button>
           </li>
 
           <li>
@@ -70,7 +82,9 @@ const Home = () => {
               Seja representante do nosso projeto na nossa escola, igreja, ou
               empresa. 
             </p>
-            <button>SER UM FACILITADOR</button>
+            <button className={styles["default-button"]}>
+              SER UM FACILITADOR
+            </button>
           </li>
 
           <li>
@@ -80,19 +94,95 @@ const Home = () => {
               Ideal para pessoas física, é acreditar e inspirar a vida de
               milhares de crianças!
             </p>
-            <button>SER UM ANJO</button>
+            <button className={styles["default-button"]}>SER UM ANJO</button>
           </li>
 
           <li>
             <img src={parceiro} alt="" />
             <h5>Seja um Parceiro!</h5>
             <p>
-              Ideal para pessoa jurídica, é investir e 
-              impactar a vida de milhares de crianças
+              Ideal para pessoa jurídica, é investir e impactar a vida de
+              milhares de crianças
             </p>
-            <button>SER UM PARCEIRO</button>
+            <button className={styles["default-button"]}>
+              SER UM PARCEIRO
+            </button>
           </li>
         </ul>
+      </div>
+      <div className={styles["div-video"]}>
+        <iframe
+          width="560"
+          height="315"
+          src="https://youtube.com/embed/nMuqIiT6kM8"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <button className={styles["default-button"]}>SAIBA MAIS</button>
+      </div>
+      <div className={styles["div-historias-inspiradoras"]}>
+        <div className={styles["header-historias-inspiradoras"]}>
+          <img src={historiasInspiradoras} alt="" />
+          <div className={styles["texto-overlay-historias-inspiradoras"]}>
+            <h3>Conheça o impacto do nosso projeto</h3>
+            <button className={styles["default-button"]}>
+              HISTÓRIAS INSPIRADORAS
+            </button>
+          </div>
+        </div>
+        <div className={styles["cards-historias-inspiradoras"]}>
+          <div
+            className={styles["card-1-historias-inspiradoras"]}
+          >
+            <h3>Sobre nós</h3>
+          </div>
+          <div
+            className={styles["card-2-historias-inspiradoras"]}
+          >
+            <h3>Doe</h3>
+          </div>
+          <div
+            className={styles["card-3-historias-inspiradoras"]}
+          >
+            <h3>Campanha Ilha de Marajó</h3>
+          </div>
+        </div>
+      </div>
+      <div className={styles["div-equipe-voluntariado"]}>
+        <h3>EQUIPES DE VOLUNTARIADO E LOGÍSTICA:</h3>
+        <div className={styles["div-equipe-voluntariado-imgs"]}>
+          <img src={philipsLogo} alt="" />
+          <img src={hpLogo} alt="" />
+          <img src={mackenzieLogo} alt="" />
+          <img
+            src={organicoLogo}
+            alt=""
+            className={styles["voluntarios-img"]}
+          />
+          <img src={tquimLogo} alt="" className={styles["voluntarios-img"]} />
+          <img src={hpeLogo} alt="" className={styles["voluntarios-img"]} />
+          <img src={projetocaixasapatoLogo} alt="" />
+        </div>
+      </div>
+      <div className={styles["div-contato"]}>
+        <div className={styles["div-contato-qrcode"]}>
+          <h4>Contate-nos</h4>
+          <p>
+            Preencha suas informações e entre em contato conosco! Ou clique no
+            ícone do whatsapp ou escaneie o QR code para entrar em contato
+            rapidamente!
+          </p>
+          <img src={whatsapp} alt="" />
+          <img src={qrcode} alt="" />
+        </div>
+        <div className={styles["div-contato-forms"]}>
+          <img src={criancas2} alt="" />
+          <input type="text" placeholder="Nome:" />
+          <input type="text" placeholder="Email:" />
+          <input type="text" placeholder="Mensagem:" />
+          <button className={styles["default-button"]}>ENVIAR</button>
+        </div>
       </div>
       <Footer />
     </>
