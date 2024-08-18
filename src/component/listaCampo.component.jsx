@@ -1,4 +1,4 @@
-import '../App.css';
+import '../utils/global.css';
 import '../vendor/fontawesome-free/css/all.min.css';
 import '../css/sb-admin-2.min.css'
 import '../vendor/datatables/dataTables.bootstrap4.min.css'
