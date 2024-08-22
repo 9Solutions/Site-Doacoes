@@ -58,15 +58,3 @@ export const getCategoriasPorEstagio = async (estagio) => {
 export const getFaixasEtarias = async () => {
     return api.get(`/faixa-etaria/`);
 }
-
-export const postProduto = async (produto) => {
-    return api.post(`/produtos`, produto);
-}
-
-export const putProduto = async (id, produto) => {
-    return api.put(`/produtos/${id}`, produto);
-}
-
-export const delProduto = async (id) => {
-    return api.patch(`/produtos?id=${id}&condicao=0`);
-}

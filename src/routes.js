@@ -5,6 +5,7 @@ import Login from "./pages/login/login";
 import Cadastro from "./pages/cadastro/cadastro";
 import FluxoMontagemCaixa from "./pages/fluxoMontagemCaixa/FluxoMontagemCaixa";
 import MenuCaixa from "./pages/menuCaixa/MenuCaixa";
+import Cartinha from "./pages/cartinha/cartinha";
 
 const rotas = () => {
     return(
