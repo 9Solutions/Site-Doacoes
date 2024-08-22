@@ -107,10 +107,10 @@ hr{
     display: flex;
     width: 750px;
     height: 500px;
-    position: fixed;
+    position: absolute ;
     object-fit: contain;
-    bottom:300px;
-    right: 15%;   
+    bottom: 5px;
+    right: 25%; 
 }
 
 

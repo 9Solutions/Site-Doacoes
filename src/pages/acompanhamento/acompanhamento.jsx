@@ -71,6 +71,35 @@ const Acompanhamento = () => {
         </div>
         </div>
       </div>
+
+      <div className={styles["div-login"]}>
+        <div className={styles["circulo"]}>
+          <img src={caixa} alt="" />
+        </div>
+
+        <div className={styles["texto-caixa"]}>
+        <label className={styles["label-acompanhamento"]} htmlFor="identificador">
+          Detalhes
+        </label>
+        <label className={styles["label-detalhe-acompanhamento"]} htmlFor="Senha">
+          Data Doação:01/04/2024
+          <br>
+          </br>
+          Valor Total:R$ 78.00
+          <br>
+          </br>
+          Data de Entrega: Entregue
+        </label>
+        <hr></hr>
+
+        <div className={styles["lado-direito-caixa-acompanhamento"]}>
+        <label className={styles["label-detalhe-acompanhamento-2"]} htmlFor="identificador">
+        Status da Doação
+        </label>
+          <img src={cicloCaixaEntregue} alt="" />
+        </div>
+        </div>
+      </div>
       <Footer />
     </>
   );
