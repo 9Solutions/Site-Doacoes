@@ -8,6 +8,10 @@ import caixa from "../../img/caixa.png"
 import { toast } from "react-toastify";
 import  imagemInicial from "../../img/inicial.png"
 import cicloCaixaEntregue from "../../img/ciclo-caixa.png"
+import cicloCaixaProntaEntregue from "../../img/caixaCiclo2-removebg-preview.png"
+import cicloCaixaProntaMontagem from "../../img/cicloCaixa3.png"
+
+
 
 const validar = async (email, senha) => {
   if (email.length === 0 || senha.length === 0) return;
@@ -88,7 +92,7 @@ const Acompanhamento = () => {
           Valor Total:R$ 78.00
           <br>
           </br>
-          Data de Entrega: Entregue
+          Data de Entrega: Pronta para <br></br> entrega 
         </label>
         <hr></hr>
 
@@ -96,7 +100,36 @@ const Acompanhamento = () => {
         <label className={styles["label-detalhe-acompanhamento-2"]} htmlFor="identificador">
         Status da Doação
         </label>
-          <img src={cicloCaixaEntregue} alt="" />
+          <img src={cicloCaixaProntaEntregue} alt="" />
+        </div>
+        </div>
+      </div>
+
+      <div className={styles["div-login"]}>
+        <div className={styles["circulo"]}>
+          <img src={caixa} alt="" />
+        </div>
+
+        <div className={styles["texto-caixa"]}>
+        <label className={styles["label-acompanhamento"]} htmlFor="identificador">
+          Detalhes
+        </label>
+        <label className={styles["label-detalhe-acompanhamento"]} htmlFor="Senha">
+          Data Doação:01/04/2024
+          <br>
+          </br>
+          Valor Total:R$ 78.00
+          <br>
+          </br>
+          Data de Entrega: Pronta para <br></br> montagem 
+        </label>
+        <hr></hr>
+
+        <div className={styles["lado-direito-caixa-acompanhamento"]}>
+        <label className={styles["label-detalhe-acompanhamento-2"]} htmlFor="identificador">
+        Status da Doação
+        </label>
+          <img src={cicloCaixaProntaMontagem} alt="" />
         </div>
         </div>
       </div>
