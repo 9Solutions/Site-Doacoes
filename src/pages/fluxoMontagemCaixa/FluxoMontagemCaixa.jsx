@@ -6,6 +6,10 @@ import styles from "./FluxoMontagemCaixa.module.css";
 import {getCategoriasPorEstagio, getProdutos} from "../../utils/backend/methods";
 import {toast} from "react-toastify";
 import EscolhaGenero from "../../component/componentsMontagemCaixa/EscolhaGenero";
+import EscolhaIdade from "../../component/componentsMontagemCaixa/EscolhaIdade";
+import {useNavigate} from "react-router-dom";
+import Cartinha from "../cartinha/cartinha";
+import pessoa from '../../utils/img/pessoa.png'
 
 const FluxoMontagemCaixa = () => {
     const [estagio, setEstagio] = useState(0);
@@ -13,13 +17,23 @@ const FluxoMontagemCaixa = () => {
     const [produtos, setProdutos] = useState([]);
     const [produtosSelecionados, setProdutosSelecionados] = useState([]);
     const [genero, setGenero] = useState('')
+    const [faixa, setFaixa] = useState(-1)
+    const [carta, setCarta] = useState('')
+    const [foto, setFoto] = useState(pessoa)
     const quantTotalEsperadaRef = useRef({});
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        if (estagio > 0 && estagio <= 3) {
-            getCategoriasPorEstagio(estagio).then((response) => {
+        if (estagio > 1 && estagio <= 4) {
+            getCategoriasPorEstagio(estagio-1).then((response) => {
                 setCategorias(response.data);
             });
+        }
+
+        if (estagio === 6) {
+            localStorage.setItem("produtos_selecionados", JSON.stringify(produtosSelecionados));
+            //navigate('/carta')
         }
 
     }, [estagio]);
@@ -40,6 +54,15 @@ const FluxoMontagemCaixa = () => {
             });
         }
     }, [genero]);
+
+    useEffect(() => {
+        if (faixa !== -1) {
+            getProdutos().then((response) => {
+                setProdutos(response.data.filter(produto => produto.faixaEtaria.id === faixa));
+                setCategorias([])
+            });
+        }
+    }, [faixa]);
 
     useEffect(() => {
         quantTotalEsperadaRef.current["est"+estagio] = categorias.reduce((total, categoria) => total + categoria.qtdeProdutos, 0);
@@ -65,18 +88,29 @@ const FluxoMontagemCaixa = () => {
     }
 
     const handleDisabled = () => {
-        return genero === ''
-        ||
-        quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
+        console.warn(estagio === 5 , carta.length < 10)
+        console.warn(quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
             .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))
-            .length;
+            .length)
+
+        return genero === ''
+            ||
+            (estagio === 1 && faixa === -1)
+            ||
+            (estagio === 5 && carta.length < 10)
+            ||
+            quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
+                .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))
+                .length;
     }
 
     const handleNext = () => {
         if (!handleDisabled()) {
-            setEstagio(2);
+            setEstagio(estagio + 1);
         }
     }
+
+
 
     return (
         <>
@@ -88,34 +122,44 @@ const FluxoMontagemCaixa = () => {
                     <ul>
                         <li className={`${estagio >= 0 ? styles['active'] : ''}`}><span
                             className="material-symbols-outlined">orders</span></li>
-                        <div className={`${styles["connector"]} ${estagio >= 0 ? styles['active'] : ''}`}></div>
-                        <li className={`${estagio >= 1 ? styles['active'] : ''}`}><span
-                            className="material-symbols-outlined">apparel</span></li>
-                        <div className={`${styles["connector"]} ${estagio >= 2 ? styles['active'] : ''}`}></div>
+                        <div className={`${styles["connector"]} ${estagio >= 1 ? styles['active'] : ''}`}></div>
                         <li className={`${estagio >= 2 ? styles['active'] : ''}`}><span
-                            className="material-symbols-outlined">local_library</span></li>
+                            className="material-symbols-outlined">apparel</span></li>
                         <div className={`${styles["connector"]} ${estagio >= 3 ? styles['active'] : ''}`}></div>
                         <li className={`${estagio >= 3 ? styles['active'] : ''}`}><span
-                            className="material-symbols-outlined">toys</span></li>
+                            className="material-symbols-outlined">local_library</span></li>
                         <div className={`${styles["connector"]} ${estagio >= 4 ? styles['active'] : ''}`}></div>
                         <li className={`${estagio >= 4 ? styles['active'] : ''}`}><span
+                            className="material-symbols-outlined">toys</span></li>
+                        <div className={`${styles["connector"]} ${estagio >= 5 ? styles['active'] : ''}`}></div>
+                        <li className={`${estagio >= 5 ? styles['active'] : ''}`}><span
                             className="material-symbols-outlined">box</span></li>
                     </ul>
                 </div>
 
                 {
 
-                estagio === 0 &&
+                    estagio === 0 &&
                     // Coleta de Gênero e Idade
                     <>
                         <div className={styles["text-info"]}>
                             <h2>Montar uma caixa para:</h2>
                         </div>
-                        <EscolhaGenero setGenero={setGenero}></EscolhaGenero>
+                        <EscolhaGenero setGenero={setGenero} genero={genero}></EscolhaGenero>
+                    </>
+
+                }
+                {
+                    estagio === 1 &&
+                    <>
+                        <div className={styles["text-info"]}>
+                            <h2>Para qual faixa-etária a caixa será montada:</h2>
+                        </div>
+                        <EscolhaIdade setFaixa={setFaixa} faixa={faixa}></EscolhaIdade>
                     </>
                 }
                 {
-                    estagio >= 1 && estagio <= 3 &&
+                    estagio >= 2 && estagio <= 4 &&
                     <>
                     <div className={styles["text-info"]}>
                             <h2>Escolha a quantidade indicada</h2>
@@ -148,10 +192,12 @@ const FluxoMontagemCaixa = () => {
 
                     </>
                 }
+
                 {
-                    estagio === 4 &&
-                    //Carta e Caixa confirmação de caixa
-                    <></>
+                    estagio === 5 &&
+                    <>
+                        <Cartinha setCarta={setCarta} carta={carta} setFoto={setFoto} foto={foto}></Cartinha>
+                    </>
                 }
 
                 <div className={styles["buttons"]}>
