@@ -1,5 +1,5 @@
 import api from "../../api";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import styles from "./login.module.css";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../component/navbar/navbar";
@@ -29,7 +29,7 @@ const Login = () => {
           return;
         }
 
-        navigate("");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -49,19 +49,11 @@ const Login = () => {
         <label className={styles["label-login"]} htmlFor="identificador">
           E-mail/CPF
         </label>
-        <input
-          type="text"
-          placeholder="exemplo@email.com"
-          ref={emailRef}
-        />
+        <input type="text" placeholder="exemplo@email.com" ref={emailRef} />
         <label className={styles["label-login"]} htmlFor="Senha">
           Senha:
         </label>
-        <input
-          type="password"
-          placeholder="****************"
-          ref={senhaRef}
-        />
+        <input type="password" placeholder="****************" ref={senhaRef} />
         <p>
           <a id={styles["forgot-password"]}>
             Esqueci minha senha  

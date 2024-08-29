@@ -1,0 +1,241 @@
+.div-banner{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.div-texto-overlay{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.div-texto-overlay h3{
+    font-size: 70px;
+}
+
+.div-texto-overlay p{
+    font-size: 36px;
+}
+
+.div-banner img {
+    width: 100%;
+    height: 80vh;
+}
+
+.div-info-banner ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+.info-banner-item{
+    width: 15vw;
+    height: 15vw;
+    color: #1f1f1f;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-banner-item img{
+    width: 40%;
+    height: 40%;
+}
+
+.info-banner-item h4 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.info-banner-item p {
+    margin-bottom: 0;
+}
+
+.div-nav-cards{
+    background-color: #008816;
+}
+
+.div-nav-cards ul{
+    padding: 4% 0% 4% 0%;
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: space-around;
+    font-size: 20px;
+    margin: 0;
+}
+
+.div-nav-cards ul li {
+    width: 20%;
+    background-color: white;
+    text-align: center;
+}
+
+.div-nav-cards ul h5{
+    margin: 0;
+}
+
+.div-nav-cards ul li img{
+    width: 90%;
+    height: 12vw;
+    padding: 2%;
+}
+
+.div-nav-cards ul li button{
+    font-size: 16px;
+    margin-bottom: 4%;
+}
+
+.default-button{
+    font-size: 24px;
+    background-color: #F79A00;
+    border: none;
+    padding: 2%;
+    color: white;
+    border-radius: 8%;
+}
+
+.default-button:hover{
+    color: #F79A00;
+    background-color: white;
+    border: #F79A00 2px solid;
+}
+
+.div-video{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2% 0 2% 0;
+}
+
+.div-video button{
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.texto-overlay-historias-inspiradoras{
+    position: absolute;
+    top: 275%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.texto-overlay-historias-inspiradoras h3{
+    font-size: 46px;
+    font-weight: 600;
+    margin: 0 0 3% 0;
+}
+
+.texto-overlay-historias-inspiradoras button{
+    background-color: #008816;
+}
+
+.cards-historias-inspiradoras{
+    display: flex;
+    color: white;
+    font-weight: 500;
+    font-size: 40px;
+    margin: 2% 0 2% 0;
+    justify-content: space-evenly;
+}
+
+.cards-historias-inspiradoras div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 15%;
+}
+
+.card-1-historias-inspiradoras{
+    background-image: url("../../utils/img/image\ 86.png");
+    width: 400px;    
+    height: 268px;
+}
+
+.card-2-historias-inspiradoras{
+    background-image: url("../../utils/img/image\ 90.png");
+    width: 383px;    
+    height: 268px;    
+
+}
+
+.card-3-historias-inspiradoras{
+    background-image: url("../../utils/img/image\ 88.png");
+    width: 383px;    
+    height: 268px;    
+}
+
+.div-equipe-voluntariado{
+    font-weight: 500;
+    font-size: 36px;
+    text-align: center;
+    color: #1f1f1f;
+    margin-bottom: 5%;
+}
+
+.div-equipe-voluntariado-imgs{
+    display: flex;
+    justify-content: space-between;
+}
+
+.voluntarios-img{
+    width: 15%;
+}
+
+.div-contato{
+    display: flex;
+    margin: 0 10% 5% 10%;
+}
+
+.div-contato div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.div-contato-forms{
+    width: 55%;
+    align-items: center;
+}
+
+.div-contato-forms button{
+    width: 30%;
+}
+
+.div-contato-forms input{
+    align-self: self-start;
+    width: 98%;
+    font-size: 20px;
+}
+
+.div-contato-forms img{
+    width: 100%;
+}
+
+.div-contato-qrcode{
+    width: 45%;
+    align-items: center;
+    margin-right: 5%;
+}
+
+.div-contato-qrcode h4{
+    font-size: 64px;
+    margin: 0;
+}
+
+.div-contato-qrcode img{
+    width: 30%;
+}
+
+.div-contato-qrcode p{
+    font-size: 20px;
+    text-align: left;
+}
