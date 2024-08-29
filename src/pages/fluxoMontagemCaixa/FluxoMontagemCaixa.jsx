@@ -12,7 +12,7 @@ import Cartinha from "../cartinha/cartinha";
 import pessoa from '../../utils/img/pessoa.png'
 
 const FluxoMontagemCaixa = () => {
-    const [estagio, setEstagio] = useState(0);
+    const [estagio, setEstagio] = useState(6);
     const [categorias, setCategorias] = useState([]);
     const [produtos, setProdutos] = useState([]);
     const [produtosSelecionados, setProdutosSelecionados] = useState([]);
@@ -32,8 +32,8 @@ const FluxoMontagemCaixa = () => {
         }
 
         if (estagio === 6) {
-            localStorage.setItem("produtos_selecionados", JSON.stringify(produtosSelecionados));
-            //navigate('/carta')
+            sessionStorage.setItem("produtos_selecionados", JSON.stringify(produtosSelecionados));
+            navigate('/itens-caixa')
         }
 
     }, [estagio]);
@@ -88,20 +88,18 @@ const FluxoMontagemCaixa = () => {
     }
 
     const handleDisabled = () => {
-        console.warn(estagio === 5 , carta.length < 10)
-        console.warn(quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
-            .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))
-            .length)
+        console.warn(estagio === 1, faixa === -1)
 
-        return genero === ''
-            ||
-            (estagio === 1 && faixa === -1)
-            ||
-            (estagio === 5 && carta.length < 10)
-            ||
-            quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
-                .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))
-                .length;
+        switch (estagio){
+            case 0:
+                return genero === '';
+            case 1:
+                return faixa === -1;
+            default:
+                return quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
+                    .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))
+                    .length;
+        }
     }
 
     const handleNext = () => {
