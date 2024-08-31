@@ -123,7 +123,6 @@ const Home = () => {
       </div>
       <div className={styles["div-historias-inspiradoras"]}>
         <div className={styles["header-historias-inspiradoras"]}>
-          <img src={historiasInspiradoras} alt="" />
           <div className={styles["texto-overlay-historias-inspiradoras"]}>
             <h3>Conheça o impacto do nosso projeto</h3>
             <button className={styles["default-button"]}>
