@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../api";
@@ -18,6 +18,7 @@ const Login = () => {
     const emailRef = useRef(null);
     const senhaRef = useRef(null);
     const [imagePreview, setImagePreview] = useState(null);
+    const fileInputRef = useRef(null); // Adiciona uma referência para o input de arquivos
 
     const handleLogin = async () => {
         const email = emailRef.current.value;
@@ -53,6 +54,10 @@ const Login = () => {
         }
     };
 
+    const triggerFileInput = () => {
+        fileInputRef.current.click(); // Aciona o clique no input de arquivos
+    };
+
     return (
         <>
             <NavBar />
@@ -78,12 +83,21 @@ const Login = () => {
 
                     <div className={styles["lado-direito"]}>
                         <p>Insira sua foto aqui</p>
+                        <button 
+                            type="button" 
+                            onClick={triggerFileInput} 
+                            className={styles["file-button"]}
+                        >
+                            Selecionar Imagem
+                        </button>
                         <input 
                             type="file" 
-                            id="imageUpload" 
+                            ref={fileInputRef} // Referência ao input de arquivos
                             accept="image/*" 
                             onChange={handleImageUpload} 
-                        /><br></br>
+                            style={{ display: 'none' }} // Oculta o input de arquivos
+                        />
+                        <br></br>
                         {imagePreview && (
                             <img 
                                 id="preview" 
@@ -92,10 +106,11 @@ const Login = () => {
                                 className={styles["image-preview"]}
                             />
                         )}
-                        <img src={profile} alt="Profile" />
+
                         <h2>Resultado: </h2>
                         <p>Preço Total: R$</p>
                     </div>
+
                 </div>
                 <button className={styles["login-button"]} onClick={handleLogin}>
                     Avançar

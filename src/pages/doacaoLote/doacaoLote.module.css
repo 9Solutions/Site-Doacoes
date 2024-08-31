@@ -20,6 +20,24 @@ body {
     padding: 3% 4% 3% 4%;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
+
+.file-button{
+    background-color: #F79A00;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    font-weight: 300;
+    border-radius: 7px;
+    margin-top: 2%;
+    width: 90%;
+    height: 5.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+}
+
   
 
 
@@ -27,6 +45,7 @@ body {
     font-size: 24px;
     font-weight: 400;
 }
+
 
 input {
     margin-bottom: 2%;
@@ -64,10 +83,9 @@ input {
     justify-content: space-between;
 }
 .lado-direito img{
-    width: 50%;
+    width: 100%;
     display: flex;
     position: relative;
-    margin-left: 45%;
 }
 
 .caixa-carrinho{
@@ -77,22 +95,27 @@ input {
 .lado-direito p{
     color: black;
     font-size: 25px;
-    margin-left: 45%;
 }
 
 .lado-direito h2{
     color: black;
     font-weight: bold;
-    margin-left: 45%;
     font-size: 26px;
 }
 
 .image-preview {
     margin-top: 10px;
-    max-width: 200px;
-    max-height: 200px;
-    border-radius: 50%;
+    max-width: 500px;
+    max-height: 300px;
+    border-radius: 10%;
 }
+
+input[type="file"] {
+    display: flex;
+    margin-top: 10px;
+
+}
+
 
 
 .cartinha{
@@ -101,7 +124,7 @@ input {
     padding: 10%;
     border: 1px solid #C1C1C1;
     color: #818080;
-    width: 90%;
+    width: 50%;
 }
 
 
