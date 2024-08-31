@@ -1,14 +1,12 @@
-import api from "../../api";
-import React, { useRef } from "react";
-import styles from "./doacaoLote.module.css";
+import React, {useEffect, useRef, useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import api from "../../api";
+import styles from "./doacaoLote.module.css";
 import NavBar from "../../component/navbar/navbar";
 import Footer from "../../component/footer/footer";
-import instagramIcon from "../../utils/img/Instagram-Icon.png";
-import facebookIcon from "../../utils/img/Facebook-Icon.png";
 import caixaCarrinho from "../../img/carrinho.png";
 import profile from "../../img/profile.png";
-import { toast } from "react-toastify";
 
 const validar = async (email, senha) => {
     if (email.length === 0 || senha.length === 0) return;
@@ -19,6 +17,7 @@ const Login = () => {
     const navigate = useNavigate();
     const emailRef = useRef(null);
     const senhaRef = useRef(null);
+    const [imagePreview, setImagePreview] = useState(null);
 
     const handleLogin = async () => {
         const email = emailRef.current.value;
@@ -43,6 +42,17 @@ const Login = () => {
         navigate("/cadastro");
     };
 
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setImagePreview(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     return (
         <>
             <NavBar />
@@ -60,20 +70,36 @@ const Login = () => {
 
                         <input type="text" className={styles["cartinha"]} /><br></br>
 
-                        <div>
+                        <div className={styles["caixa-carrinho"]}>
                             <img src={caixaCarrinho} alt="" />
                             <p>Parabéns! Você fará muitas crianças felizes com  X <br></br> quantidade de caixas de sapato possíveis.</p>
                         </div>
                     </div>
 
                     <div className={styles["lado-direito"]}>
-                        <img src={profile} alt="" />
+                        <p>Insira sua foto aqui</p>
+                        <input 
+                            type="file" 
+                            id="imageUpload" 
+                            accept="image/*" 
+                            onChange={handleImageUpload} 
+                        /><br></br>
+                        {imagePreview && (
+                            <img 
+                                id="preview" 
+                                src={imagePreview} 
+                                alt="Pré-visualização da imagem" 
+                                className={styles["image-preview"]}
+                            />
+                        )}
+                        <img src={profile} alt="Profile" />
+                        <h2>Resultado: </h2>
+                        <p>Preço Total: R$</p>
                     </div>
                 </div>
                 <button className={styles["login-button"]} onClick={handleLogin}>
                     Avançar
                 </button>
-
             </div>
             <Footer />
         </>

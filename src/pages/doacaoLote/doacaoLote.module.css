@@ -67,21 +67,47 @@ input {
     width: 50%;
     display: flex;
     position: relative;
+    margin-left: 45%;
 }
+
+.caixa-carrinho{
+    display: flex;
+}
+
+.lado-direito p{
+    color: black;
+    font-size: 25px;
+    margin-left: 45%;
+}
+
+.lado-direito h2{
+    color: black;
+    font-weight: bold;
+    margin-left: 45%;
+    font-size: 26px;
+}
+
+.image-preview {
+    margin-top: 10px;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+}
+
 
 .cartinha{
     margin-bottom: 2%;
     margin-top: 2%;
-    padding: 1%;
+    padding: 10%;
     border: 1px solid #C1C1C1;
     color: #818080;
-    width: 60%;
-    height: 200px;
+    width: 90%;
 }
 
 
 .lado-esquerdo img{
-    width: 10%;
+    width: 15%;
+    display: flex;
 }
 
 .lado-esquerdo p{
