@@ -27,7 +27,7 @@ const footer = () => {
         </ul>
         <ul>
           <p>
-            Email: <a href="">atendimento@proetocaixadesapato.org</a>
+            Email: <a href="">atendimento@projetocaixadesapato.org</a>
           </p>
           <p>CNPJ: 36.293.262/0001-39</p>
         </ul>
