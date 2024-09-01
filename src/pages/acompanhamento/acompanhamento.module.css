@@ -1,0 +1,139 @@
+.titulo-acompanhamento {
+    font-size: 36px;
+    border-bottom: 4px solid #008816;
+    width: 8%;
+    color: black;
+    font-weight: bold;
+}
+
+.subtitulo-acompanhamento{
+    color: black;
+    font-size: 20px;
+}
+
+.container-doacao {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 10px;
+    width: fit-content;
+    gap: 24px;
+    border: solid 2px #DBDBDB;
+    border-radius: 10px;
+    height: 200px;
+}
+
+.container-caixa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-right: solid 2px #DBDBDB;
+}
+
+.container-img-caixa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 140px;
+    min-width: 140px;
+    min-height: 140px;
+    max-width: 140px;
+    max-height: 140px;
+    border-radius: 50%;
+    border: solid 2px #DBDBDB;
+}
+
+.img-caixa {
+    object-fit: contain;
+    width: 70%;
+}
+
+.container-detalhes{
+    margin-right: 48px;
+}
+
+.container-detalhes h2{
+    font-size: 16px;
+}
+
+.container-detalhes p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.container-status {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    margin-top: -24px;
+}
+
+.container-status h2 {
+    font-size: 16px;
+}
+
+.estagios {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.estagios ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 8px;
+}
+
+
+.estagios ul div {
+    position: relative;
+    text-align: center;
+}
+
+.estagios ul div p{
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+}
+
+.estagios ul li {
+    color: #000;
+
+    border-radius: 50%;
+    border: solid 3px #9d9d9d;
+    width: 60px;
+    height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.estagios ul li.active {
+    border: solid 3px #008816;
+}
+
+.estagios span {
+    font-size: 50px;
+    color: #9D9d9d;
+}
+
+.estagios .connector {
+    width: 80px;
+    height: 3px;
+    background-color: #9d9d9d;
+}
+
+.estagios .connector.active {
+    background-color: #008816;
+}
+

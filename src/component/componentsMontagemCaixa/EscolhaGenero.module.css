@@ -1,0 +1,27 @@
+.container_genero{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container_genero img{
+    width: 182px;
+    height: 182px;
+}
+
+.container_genero div{
+    text-align: center;
+
+    cursor: pointer;
+    padding: 10px;
+    border: solid 3px #fff;
+    border-radius: 10px;
+}
+
+.container_genero div:not(.active):hover {
+    border: solid 3px #9A9C9A;
+}
+
+.active {
+    border: solid 3px #008816 !important;
+}
