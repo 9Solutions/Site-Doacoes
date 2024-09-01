@@ -1,85 +1,66 @@
 body {
     margin: 0;
     font-family: Asap;
-    color: #008816;
 }
 
 .barra{
-    color: gray;
+    color: #BEBEBE;
     font-size: 25px;
     display: flex;
     justify-content: space-between;
-    margin-top: -50px;
 }
 
 .barra p {
-    position: relative; 
-    margin: 0; 
-    padding: 10px 0;
-    cursor: pointer; 
+    margin: 0;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 16px;
+    text-align: center;
+    border-bottom: solid 5px #DBDBDB;
 }
 
-.barra p::after {
-    content: ''; 
-    position: absolute;
-    left: 0;
-    bottom: -8px; 
-    width: 0%;
-    height: 5px; 
-    background-color: green;
-    transition: width 0.3s ease; 
-}
-
-.barra p:hover::after {
-    width: 100%; 
+.barra p.active {
+    color: #008816;
+    border-bottom: 5px solid #008816;
 }
 
 .container-dados {
-    position: relative;
-  }
-  
-  .form-section {
+    padding: 24px 48px;
+}
+
+.form-section {
     display: flex;
     justify-content: space-between;
-  }
+}
   
-  .input-group-left {
-    width: 60%;
-  }
+.input-group-left {
+    width: 50%;
+}
   
-  .input-group-right {
-    width: 60%;
-    position: absolute;
-    top: 100px;
-    right: -300px;
-    padding: 10px;
-  }
-  
-
+.input-group-right {
+    width: 50%;
+}
 
 .container-dados h1{
-    margin-left: 2%;
-    font-size: 35px;
-    width: 25%;
-    font-weight: 500;
+    margin: 0 0 32px;
+    font-size: 32px;
+    font-weight: bold;
     color: black;
 }
 
 
-.conjunto-inputs-dados{
-    margin-left: auto;
-}
-
-.container-dados input{
-    margin-top: 2%;
-    color: #818080;
+.container-dados input, .container-dados select{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    height: 24px;
+    color: #000000;
     border: 1px solid #C1C1C1;
     padding: 1%;
+    box-sizing: content-box;
+
 }
 
-.container-dados select {
-    width: 63%;
-}
 
 .titulo-pagamento {
     margin-left: 13%;
@@ -91,13 +72,12 @@ body {
 }
 
 .div-pagamento {
-    margin: 0 14% 5% 14%;
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
-    border: 2px solid gray;
-    padding: 3% 4% 3% 4%;
-    border-radius: 10px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    border: 2px solid #DBDBDB;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 .inputs-valores{
@@ -105,7 +85,7 @@ body {
     position: relative;
     flex-direction: row;
     justify-content: space-between;
-    top: -130px;
+    margin-top: 24px;
 }
 
 .div-pagamento-2 {
@@ -117,18 +97,24 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    width: 150px;
-    height: 170px;
+    width: 100px;
+    height: 100px;
     margin-top: 2%;
     position: relative;
-    transition: border-color 0.3s ease; 
+    transition: border-color 0.3s ease;
+    text-align: center;
 }
+
+.div-pagamento-2 p {
+    margin: 8px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 .container-top{
     display: flex;
     justify-content: space-between;
-    margin-bottom: -8%;
 }
-
 
 .div-pagamento-pix {
     display: flex;
@@ -136,23 +122,25 @@ body {
     align-items: center;
     justify-content: center;
     border: 2px solid rgb(235, 235, 235);
-    padding: 10px;
     border-radius: 10px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    width: 750px;
-    height: 500px;
+    min-width: 50%;
+    max-width: 60%;
     margin-top: 2%;
     position: relative;
+    padding: 24px;
 }
 
 .div-pagamento-pix img {
     object-fit: cover; 
     display: flex;
-    width: auto;
-    height: auto;
-    margin-right: 40px;
+    width: 200px;
+    height: 200px;
 }
 
+.container-finalizacao {
+    padding: 24px 0;
+}
 
 .container-finalizacao p{
     font-size: 26px;
@@ -174,12 +162,12 @@ body {
 
 .div-pix-contexto{
     display: flex;
-    margin-bottom: 30%;
     flex-direction: row-reverse;
+    gap: 48px;
 }
 
 .div-pagamento-pix p {
-    font-size: 24px;
+    font-size: 16px;
     color: black;
     margin-right: auto;
 }
@@ -188,13 +176,12 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    bottom: 100px;
+    width: 100%;
 }
 
 .div-pagamento-pix-2 p{
-    font-size: 26px;
+    font-size: 16px;
     color: black;
-    margin-right: 200px;
 }
 
 .texto-pix{
@@ -207,35 +194,34 @@ body {
 .div-pagamento-2:hover {
     cursor: pointer;
     border-color: green;
-    border-width: 3px; 
+    border-width: 3px;
 }
 
 .div-pagamento-2.active {
     border-color: green;
 }
 
+.valores{
+    color: black;
+    font-size: 25px;
+    font-weight: normal;
+    margin-top: 16px;
+}
 
+.valores p {
+    margin: 0;
+}
 
 .caixa{
     display: flex;
     margin-left: auto;
     margin-top: 2%;
+    flex-direction: column;
+    position: absolute;
+    right: 0;
 }
-
-
-.valores{
-    color: black;
-    font-size: 25px;
-    margin-left: 70%;
-    font-family: Asap;
-    font-weight: normal;
-    position: relative;
-    top: 40px;
-}
-
 
 .div-pagamento-caixa {
-    margin: 0 10% 5% 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -244,32 +230,52 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
-    width: 450px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
 }
 
 .div-pagamento-caixa img {
-    width: 90%; 
+    width: 90%;
     height: auto; 
     object-fit: cover; 
     border-radius: 5px;
 }
 
-hr {
-    width: 100%;
-    color: gray;
-    border: none;
-    border-top: 3px solid gray; 
+.container-email-confirm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+
+    margin-bottom: 48px;
 }
 
+.inputs-boleto{
+    margin-top: 24px;
+    width: 70%;
+}
+
+.inputs-boleto input {
+    margin-top: 24px;
+    margin-bottom: 10px;
+    width: 90%;
+    height: 24px;
+    color: #000000;
+    border: 1px solid #C1C1C1;
+    padding: 1%;
+    box-sizing: content-box;
+}
+
+
 .inputs-boleto p{
-    color: black;
-    font-size: 24px;
+    color: #848484;
+    font-size: 16px;
+    margin: 0 0 24px;
 }
 
 .inputs-boleto a{
-    color: gray;
-    font-size: 24px;
+    color: #848484;
+    font-size: 16px;
 }
 
 
@@ -279,38 +285,16 @@ hr {
     margin-right: auto;
     
     width: 100%;
-    gap: 100px; 
-    padding: 20px;
-}
-
-.container-pagamentos p{
-    color: black;
-    font-size: 20px;
+    height: fit-content;
+    gap: 24px;
+    position: relative;
 }
 
 .div-pagamento-pix-2 input{
     height: 25px;
-    width: 70%;
+    width: 90%;
 }
 
-input{
-    height: 20px;
-    width: 60%;
-}
-
-select {
-    height: 40px;
-    width: 40%;
-    font-size: 18px; 
-    border: none;
-    outline: none; 
-    background-color: #f5f5f5; 
-    padding: 8px; 
-    border-radius: 4px; 
-    appearance: none; 
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
-}
 
 .select-pagamento{
     height: 40px;
@@ -323,7 +307,8 @@ select {
     border-radius: 4px; 
     appearance: none; 
     -webkit-appearance: none; 
-    -moz-appearance: none; 
+    -moz-appearance: none;
+    margin-top: 16px;
 }
 
 
@@ -331,14 +316,25 @@ select {
 .inputs-credit {
     display: flex;
     flex-direction: column; 
-    gap: 10px; 
     position: relative;
-    width: 75%;
+    width: 50%;
+    margin-top: 24px;
+}
+
+.inputs-credit select, .inputs-credit input {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    height: 24px;
+    color: #000000;
+    border: 1px solid #C1C1C1;
+    padding: 1%;
+    box-sizing: content-box;
 }
 
 
 .div-pagamento-2 img {
-    width: 90%;
+    width: 70%;
     height: auto;
     object-fit: cover;
     border-radius: 5px; 
@@ -346,12 +342,12 @@ select {
 
 .label-pagamento {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 700;
 }
 
 .label-pagamento-2 {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 700;
     margin-left: 250px;
 }
 
@@ -360,21 +356,12 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: 48px;
+    margin-top: 16px;
 }
 
-.confirm-button {
-    background-color: #F79A00;
-    color: #FFFFFF;
-    border: none;
-    font-size: 24px;
-    font-weight: 300;
-    border-radius: 7px;
-    width: 17%;
-    height: 5.5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2%; 
+.buttons button {
+    width: 150px;
 }
 
 .next-button{ 
@@ -393,49 +380,19 @@ select {
 }
 
 
-.accompany-button{ 
-    background-color: #F79A00;
-    color: #FFFFFF;
-    border: none;
-    font-size: 24px;
-    font-weight: 300;
-    border-radius: 7px;
-    width: 17%;
-    height: 5.5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 2%; 
-}
+
 
 .cancel-button {
-    background-color: gray;
-    color: #FFFFFF;
-    border: none;
-    font-size: 24px;
-    font-weight: 300;
-    border-radius: 7px;
-    width: 17%;
-    height: 5.5vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 2%;
+    background-color: #b6b5b5 !important;
 }
 
 .ok-button {
     background-color: green;
     color: #FFFFFF;
-    border: none;
-    font-size: 24px;
-    font-weight: 300;
-    border-radius: 7px;
-    width: 10%;
-    height: 4vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 2%; 
+}
+
+.ok-button:hover {
+    background-color: #008816 !important;
 }
 
 .copy-button {
@@ -454,34 +411,12 @@ select {
 }
 
 
-input {
-    margin-bottom: 2%;
-    margin-top: 2%;
-    padding: 1%;
-    border: 1px solid #C1C1C1;
-    color: #818080;
-}
-
 .div-login p a {
     margin-top: 0;
     text-decoration: none;
     color: #9A9C9A;
     font-weight: 300;
     font-size: 24px;
-}
-
-
-.barra p {
-    cursor: pointer;
-    transition: color 0.4s, text-decoration 0.4s;
-}
-
-.barra p:hover {
-    color: green;
-}
-
-.barra p.active {
-    color: green;
 }
 
 
