@@ -2,6 +2,14 @@
   font-family: Asap;
 }
 
+body, html, main {
+  height: 100%;
+}
+
+main {
+  padding: 100px 20%;
+}
+
 .material-symbols-outlined {
   user-select: none;
   -webkit-user-select: none; /* Safari */

@@ -1,169 +1,139 @@
-body {
-    margin: 0;
-    font-family: Asap;
-    color: #008816;
-}
-
 .titulo-acompanhamento {
-    margin-left: 16%;
-    font-size: 48px;
+    font-size: 36px;
     border-bottom: 4px solid #008816;
     width: 8%;
-    font-weight: 500;
     color: black;
     font-weight: bold;
 }
 
 .subtitulo-acompanhamento{
     color: black;
-    font-size: 25px;
-    margin-left: 16%;
-
+    font-size: 20px;
 }
 
-.div-login {
-    margin: 0 10% 5% 10%;
+.container-doacao {
+    display: flex;
+    flex-direction: row;
+    padding: 0px 10px;
+    width: fit-content;
+    gap: 24px;
+    border: solid 2px #DBDBDB;
+    border-radius: 10px;
+    height: 200px;
+}
+
+.container-caixa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border-right: solid 2px #DBDBDB;
+}
+
+.container-img-caixa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 140px;
+    min-width: 140px;
+    min-height: 140px;
+    max-width: 140px;
+    max-height: 140px;
+    border-radius: 50%;
+    border: solid 2px #DBDBDB;
+}
+
+.img-caixa {
+    object-fit: contain;
+    width: 70%;
+}
+
+.container-detalhes{
+    margin-right: 48px;
+}
+
+.container-detalhes h2{
+    font-size: 16px;
+}
+
+.container-detalhes p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.container-status {
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    border: 2px solid gray;
-    padding: 0% 0% 0% 2%;
-    box-shadow: gray 0px 2px 8px 0px;
-}
-
-.texto-caixa{
-    display: flex;
-    position: relative;
-    left: 20%;
-}
-
-.circulo{
-        border-radius: 50%;
-        width: 250px;
-        height: 250px;
-        border: 2px solid gray;
-        margin-top: 5%;
-
-}
-
-.circulo-status{
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    border: 2px solid gray;
-
-
-}
-
-.circulo img{
-    width: 150px;
-    height: 150px;
-    display: flex;
-    align-self: center;
-    margin-left: 45px;
-    margin-top: 45px;
-}
-
-.label-login {
-    font-size: 24px;
-    font-weight: 400;
-}
-
-.label-detalhe-acompanhamento{
-    font-size: 24px;
-    font-weight: 400;
-    color: black;
-    position: relative;
-    bottom: 150px;
-}
-
-.label-detalhe-acompanhamento-2{
-    font-size: 26px;
-    font-weight: bold;
-    color: black;
-    position: relative;
-    bottom: 300px;
-    left: 90px;
-    
-}
-
-
-hr{
-    display: flex;
-    width: 1px;
-    height: 405px;
-    background-color: lightgray; /* Set the background color to black */
-    position: absolute;
-    left: 20%;
-    bottom: 0px;
-}
-
-.lado-direito-caixa-acompanhamento{
-    display: flex;
-}
-
-
-.lado-direito-caixa-acompanhamento img{
-    display: flex;
-    width: 750px;
-    height: 500px;
-    position: absolute ;
-    object-fit: contain;
-    bottom: 5px;
-    right: 25%; 
-}
-
-
-
-.label-acompanhamento{
-    font-size: 40px;
-    font-weight: bold;
-    color: black;
-    position: absolute;
-    bottom: 270px;
-}
-
-input {
-    margin-bottom: 2%;
-    margin-top: 2%;
-    padding: 1%;
-    border: 1px solid #C1C1C1;
-    color: #818080;
-}
-
-.div-login p a {
-    margin-top: 0;
-    text-decoration: none;
-    color: #9A9C9A;
-    font-weight: 300;
-    font-size: 24px;
-}
-
-.login-button {
-    background-color: #F79A00;
-    color: #FFFFFF;
-    border: none;
-    font-size: 24px;
-    font-weight: 300;
-    border-radius: 7px;
-    margin-top: 2%;
-    width: 40%;
-    height: 5.5vh;
-    display: flex;
-    align-self: center;
-    align-items: center;
     justify-content: center;
+    padding: 10px;
+    margin-top: -24px;
 }
 
-.link{
-    text-decoration: underline;
-    color: #477BFF;
+.container-status h2 {
+    font-size: 16px;
 }
 
-#forgot-password{
-    margin-right: 23.4vw;
+.estagios {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-img{
-    height: 41px;
+.estagios ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 8px;
 }
+
+
+.estagios ul div {
+    position: relative;
+    text-align: center;
+}
+
+.estagios ul div p{
+    font-size: 12px;
+    position: absolute;
+    width: 100%;
+}
+
+.estagios ul li {
+    color: #000;
+
+    border-radius: 50%;
+    border: solid 3px #9d9d9d;
+    width: 60px;
+    height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.estagios ul li.active {
+    border: solid 3px #008816;
+}
+
+.estagios span {
+    font-size: 50px;
+    color: #9D9d9d;
+}
+
+.estagios .connector {
+    width: 80px;
+    height: 3px;
+    background-color: #9d9d9d;
+}
+
+.estagios .connector.active {
+    background-color: #008816;
+}
+

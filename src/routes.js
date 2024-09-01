@@ -19,7 +19,7 @@ const rotas = () => {
                  <Route path="/login" element={<Login/>} exact />
                  <Route path="/cadastro" element={<Cadastro/>} exact />
                  <Route path="/montagem-caixa" element={<FluxoMontagemCaixa/>} exact />
-                <Route path="/acompanhamento" element={<Acompanhamento/>} exact />
+                 <Route path="/acompanhamento" element={<Acompanhamento/>} exact />
                  <Route path="/menu-caixa" element={<MenuCaixa/>} exact />
                  <Route path="/itens-caixa" element={<ItensCaixa/>} exact />
                  <Route path="" element={<Home/>} exact />

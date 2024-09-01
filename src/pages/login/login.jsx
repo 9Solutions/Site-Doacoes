@@ -29,7 +29,9 @@ const Login = () => {
           return;
         }
 
-        navigate("/");
+        sessionStorage.setItem("auth", JSON.stringify(response.data));
+
+        navigate("/menu-caixa");
       })
       .catch((error) => {
         console.log(error);
