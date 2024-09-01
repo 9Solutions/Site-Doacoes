@@ -1,139 +1,91 @@
-import api from "../../api";
-import React, { useEffect, useRef } from "react";
 import styles from "./acompanhamento.module.css";
-import { useNavigate } from "react-router-dom";
 import NavBar from "../../component/navbar/navbar";
 import Footer from "../../component/footer/footer";
-import caixa from "../../img/caixa.png"
-import { toast } from "react-toastify";
-import  imagemInicial from "../../img/inicial.png"
-import cicloCaixaEntregue from "../../img/ciclo-caixa.png"
-import cicloCaixaProntaEntregue from "../../img/caixaCiclo2-removebg-preview.png"
-import cicloCaixaProntaMontagem from "../../img/cicloCaixa3.png"
+import caixaImg from "../../img/caixa.png"
+import React, {useEffect, useRef, useState} from "react";
+import {getPedidosByUser} from "../../utils/backend/methods";
+import {useNavigate} from "react-router-dom";
+import {tranformDate} from "../../utils/global";
 
-
-
-const validar = async (email, senha) => {
-  if (email.length === 0 || senha.length === 0) return;
-  return api.post(`/doadores/login`, { email: email, senha: senha });
-};
 
 const Acompanhamento = () => {
+  const estagio = 0;
+  const [valorPCaixa, setValorPCaixa] = useState([]);
+  const [caixas, setCaixas] = useState([]);
+  const { doadorId } = JSON.parse(sessionStorage.getItem("auth")) || {};
   const navigate = useNavigate();
-  const emailRef = useRef(null);
-  const senhaRef = useRef(null);
 
-  const handleLogin = async () => {
-    const email = emailRef.current.value;
-    const senha = senhaRef.current.value;
+  useEffect(() => {
+    if (sessionStorage.getItem("auth") === null) {
+      navigate("/login");
+    }
+  }, []);
 
-    validar(email, senha)
-      .then((response) => {
-        if (response.status !== 200) {
-          toast.error("Email ou Senha Inválidos!");
-          return;
-        }
 
-        navigate("");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error("Email ou Senha Inválidos!");
-      });
-  };
+  useEffect(() => {
+    getPedidosByUser(doadorId).then((response) => {
+      setCaixas(response.data.map(pedido => pedido.caixas).flat());
+      setValorPCaixa(response.data.map(pedido => pedido.valorTotal / pedido.caixas.length).flat());
+    })
+  }, [doadorId]);
+
 
   return (
     <>
       <NavBar />
-      <h2 className={styles["titulo-acompanhamento"]}>Doações</h2>
-      <p className={styles["subtitulo-acompanhamento"]}>Olá, Filipe Portugal <br></br>Acompanhe suas doações por aqui</p>
-      <div className={styles["div-login"]}>
-        <div className={styles["circulo"]}>
-          <img src={caixa} alt="" />
-        </div>
+      <main>
+        <h2 className={styles["titulo-acompanhamento"]}>Doações</h2>
+        <p className={styles["subtitulo-acompanhamento"]}>Olá, Filipe Portugal <br></br>Acompanhe suas doações por aqui
+        </p>
+        {
+          //Continuar integração com o backend
+          caixas.map((caixa, key) => (
+              <div key={key} className={styles["container-doacao"]}>
 
-        <div className={styles["texto-caixa"]}>
-        <label className={styles["label-acompanhamento"]} htmlFor="identificador">
-          Detalhes
-        </label>
-        <label className={styles["label-detalhe-acompanhamento"]} htmlFor="Senha">
-          Data Doação:01/04/2024
-          <br>
-          </br>
-          Valor Total:R$ 78.00
-          <br>
-          </br>
-          Data de Entrega: Entregue
-        </label>
-        <hr></hr>
+                <div className={styles["container-caixa"]}>
+                  <div className={styles["container-img-caixa"]}>
+                    <img src={caixaImg} alt="caixa" className={styles["img-caixa"]}/>
+                  </div>
 
-        <div className={styles["lado-direito-caixa-acompanhamento"]}>
-        <label className={styles["label-detalhe-acompanhamento-2"]} htmlFor="identificador">
-        Status da Doação
-        </label>
-          <img src={cicloCaixaEntregue} alt="" />
-        </div>
-        </div>
-      </div>
+                  <div className={styles["container-detalhes"]}>
+                    <h2>Detalhes</h2>
+                    <p>Data da Doação: {tranformDate(caixa.etapas[0].update)}</p>
+                    <p>Valor Total: R${parseFloat(valorPCaixa[key]).toFixed(2)}</p>
+                    <p>Entrega: Em processamento</p>
+                  </div>
 
-      <div className={styles["div-login"]}>
-        <div className={styles["circulo"]}>
-          <img src={caixa} alt="" />
-        </div>
+                </div>
 
-        <div className={styles["texto-caixa"]}>
-        <label className={styles["label-acompanhamento"]} htmlFor="identificador">
-          Detalhes
-        </label>
-        <label className={styles["label-detalhe-acompanhamento"]} htmlFor="Senha">
-          Data Doação:01/04/2024
-          <br>
-          </br>
-          Valor Total:R$ 78.00
-          <br>
-          </br>
-          Data de Entrega: Pronta para <br></br> entrega 
-        </label>
-        <hr></hr>
+                <div className={styles["container-status"]}>
+                  <h2>Status da Doação</h2>
+                  <div className={styles["estagios"]}>
+                    <ul>
+                      <div>
+                        <li className={`${estagio >= 0 ? styles['active'] : ''}`}><span
+                            className="material-symbols-outlined">orders</span></li>
+                        <p>Processo de Montagem</p>
+                      </div>
+                      <div className={`${styles["connector"]} ${estagio >= 1 ? styles['active'] : ''}`}></div>
+                      <div>
+                        <li className={`${estagio >= 2 ? styles['active'] : ''}`}><span
+                            className="material-symbols-outlined">local_shipping</span></li>
+                        <p>Em Rota de Entrega</p>
+                      </div>
+                      <div className={`${styles["connector"]} ${estagio >= 3 ? styles['active'] : ''}`}></div>
+                      <div>
+                        <li className={`${estagio >= 3 ? styles['active'] : ''}`}><span
+                            className="material-symbols-outlined">inventory</span></li>
+                        <p>Entregue</p>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
 
-        <div className={styles["lado-direito-caixa-acompanhamento"]}>
-        <label className={styles["label-detalhe-acompanhamento-2"]} htmlFor="identificador">
-        Status da Doação
-        </label>
-          <img src={cicloCaixaProntaEntregue} alt="" />
-        </div>
-        </div>
-      </div>
-
-      <div className={styles["div-login"]}>
-        <div className={styles["circulo"]}>
-          <img src={caixa} alt="" />
-        </div>
-
-        <div className={styles["texto-caixa"]}>
-        <label className={styles["label-acompanhamento"]} htmlFor="identificador">
-          Detalhes
-        </label>
-        <label className={styles["label-detalhe-acompanhamento"]} htmlFor="Senha">
-          Data Doação:01/04/2024
-          <br>
-          </br>
-          Valor Total:R$ 78.00
-          <br>
-          </br>
-          Data de Entrega: Pronta para <br></br> montagem 
-        </label>
-        <hr></hr>
-
-        <div className={styles["lado-direito-caixa-acompanhamento"]}>
-        <label className={styles["label-detalhe-acompanhamento-2"]} htmlFor="identificador">
-        Status da Doação
-        </label>
-          <img src={cicloCaixaProntaMontagem} alt="" />
-        </div>
-        </div>
-      </div>
-      <Footer />
+              </div>
+          ))
+        }
+      </main>
+      <Footer/>
     </>
   );
 };
