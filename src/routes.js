@@ -3,8 +3,8 @@ import { Route, BrowserRouter, Routes} from "react-router-dom";
 
 import Login from "./pages/login/login";
 import Cadastro from "./pages/cadastro/cadastro";
+import Pagamento from "./pages/pagamento/pagamento";
 import Home from "./pages/home/home";
-
 import Acompanhamento from "./pages/acompanhamento/acompanhamento";
 import ItensCaixa from "./pages/itens-caixa/ItensCaixa";
 import FluxoMontagemCaixa from "./pages/fluxoMontagemCaixa/FluxoMontagemCaixa";
@@ -18,6 +18,7 @@ const rotas = () => {
              <Routes>
                  <Route path="/login" element={<Login/>} exact />
                  <Route path="/cadastro" element={<Cadastro/>} exact />
+                 <Route path="/pagamento" element={<Pagamento/>} exact />
                  <Route path="/montagem-caixa" element={<FluxoMontagemCaixa/>} exact />
                  <Route path="/acompanhamento" element={<Acompanhamento/>} exact />
                  <Route path="/menu-caixa" element={<MenuCaixa/>} exact />
