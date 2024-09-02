@@ -12,7 +12,7 @@ import Cartinha from "../cartinha/cartinha";
 import pessoa from '../../utils/img/pessoa.png'
 
 const FluxoMontagemCaixa = () => {
-    const [estagio, setEstagio] = useState(6);
+    const [estagio, setEstagio] = useState(0);
     const [categorias, setCategorias] = useState([]);
     const [produtos, setProdutos] = useState([]);
     const [produtosSelecionados, setProdutosSelecionados] = useState([]);
@@ -48,21 +48,15 @@ const FluxoMontagemCaixa = () => {
     }, [categorias]);
 
     useEffect(() => {
-        if (genero !== '') {
+        if (faixa !== -1 && genero !== '') {
             getProdutos().then((response) => {
-                setProdutos(response.data.filter(produto => produto.genero === genero || produto.genero === 'U'));
-            });
-        }
-    }, [genero]);
-
-    useEffect(() => {
-        if (faixa !== -1) {
-            getProdutos().then((response) => {
-                setProdutos(response.data.filter(produto => produto.faixaEtaria.id === faixa));
+                let produtosFiltrados = response.data.filter(prod => prod.faixaEtaria.id === faixa);
+                produtosFiltrados = produtosFiltrados.filter(produto => produto.genero === genero || produto.genero === 'U');
+                setProdutos(produtosFiltrados);
                 setCategorias([])
             });
         }
-    }, [faixa]);
+    }, [genero, faixa]);
 
     useEffect(() => {
         quantTotalEsperadaRef.current["est"+estagio] = categorias.reduce((total, categoria) => total + categoria.qtdeProdutos, 0);
@@ -88,13 +82,13 @@ const FluxoMontagemCaixa = () => {
     }
 
     const handleDisabled = () => {
-        console.warn(estagio === 1, faixa === -1)
-
         switch (estagio){
             case 0:
                 return genero === '';
             case 1:
                 return faixa === -1;
+            case 5:
+                return carta === '';
             default:
                 return quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
                     .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))

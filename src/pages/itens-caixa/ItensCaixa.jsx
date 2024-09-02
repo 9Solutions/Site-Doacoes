@@ -5,20 +5,23 @@ import styles from './ItensCaixa.module.css';
 import cartIcon from "../../utils/img/cart-icon.png"
 import PageTitle from "../../component/pageTitle/PageTitle";
 import {getProdutos} from "../../utils/backend/methods";
+import {useNavigate} from "react-router-dom";
 
 function ItensCaixa() {
 
     const [isActive, setIsActive] = useState(false);
     const produtosSelecionados = JSON.parse(sessionStorage.getItem("produtos_selecionados"));
     const [produtos, setProdutos] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!produtosSelecionados) {
-            //window.location.href = '/montagem-caixa';
+            navigate('/montagem-caixa');
         }
 
         getProdutos().then((response) => {
-            setProdutos(response.data.filter(produto => produtosSelecionados.some(p => p.idProduto === produto.idProduto)));
+            let produtosFiltrados = response.data.filter(produto => produtosSelecionados.some(p => p.idProduto === produto.id))
+            setProdutos(produtosFiltrados);
         });
     }, []);
 
@@ -89,7 +92,7 @@ function ItensCaixa() {
                             <button className={styles['close-button']} onClick={handleCloseModal}>×</button>
                             <img src={cartIcon} alt="Carrinho" className={styles['cart-icon']} />
                             <p className={styles['caixa-add']}>CAIXA ADICIONADA AO CARRINHO</p>
-                            <button className={styles['view-cart-button']}>Visualizar Carrinho</button>
+                            <button className={styles['view-cart-button']} onClick={() => navigate("/carrinho")}>Visualizar Carrinho</button>
                         </div>
                     </div>
                 )}

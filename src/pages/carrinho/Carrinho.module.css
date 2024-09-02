@@ -1,0 +1,121 @@
+.title {
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.container-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.33);
+    padding: 16px 0;
+    width: 70%;
+    min-width: 550px;
+
+    overflow-y: scroll;
+
+    scrollbar-width: auto;
+    scrollbar-color: var(--primary-color) #ffffff;
+}
+
+.container-cart::-webkit-scrollbar {
+    width: 16px;
+}
+
+.container-cart::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.container-cart::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+}
+
+.caixa {
+    width: 90%;
+}
+
+.container-caixa {
+    display: flex;
+    align-items: center;
+    background-color: #F6F5F5;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.container-caixa img {
+    width: 80px;
+    height: auto;
+    margin-left: 16px;
+}
+
+.caixa-infos {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 16px;
+}
+
+.infos {
+    padding: 12px 0;
+}
+
+.infos h3 {
+    margin: 0;
+}
+
+.infos p {
+    font-size: 16px;
+    margin: 8px 0 0;
+}
+
+.caixa-buttons {
+    display: flex;
+    gap: 8px;
+    padding: 8px 0;
+}
+
+.caixa-buttons span {
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50%;
+    color: var(--secondary-text-color);
+    border: solid 2px var(--secondary-text-color);
+    padding: 1px;
+    font-weight: bold;
+}
+
+.container-valores {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: #F6F5F5;
+    width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.valores {
+    background-color: #E8E8E8;
+    border-radius: 10px;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.valores div {
+    display: flex;
+    gap: 8px;
+}
+
+.valores p {
+    font-size: 12px;
+    margin: 8px 0;
+    font-weight: 600;
+}
