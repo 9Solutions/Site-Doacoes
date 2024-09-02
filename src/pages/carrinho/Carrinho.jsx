@@ -4,6 +4,7 @@ import Navbar from "../../component/navbar/navbar";
 import PageTitle from "../../component/pageTitle/PageTitle";
 import caixa from "../../img/caixa.png";
 import styles from "../fluxoMontagemCaixa/FluxoMontagemCaixa.module.css";
+import Footer from "../../component/footer/footer";
 
 const Carrinho = () => {
     return (
@@ -47,6 +48,7 @@ const Carrinho = () => {
                     </div>
                 </div>
             </main>
+            <Footer></Footer>
         </>
     );
 }

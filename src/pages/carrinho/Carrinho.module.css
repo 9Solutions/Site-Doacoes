@@ -12,6 +12,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.33);
     padding: 16px 0;
     width: 70%;
+    max-height: 45vh;
     min-width: 550px;
 
     overflow-y: scroll;
