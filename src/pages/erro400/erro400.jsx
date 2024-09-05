@@ -18,33 +18,10 @@ const validar = async (email, senha) => {
 
 const Erro400 = () => {
   const navigate = useNavigate();
-  const emailRef = useRef(null);
-  const senhaRef = useRef(null);
 
- const handleLogin = async () => {
-    const email = emailRef.current.value;
-    const senha = senhaRef.current.value;
-
-    validar(email, senha)
-      .then((response) => {
-        if (response.status !== 200) {
-          toast.error("Email ou Senha Inválidos!");
-          return;
-        }
-
-        sessionStorage.setItem("auth", JSON.stringify(response.data));
-
-        navigate("/menu-caixa");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error("Email ou Senha Inválidos!");
-      } );
-  };
-
-  const toCadastro = () => {
-    navigate("/cadastro");
-  };
+ const toHome = () => {
+     navigate("/");
+ };
 
   return (
     <>
@@ -53,7 +30,7 @@ const Erro400 = () => {
       <img src={erro400img} alt="" />
       </div>
       <h1 className={styles["bad-request"]}>Bad Request</h1>
-      <button className={styles["return-button"]} onClick={handleLogin}>
+      <button className={styles["return-button"]} onClick={toHome}>
           Voltar ao início 
         </button>
       <Footer />

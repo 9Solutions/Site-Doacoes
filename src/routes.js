@@ -27,10 +27,9 @@ const rotas = () => {
                  <Route path="/menu-caixa" element={<MenuCaixa/>} exact />
                  <Route path="/itens-caixa" element={<ItensCaixa/>} exact />
                  <Route path="/carrinho" element={<Carrinho/>} exact />
-                 <Route path="/erro404" element={<Erro404/>} exact />
+                 <Route path="*" element={<Erro404/>} exact />
                  <Route path="/erro400" element={<Erro400/>} exact />
                  <Route path="" element={<Home/>} exact />
-                 {/*<Route path="*" element={<NotFound />} />*/}
              </Routes>
         </BrowserRouter>
     )
