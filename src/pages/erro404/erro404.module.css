@@ -3,21 +3,21 @@ body {
     font-family: Asap;
 }
 
-.div-erro{
+.div-erro-404{
     display: flex;
     margin-bottom: 4%;
 }
 
- h1{
-    display: flex;
-    position: relative;
-    bottom:25%;
-    left: 37%;
+ .Not-found {
+    display: flex !important;
+    position: relative !important;
+    bottom:25% !important;
+    left: 37% !important;
 }
 
 
 
-.div-erro img{
+.div-erro-404 img{
     display: flex;
     width: 500px;
     height: 500px;

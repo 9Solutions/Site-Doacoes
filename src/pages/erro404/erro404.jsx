@@ -49,10 +49,10 @@ const Erro404 = () => {
   return (
     <>
       <NavBar />
-      <div className={styles["div-erro"]}>
+      <div className={styles["div-erro-404"]}>
       <img src={erro404img} alt="" />
       </div>
-      <h1>Essa página não foi encontrada</h1>
+      <h1 className={styles["Not-found"]}>Essa página não foi encontrada</h1>
       <button className={styles["return-button"]} onClick={handleLogin}>
           Voltar ao início 
         </button>

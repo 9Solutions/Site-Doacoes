@@ -16,7 +16,7 @@ const validar = async (email, senha) => {
   return api.post(`/doadores/login`, { email: email, senha: senha });
 };
 
-const Erro404 = () => {
+const Erro400 = () => {
   const navigate = useNavigate();
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
@@ -52,7 +52,7 @@ const Erro404 = () => {
       <div className={styles["div-erro"]}>
       <img src={erro400img} alt="" />
       </div>
-      <h1>Bad Request</h1>
+      <h1 className={styles["bad-request"]}>Bad Request</h1>
       <button className={styles["return-button"]} onClick={handleLogin}>
           Voltar ao início 
         </button>
@@ -61,4 +61,4 @@ const Erro404 = () => {
   );
 };
 
-export default Erro404;
+export default Erro400;
