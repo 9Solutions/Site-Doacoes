@@ -9,7 +9,7 @@ import ItensCaixa from "./pages/itens-caixa/ItensCaixa";
 import FluxoMontagemCaixa from "./pages/fluxoMontagemCaixa/FluxoMontagemCaixa";
 import MenuCaixa from "./pages/menuCaixa/MenuCaixa";
 import Cartinha from "./pages/cartinha/cartinha";
-
+import Sobre from "./pages/sobre/sobre";
 
 const rotas = () => {
     return(
@@ -20,6 +20,7 @@ const rotas = () => {
                  <Route path="/montagem-caixa" element={<FluxoMontagemCaixa/>} exact />
                  <Route path="/menu-caixa" element={<MenuCaixa/>} exact />
                  <Route path="/itens-caixa" element={<ItensCaixa/>} exact />
+                 <Route path="/sobre-nos" element={<Sobre/>} exact />
                  <Route path="" element={<Home/>} exact />
                  {/*<Route path="*" element={<NotFound />} />*/}
              </Routes>
