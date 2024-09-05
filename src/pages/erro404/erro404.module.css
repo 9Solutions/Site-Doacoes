@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    font-family: Asap;
+}
+
+.div-erro{
+    display: flex;
+    margin-bottom: 4%;
+}
+
+ h1{
+    display: flex;
+    position: relative;
+    bottom:25%;
+    left: 37%;
+}
+
+
+
+.div-erro img{
+    display: flex;
+    width: 500px;
+    height: 500px;
+    margin-left: 35%;
+    margin-top: 7%;
+    margin-bottom: 2%;
+}
+
+
+.label-login {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+
+.div-login p a {
+    margin-top: 0;
+    text-decoration: none;
+    color: #9A9C9A;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.return-button {
+    background-color: gray;
+    color: #FFFFFF;
+    border: none;
+    font-size: 24px;
+    font-weight: 300;
+    border-radius: 7px;
+    margin-top: 2%;
+    width: 20%;
+    height: 5.5vh;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    left: 39%;
+    bottom: 25%;
+}
+
+.div-login .link{
+    margin-left: 0.4vw;
+    text-decoration: underline;
+    color: #477BFF;
+}
