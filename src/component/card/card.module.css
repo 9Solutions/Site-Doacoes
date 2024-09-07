@@ -1,8 +1,6 @@
 .info-banner-item{
     width: 15vw;
-    height: 15vw;
     color: #1f1f1f;
-    font-size: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,7 +12,6 @@
 }
 
 .info-banner-item h4 {
-    font-size: 40px;
     margin: 0;
 }
 
