@@ -5,7 +5,7 @@ import faixa10a14 from "../../img/faixa10a14.png";
 import styles from "./EscolhaIdade.module.css";
 
 const EscolhaGenero = ({setFaixa, faixa}) => {
-    const handleClick = (elem, faixa) => {
+    function handleClick (elem, faixa){
         document.querySelectorAll(`.${styles["container_faixa"]} div`).forEach((div) => {
             div.classList.remove(styles["active"]);
         });

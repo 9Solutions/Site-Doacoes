@@ -1,5 +1,24 @@
+:root {
+  --primary-color: rgb(0, 136, 22);
+  --primary-color-dark: rgb(0, 109, 18);
+  --secondary-color: #F79A00;
+  --secondary-color-dark: #D97B00;
+  --secondary-text-color: #1E1E1E;
+
+  --animation-time: 0.5s;
+
+}
+
 * {
-  font-family: Asap;
+  font-family: Asap, serif;
+}
+
+body, html, main {
+  min-height: 100vh;
+}
+
+main {
+  padding: 100px 20%;
 }
 
 .material-symbols-outlined {
@@ -7,4 +26,11 @@
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.centralize {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

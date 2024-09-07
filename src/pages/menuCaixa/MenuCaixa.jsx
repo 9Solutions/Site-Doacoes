@@ -26,7 +26,7 @@ const MenuCaixa = () => {
                     </div>
                     <div className={styles["menu_item"]}>
                         <img src={track}/>
-                        <button className={styles['bt']}>Acompanhar Doação</button>
+                        <button onClick={() => navigate("/acompanhamento")} className={styles['bt']}>Acompanhar Doação</button>
                     </div>
                 </div>
             </main>

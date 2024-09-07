@@ -58,3 +58,7 @@ export const getCategoriasPorEstagio = async (estagio) => {
 export const getFaixasEtarias = async () => {
     return api.get(`/faixa-etaria/`);
 }
+
+export const getPedidosByUser = async (idDoador) => {
+    return api.get(`/pedidos/all-details/buscar-doador/${idDoador}`);
+}
