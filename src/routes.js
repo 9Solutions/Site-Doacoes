@@ -10,10 +10,10 @@ import ItensCaixa from "./pages/itens-caixa/ItensCaixa";
 import FluxoMontagemCaixa from "./pages/fluxoMontagemCaixa/FluxoMontagemCaixa";
 import MenuCaixa from "./pages/menuCaixa/MenuCaixa";
 import Cartinha from "./pages/cartinha/cartinha";
+import Sobre from "./pages/sobre/sobre";
 import Carrinho from "./pages/carrinho/Carrinho";
 import Erro404 from "./pages/erro404/erro404";
 import Erro400 from "./pages/erro400/erro400";
-
 
 const rotas = () => {
     return(
@@ -26,6 +26,7 @@ const rotas = () => {
                  <Route path="/acompanhamento" element={<Acompanhamento/>} exact />
                  <Route path="/menu-caixa" element={<MenuCaixa/>} exact />
                  <Route path="/itens-caixa" element={<ItensCaixa/>} exact />
+                 <Route path="/sobre-nos" element={<Sobre/>} exact />
                  <Route path="/carrinho" element={<Carrinho/>} exact />
                  <Route path="*" element={<Erro404/>} exact />
                  <Route path="/erro400" element={<Erro400/>} exact />
