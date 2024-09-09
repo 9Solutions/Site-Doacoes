@@ -77,7 +77,7 @@ const Pagamento = () => {
   return (
     <>
       <NavBar />
-      <main>
+      <main className={styles['tela-pagamentos']}>
         <PageTitle title="Caixa Online" />
         <div className={styles["div-pagamento"]}>
           <div className={styles["barra"]}>
