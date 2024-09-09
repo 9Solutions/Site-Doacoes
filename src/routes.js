@@ -9,6 +9,7 @@ import ItensCaixa from "./pages/itens-caixa/ItensCaixa";
 import FluxoMontagemCaixa from "./pages/fluxoMontagemCaixa/FluxoMontagemCaixa";
 import MenuCaixa from "./pages/menuCaixa/MenuCaixa";
 import Cartinha from "./pages/cartinha/cartinha";
+import FormasDoacao from "./pages/home/formasDoacao/formasDoacao";
 
 
 const rotas = () => {
@@ -21,6 +22,7 @@ const rotas = () => {
                  <Route path="/menu-caixa" element={<MenuCaixa/>} exact />
                  <Route path="/itens-caixa" element={<ItensCaixa/>} exact />
                  <Route path="" element={<Home/>} exact />
+                 <Route path="/formas-doacao" element={<FormasDoacao/>} exact />
                  {/*<Route path="*" element={<NotFound />} />*/}
              </Routes>
         </BrowserRouter>

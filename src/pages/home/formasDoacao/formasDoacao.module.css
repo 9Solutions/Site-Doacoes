@@ -1,0 +1,156 @@
+h2 {
+    font-size: 35px;
+}
+
+.caixa-content {
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    width: 90%;
+}
+
+.title-section {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #000;
+    position: relative;
+    padding: 30px;
+}
+
+.underline {
+    width: 150px;
+    height: 5px;
+    background-color: #28a745;
+    margin: 8px 0;
+    border-radius: 50px;
+    animation: expand 0.5s ease-out;
+}
+
+.why-donate .underline {
+    width: 150px;
+    height: 4px;
+    background-color: #28a745;
+    margin: 8px auto;
+    border-radius: 50px;
+    animation: expand 0.5s ease-out;
+}
+
+.underline-block {
+    width: 150px;
+    height: 4px;
+    background-color: #ff9800;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    animation: expand 0.5s ease-out;
+}
+
+@keyframes expand {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 150px;
+    }
+}
+
+.donation-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#cora-block {
+    width: 250px;
+}
+
+#bradesco-block {
+    width: 250px;
+}
+
+#paypal-block,
+#pagseguro-block {
+    width: 200px;
+    margin-left: 20px;
+}
+
+.paypal-pagseguro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+
+.donation-block {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px;
+}
+
+.donation-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.qr-code {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.donation-block p {
+    margin: 5px 0;
+}
+
+.donation-button {
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.donation-button:hover {
+    background-color: #e68a00;
+}
+
+
+
+
+.why-donate {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.why-donate-items {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.why-donate-item {
+    text-align: center;
+    width: 200px;
+}
+
+.video-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
