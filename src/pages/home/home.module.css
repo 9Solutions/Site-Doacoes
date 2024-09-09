@@ -119,12 +119,13 @@
     padding: 1%;
 }
 
+.header-historias-inspiradoras{
+    background-image: url("../../utils/img/imagem 1.png");
+}
+
 .texto-overlay-historias-inspiradoras{
-    position: absolute;
-    top: 275%;
-    left: 30%;
-    transform: translate(-50%, -50%);
     color: white;
+    padding: 3%;
 }
 
 .texto-overlay-historias-inspiradoras h3{
@@ -238,4 +239,23 @@
 .div-contato-qrcode p{
     font-size: 20px;
     text-align: left;
+}
+
+
+@media (min-width: 1200px) {
+    .header-historias-inspiradoras{
+        height: 35vh;
+    }
+    .cards-historias-inspiradoras div {
+        width: 400px;
+        height: 268px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+ 
+    .cards-historias-inspiradoras div {
+        width: 300px;
+        height: 200px;
+    }
 }

@@ -1,0 +1,17 @@
+.premiacao-item {
+    display: flex;
+    background-color: #FDAF2D;
+    color: white;
+    margin: 0 12% 2% 12%;
+    border-radius: 4%;
+    align-items: center;
+}
+
+@media screen and (min-width: 1200px) {
+    .premiacao-item img {
+        height: 40%;
+        margin: 0 2%;
+    }
+}
+
+.premiacao-item-text {}

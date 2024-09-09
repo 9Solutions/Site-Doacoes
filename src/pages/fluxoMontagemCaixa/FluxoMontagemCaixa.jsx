@@ -32,8 +32,8 @@ const FluxoMontagemCaixa = () => {
         }
 
         if (estagio === 6) {
-            localStorage.setItem("produtos_selecionados", JSON.stringify(produtosSelecionados));
-            //navigate('/carta')
+            sessionStorage.setItem("produtos_selecionados", JSON.stringify(produtosSelecionados));
+            navigate('/itens-caixa')
         }
 
     }, [estagio]);
@@ -48,21 +48,15 @@ const FluxoMontagemCaixa = () => {
     }, [categorias]);
 
     useEffect(() => {
-        if (genero !== '') {
+        if (faixa !== -1 && genero !== '') {
             getProdutos().then((response) => {
-                setProdutos(response.data.filter(produto => produto.genero === genero || produto.genero === 'U'));
-            });
-        }
-    }, [genero]);
-
-    useEffect(() => {
-        if (faixa !== -1) {
-            getProdutos().then((response) => {
-                setProdutos(response.data.filter(produto => produto.faixaEtaria.id === faixa));
+                let produtosFiltrados = response.data.filter(prod => prod.faixaEtaria.id === faixa);
+                produtosFiltrados = produtosFiltrados.filter(produto => produto.genero === genero || produto.genero === 'U');
+                setProdutos(produtosFiltrados);
                 setCategorias([])
             });
         }
-    }, [faixa]);
+    }, [genero, faixa]);
 
     useEffect(() => {
         quantTotalEsperadaRef.current["est"+estagio] = categorias.reduce((total, categoria) => total + categoria.qtdeProdutos, 0);
@@ -88,20 +82,18 @@ const FluxoMontagemCaixa = () => {
     }
 
     const handleDisabled = () => {
-        console.warn(estagio === 5 , carta.length < 10)
-        console.warn(quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
-            .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))
-            .length)
-
-        return genero === ''
-            ||
-            (estagio === 1 && faixa === -1)
-            ||
-            (estagio === 5 && carta.length < 10)
-            ||
-            quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
-                .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))
-                .length;
+        switch (estagio){
+            case 0:
+                return genero === '';
+            case 1:
+                return faixa === -1;
+            case 5:
+                return carta === '';
+            default:
+                return quantTotalEsperadaRef.current["est"+estagio] !== produtosSelecionados
+                    .filter(produto => categorias.map(categoria => categoria.id).includes(produto.idCategoria))
+                    .length;
+        }
     }
 
     const handleNext = () => {

@@ -1,0 +1,20 @@
+.info-banner-item{
+    width: 15vw;
+    color: #1f1f1f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.info-banner-item img{
+    width: 40%;
+}
+
+.info-banner-item h4 {
+    margin: 0;
+}
+
+.info-banner-item p{
+    margin: 0;
+}
