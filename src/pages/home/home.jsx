@@ -3,6 +3,7 @@ import NavBar from "../../component/navbar/navbar";
 import Footer from "../../component/footer/footer";
 import { useNavigate } from "react-router-dom";
 import banner from "../../utils/img/pexels-rebecca-zaal-252062-764681 1.png";
+import teste from "../../utils/img/imagem-home.jpg";
 import equipe from "../../utils/img/equipe.png";
 import criancas from "../../utils/img/criancas.png";
 import destino from "../../utils/img/destino.png";
@@ -29,7 +30,7 @@ const Home = () => {
     <>
       <NavBar />
       <div className={styles["div-banner"]}>
-        <img src={banner} alt="" />
+        <img src={teste} alt="" />
         <div className={styles["div-texto-overlay"]}>
           <h3>Monte sua Caixa</h3>
           <p>
