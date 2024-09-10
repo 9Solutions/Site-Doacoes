@@ -25,6 +25,7 @@ const FluxoMontagemCaixa = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (estagio > 1 && estagio <= 4) {
             getCategoriasPorEstagio(estagio-1).then((response) => {
                 setCategorias(response.data);
@@ -33,7 +34,7 @@ const FluxoMontagemCaixa = () => {
 
         if (estagio === 6) {
             sessionStorage.setItem("produtos_selecionados", JSON.stringify(produtosSelecionados));
-            navigate('/itens-caixa')
+            window.location.href = '/itens-caixa'
         }
 
     }, [estagio]);

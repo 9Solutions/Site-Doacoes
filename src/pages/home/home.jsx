@@ -36,7 +36,7 @@ const Home = () => {
             É uma oportunidade única de espalhar alegria, amor e esperança para
             alguém que precisa
           </p>
-          <button className={styles["default-button"]}>FAÇA SUA CAIXA</button>
+          <button className={styles["default-button"]} onClick={()=> navigate("montagem-caixa")}>FAÇA SUA CAIXA</button>
         </div>
       </div>
       <div className={styles["div-info-banner"]}>
@@ -72,7 +72,7 @@ const Home = () => {
               Você pode montar sua caixinha e escrever sua cartinha, tudo
               online!!
             </p>
-            <button className={styles["default-button"]}>MONTAR CAIXA</button>
+            <button className={styles["default-button"]} onClick={()=> navigate("montagem-caixa")}>MONTAR CAIXA</button>
           </li>
 
           <li>

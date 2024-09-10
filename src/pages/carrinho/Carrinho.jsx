@@ -5,8 +5,11 @@ import PageTitle from "../../component/pageTitle/PageTitle";
 import caixa from "../../img/caixa.png";
 import styles from "../fluxoMontagemCaixa/FluxoMontagemCaixa.module.css";
 import Footer from "../../component/footer/footer";
+import {useNavigate} from "react-router-dom";
 
 const Carrinho = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <Navbar />
@@ -44,7 +47,7 @@ const Carrinho = () => {
                     </div>
 
                     <div className={styles["buttons"]}>
-                        <button className={styles['next']} style={{width: "200px"}}>Pagar</button>
+                        <button className={styles['next']} style={{width: "200px"}} onClick={() => {navigate("/pagamento")}}>Pagar</button>
                     </div>
                 </div>
             </main>

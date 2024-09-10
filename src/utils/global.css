@@ -34,3 +34,15 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 1200px) {
+  main{
+    padding: 100px 10%;
+  }
+}
+
+@media (max-width: 500px) {
+  main{
+    padding: 100px 0;
+  }
+}

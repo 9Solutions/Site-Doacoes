@@ -22,7 +22,7 @@ const MenuCaixa = () => {
                 <div className={styles["container_menu"]}>
                     <div className={styles["menu_item"]}>
                         <img src={caixa}/>
-                        <button onClick={() => navigate("/fluxo-montagem-caixa")} className={styles['bt']}>Montar Caixa</button>
+                        <button onClick={() => navigate("/montagem-caixa")} className={styles['bt']}>Montar Caixa</button>
                     </div>
                     <div className={styles["menu_item"]}>
                         <img src={track}/>

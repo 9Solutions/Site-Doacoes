@@ -17,7 +17,7 @@ const Acompanhamento = () => {
 
   useEffect(() => {
     if (sessionStorage.getItem("auth") === null) {
-      navigate("/login");
+      window.location.href = "/login";
     }
   }, []);
 
@@ -25,7 +25,12 @@ const Acompanhamento = () => {
   useEffect(() => {
     getPedidosByUser(doadorId).then((response) => {
       setCaixas(response.data.map(pedido => pedido.caixas).flat());
-      setValorPCaixa(response.data.map(pedido => pedido.valorTotal / pedido.caixas.length).flat());
+      setValorPCaixa(response.data.map(pedido => {
+        let caixasLen = pedido.caixas.length
+        caixasLen = caixasLen === 0 ? 1 : pedido.caixas.length
+        return pedido.valorTotal / caixasLen
+      }).flat());
+      console.log(response.data)
     })
   }, [doadorId]);
 
