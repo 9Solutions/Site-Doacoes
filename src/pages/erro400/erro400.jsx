@@ -19,21 +19,22 @@ const validar = async (email, senha) => {
 const Erro400 = () => {
   const navigate = useNavigate();
 
- const toHome = () => {
-     navigate("/");
- };
+  const toHome = () => {
+    navigate("/");
+  };
 
   return (
     <>
       <NavBar />
       <div className={styles["div-erro"]}>
-      <img src={erro400img} alt="" />
-      </div>
-      <h1 className={styles["bad-request"]}>Bad Request</h1>
-      <button className={styles["return-button"]} onClick={toHome}>
-          Voltar ao início 
+        <img src={erro400img} alt="" />
+        <h1 className={styles["bad-request"]}>Bad Request</h1>
+        <button className={styles["return-button"]} onClick={toHome}>
+          Voltar ao início
         </button>
-      <Footer />
+      </div>
+
+      <Footer styles />
     </>
   );
 };

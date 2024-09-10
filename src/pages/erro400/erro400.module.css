@@ -5,27 +5,26 @@ body {
 
 .div-erro{
     display: flex;
-    margin-bottom: 4%;
+    flex-direction: column;
+    gap: -100px;
+    justify-content:start;
+    padding: 10px;
+    align-items: center;
+    margin-bottom: 10%;
 }
-
- .bad-request{
-    display: flex;
-    position: relative;
-    bottom:25%;
-    justify-content: center;
-}
-
 
 
 .div-erro img{
-    display: flex;
     width: 500px;
-    height: 500px;
-    margin-left: 35%;
-    margin-top: 7%;
-    margin-bottom: 2%;
+    height: 360px;
+    object-fit: cover;
+    position: relative;
+    top: 4vh;
 }
 
+.bad-request{
+    margin: 0;
+}
 
 .label-login {
     font-size: 24px;
@@ -48,16 +47,8 @@ body {
     font-size: 24px;
     font-weight: 300;
     border-radius: 7px;
-    margin-top: 2%;
     width: 20%;
     height: 5.5vh;
-    display: flex;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    left: 40%;
-    bottom: 25%;
 }
 
 .div-login .link{
