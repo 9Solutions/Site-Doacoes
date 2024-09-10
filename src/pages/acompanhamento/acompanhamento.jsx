@@ -13,7 +13,7 @@ const Acompanhamento = () => {
   const [valorPCaixa, setValorPCaixa] = useState([]);
   const [caixas, setCaixas] = useState([]);
   const { doadorId } = JSON.parse(sessionStorage.getItem("auth")) || {};
-  const navigate = useNavigate();
+  const { nome } = JSON.parse(sessionStorage.getItem("auth")) || {};
 
   useEffect(() => {
     if (sessionStorage.getItem("auth") === null) {
@@ -40,7 +40,7 @@ const Acompanhamento = () => {
       <NavBar />
       <main>
         <h2 className={styles["titulo-acompanhamento"]}>Doações</h2>
-        <p className={styles["subtitulo-acompanhamento"]}>Olá, Filipe Portugal <br></br>Acompanhe suas doações por aqui
+        <p className={styles["subtitulo-acompanhamento"]}>Olá, {nome} <br></br>Acompanhe suas doações por aqui
         </p>
         {
           //Continuar integração com o backend
