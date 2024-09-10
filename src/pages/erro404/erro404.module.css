@@ -12,7 +12,7 @@ body {
     display: flex !important;
     position: relative !important;
     bottom:25% !important;
-    left: 37% !important;
+    justify-content: center;
 }
 
 
