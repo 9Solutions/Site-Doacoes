@@ -13,11 +13,11 @@ const Acompanhamento = () => {
   const [valorPCaixa, setValorPCaixa] = useState([]);
   const [caixas, setCaixas] = useState([]);
   const { doadorId } = JSON.parse(sessionStorage.getItem("auth")) || {};
-  const navigate = useNavigate();
+  const { nome } = JSON.parse(sessionStorage.getItem("auth")) || {};
 
   useEffect(() => {
     if (sessionStorage.getItem("auth") === null) {
-      navigate("/login");
+      window.location.href = "/login";
     }
   }, []);
 
@@ -25,7 +25,12 @@ const Acompanhamento = () => {
   useEffect(() => {
     getPedidosByUser(doadorId).then((response) => {
       setCaixas(response.data.map(pedido => pedido.caixas).flat());
-      setValorPCaixa(response.data.map(pedido => pedido.valorTotal / pedido.caixas.length).flat());
+      setValorPCaixa(response.data.map(pedido => {
+        let caixasLen = pedido.caixas.length
+        caixasLen = caixasLen === 0 ? 1 : pedido.caixas.length
+        return pedido.valorTotal / caixasLen
+      }).flat());
+      console.log(response.data)
     })
   }, [doadorId]);
 
@@ -35,7 +40,7 @@ const Acompanhamento = () => {
       <NavBar />
       <main>
         <h2 className={styles["titulo-acompanhamento"]}>Doações</h2>
-        <p className={styles["subtitulo-acompanhamento"]}>Olá, Filipe Portugal <br></br>Acompanhe suas doações por aqui
+        <p className={styles["subtitulo-acompanhamento"]}>Olá, {nome} <br></br>Acompanhe suas doações por aqui
         </p>
         {
           //Continuar integração com o backend

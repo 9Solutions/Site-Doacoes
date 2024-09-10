@@ -99,6 +99,7 @@
     padding: 2%;
     color: white;
     border-radius: 8%;
+    cursor: pointer;
 }
 
 .default-button:hover{
