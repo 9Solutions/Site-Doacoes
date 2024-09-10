@@ -1,0 +1,77 @@
+.caixa-content {
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    width: 90%;
+}
+
+.banner-section {
+    text-align: center;
+    background-color: #28a745;
+    padding: 40px 20px;
+    color: white;
+}
+
+.anjo-icon {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.explicacao-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+}
+
+.explicacao-text {
+    flex: 1;
+}
+
+.voluntario-img {
+    max-width: 300px;
+    margin-left: 20px;
+}
+
+.cta-section {
+    text-align: center;
+    background-color: #ff9800;
+    padding: 40px 20px;
+    color: white;
+}
+
+.icons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.icon-box {
+    text-align: center;
+    margin: 0 20px;
+}
+
+.icon-box img {
+    max-width: 100px;
+}
+
+.qr-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.qr-code {
+    max-width: 150px;
+    margin-top: 20px;
+}
+
+.participe-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.participe-img {
+    max-width: 300px;
+    margin-top: 20px;
+}

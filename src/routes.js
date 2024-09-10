@@ -14,6 +14,7 @@ import Sobre from "./pages/sobre/sobre";
 import Carrinho from "./pages/carrinho/Carrinho";
 import Erro404 from "./pages/erro404/erro404";
 import Erro400 from "./pages/erro400/erro400";
+import SejaUmAnjo from "./pages/home/sejaUmAnjo/sejaUmAnjo";
 
 const rotas = () => {
     return(
@@ -28,6 +29,7 @@ const rotas = () => {
                  <Route path="/itens-caixa" element={<ItensCaixa/>} exact />
                  <Route path="/sobre-nos" element={<Sobre/>} exact />
                  <Route path="/carrinho" element={<Carrinho/>} exact />
+                 <Route path="/seja-um-anjo" element={<SejaUmAnjo/>} exact />
                  <Route path="*" element={<Erro404/>} exact />
                  <Route path="/erro400" element={<Erro400/>} exact />
                  <Route path="" element={<Home/>} exact />
