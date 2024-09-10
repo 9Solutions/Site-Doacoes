@@ -27,11 +27,11 @@ const Erro404 = () => {
       <NavBar />
       <div className={styles["div-erro-404"]}>
         <img src={erro404img} alt="" />
-      </div>
-      <h1 className={styles["Not-found"]}>Essa página não foi encontrada</h1>
+        <h1 className={styles["Not-found"]}>Essa página não foi encontrada</h1>
       <button className={styles["return-button"]} onClick={toHome}>
           Voltar ao início 
         </button>
+      </div>
       <Footer />
     </>
   );

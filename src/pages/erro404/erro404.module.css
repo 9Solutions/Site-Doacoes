@@ -6,13 +6,12 @@ body {
 .div-erro-404{
     display: flex;
     margin-bottom: 4%;
+    flex-direction: column;
+    align-items: center;
 }
 
  .Not-found {
-    display: flex !important;
-    position: relative !important;
-    bottom:25% !important;
-    justify-content: center;
+    margin: 0;
 }
 
 
@@ -21,9 +20,9 @@ body {
     display: flex;
     width: 500px;
     height: 500px;
-    margin-left: 35%;
-    margin-top: 7%;
-    margin-bottom: 2%;
+    object-fit: cover;
+    position: relative;
+    top: 80px;
 }
 
 
@@ -55,9 +54,6 @@ body {
     align-self: center;
     align-items: center;
     justify-content: center;
-    position: relative;
-    left: 39%;
-    bottom: 25%;
 }
 
 .div-login .link{
