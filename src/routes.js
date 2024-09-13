@@ -31,7 +31,7 @@ const rotas = () => {
                  <Route path="/itens-caixa" element={<ItensCaixa/>} exact />
                  <Route path="/sobre-nos" element={<Sobre/>} exact />
                  <Route path="/carrinho" element={<Carrinho/>} exact />
-                 {/*<Route path="/seja-um-anjo" element={<SejaUmAnjo/>} exact /> */} 
+                 <Route path="/seja-um-anjo" element={<SejaUmAnjo/>} exact /> 
                  <Route path="*" element={<Erro404/>} exact />
                  <Route path="/erro400" element={<Erro400/>} exact />
                  <Route path="" element={<Home/>} exact />
