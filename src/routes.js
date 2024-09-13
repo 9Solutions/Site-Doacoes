@@ -16,7 +16,7 @@ import Sobre from "./pages/sobre/sobre";
 import Carrinho from "./pages/carrinho/Carrinho";
 import Erro404 from "./pages/erro404/erro404";
 import Erro400 from "./pages/erro400/erro400";
-//import SejaUmAnjo from "./pages/home/sejaUmAnjo/sejaUmAnjo";
+import SejaUmAnjo from "./pages/home/sejaUmAnjo/sejaUmAnjo";
 
 const rotas = () => {
     return(
