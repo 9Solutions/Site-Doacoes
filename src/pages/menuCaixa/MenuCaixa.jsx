@@ -22,11 +22,11 @@ const MenuCaixa = () => {
                 <div className={styles["container_menu"]}>
                     <div className={styles["menu_item"]}>
                         <img src={caixa}/>
-                        <button onClick={() => navigate("/montagem-caixa")} className={styles['bt']}>Montar Caixa</button>
+                        <button onClick={() => window.location.href = "/montagem-caixa"} className={styles['bt']}>Montar Caixa</button>
                     </div>
                     <div className={styles["menu_item"]}>
                         <img src={track}/>
-                        <button onClick={() => navigate("/acompanhamento")} className={styles['bt']}>Acompanhar Doação</button>
+                        <button onClick={() => window.location.href = "/acompanhamento"} className={styles['bt']}>Acompanhar Doação</button>
                     </div>
                 </div>
             </main>

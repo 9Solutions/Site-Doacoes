@@ -122,6 +122,7 @@
 
 .header-historias-inspiradoras{
     background-image: url("../../utils/img/imagem 1.png");
+    background-repeat: no-repeat;
 }
 
 .texto-overlay-historias-inspiradoras{

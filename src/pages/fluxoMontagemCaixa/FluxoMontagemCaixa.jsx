@@ -171,7 +171,7 @@ const FluxoMontagemCaixa = () => {
                                                             <div onClick={() => {
                                                                 selectProduto(produto.id, categoria.qtdeProdutos, categoria.id);
                                                             }} key={produto.id} id={`prod-${produto.id}`} className={styles["produto"]}>
-                                                                <img src={produto.urlImagem} alt={produto.nome}/>
+                                                                <img src='https://pplider.com.br/image/no_image.jpg' alt={produto.nome}/>
                                                                 <span>{produto.nome}</span>
                                                             </div>
                                                         );

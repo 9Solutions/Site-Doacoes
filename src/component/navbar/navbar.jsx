@@ -13,7 +13,7 @@ const navBar = () => {
               <a className={styles["navbar-list-item"]} href="/">HOME</a>
             </li>
             <li>
-              <a className={styles["navbar-list-item"]} href="/sobre">O PROJETO</a>
+              <a className={styles["navbar-list-item"]} href="/sobre-nos">O PROJETO</a>
             </li>
             <li>
               <a className={styles["navbar-list-item"]} href="/formas-doacao">FAÇA SUA DOAÇÃO</a>
