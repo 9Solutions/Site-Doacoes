@@ -20,6 +20,7 @@
     border: solid 2px #DBDBDB;
     border-radius: 10px;
     height: 200px;
+    margin-bottom: 20px;
 }
 
 .container-caixa {
@@ -58,8 +59,9 @@
 }
 
 .container-detalhes p {
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 16px;
 }
 
 .container-status {
@@ -120,6 +122,11 @@
 
 .estagios ul li.active {
     border: solid 3px #008816;
+
+}
+
+.estagios ul li.active span {
+    color: #008816;
 }
 
 .estagios span {

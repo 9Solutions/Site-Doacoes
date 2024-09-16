@@ -9,8 +9,6 @@ import {tranformDate} from "../../utils/global";
 
 
 const Acompanhamento = () => {
-  const estagio = 0;
-  const [valorPCaixa, setValorPCaixa] = useState([]);
   const [caixas, setCaixas] = useState([]);
   const { doadorId } = JSON.parse(sessionStorage.getItem("auth")) || {};
   const { nome } = JSON.parse(sessionStorage.getItem("auth")) || {};
@@ -24,13 +22,18 @@ const Acompanhamento = () => {
 
   useEffect(() => {
     getPedidosByUser(doadorId).then((response) => {
-      setCaixas(response.data.map(pedido => pedido.caixas).flat());
-      setValorPCaixa(response.data.map(pedido => {
+      setCaixas(response.data.map(pedido => {
         let caixasLen = pedido.caixas.length
         caixasLen = caixasLen === 0 ? 1 : pedido.caixas.length
-        return pedido.valorTotal / caixasLen
+
+        pedido.caixas.map(caixa => {
+            return caixa["valorUn"] = pedido.valorTotal / caixasLen
+        });
+
+        return pedido.caixas
+
       }).flat());
-      console.log(response.data)
+
     })
   }, [doadorId]);
 
@@ -44,7 +47,10 @@ const Acompanhamento = () => {
         </p>
         {
           //Continuar integração com o backend
-          caixas.map((caixa, key) => (
+          caixas.map((caixa, key) => {
+              let estagio = caixa.etapas.length
+
+              return (
               <div key={key} className={styles["container-doacao"]}>
 
                 <div className={styles["container-caixa"]}>
@@ -55,8 +61,8 @@ const Acompanhamento = () => {
                   <div className={styles["container-detalhes"]}>
                     <h2>Detalhes</h2>
                     <p>Data da Doação: {tranformDate(caixa.etapas[0].update)}</p>
-                    <p>Valor Total: R${parseFloat(valorPCaixa[key]).toFixed(2)}</p>
-                    <p>Entrega: Em processamento</p>
+                    <p>Valor Total: R${parseFloat(caixa.valorUn).toFixed(2)}</p>
+                    <p>Entrega: {estagio === 3 ? tranformDate(caixa.etapas[caixa.etapas.length-1].update) : 'Em Processamento'}</p>
                   </div>
 
                 </div>
@@ -66,11 +72,11 @@ const Acompanhamento = () => {
                   <div className={styles["estagios"]}>
                     <ul>
                       <div>
-                        <li className={`${estagio >= 0 ? styles['active'] : ''}`}><span
+                        <li className={`${estagio >= 1 ? styles['active'] : ''}`}><span
                             className="material-symbols-outlined">orders</span></li>
                         <p>Processo de Montagem</p>
                       </div>
-                      <div className={`${styles["connector"]} ${estagio >= 1 ? styles['active'] : ''}`}></div>
+                      <div className={`${styles["connector"]} ${estagio >= 2 ? styles['active'] : ''}`}></div>
                       <div>
                         <li className={`${estagio >= 2 ? styles['active'] : ''}`}><span
                             className="material-symbols-outlined">local_shipping</span></li>
@@ -87,7 +93,8 @@ const Acompanhamento = () => {
                 </div>
 
               </div>
-          ))
+              )
+            })
         }
       </main>
       <Footer/>

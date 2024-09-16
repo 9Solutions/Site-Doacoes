@@ -72,7 +72,7 @@ function ItensCaixa() {
                         {
                             produtos.map((produto) => (
                                 <div className={styles['item']}>
-                                    <img src={produto.urlImagem} alt={produto.nome} className={styles['item-image']} />
+                                    <img src='https://pplider.com.br/image/no_image.jpg' alt={produto.nome} className={styles['item-image']} />
                                     <p>{produto.nome}</p>
                                 </div>
                             ))
