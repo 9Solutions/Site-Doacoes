@@ -9,7 +9,7 @@ import './utils/global.js'
 export default function App() {
    return (
        <>
-        <Routes/>    
+        <Routes/> 
         <ToastContainer/>
        </>
    );

@@ -184,6 +184,8 @@ const Home = () => {
           <button className={styles["default-button"]}>ENVIAR</button>
         </div>
       </div>
+
+      
       <Footer />
     </>
   );
