@@ -6,7 +6,7 @@ import Footer from "../../component/footer/footer";
 import instagramIcon from "../../utils/img/Instagram-Icon.png";
 import facebookIcon from "../../utils/img/Facebook-Icon.png";
 import { toast } from "react-toastify";
-import {login} from "../../utils/backend/methods";
+import { login } from "../../utils/backend/methods";
 
 
 const Login = () => {
@@ -52,11 +52,9 @@ const Login = () => {
           Senha:
         </label>
         <input type="password" placeholder="****************" ref={senhaRef} />
-        <p>
-          <a id={styles["forgot-password"]}>
-            Esqueci minha senha  
-          </a>
-          <a href="">Não possui uma conta?</a>
+        <p className={styles["no-account"]}>
+          <a id={styles["forgot-password"]}>Esqueci minha senha</a>
+          <span>Não possui uma conta? </span>
           <a className={styles["link"]} onClick={toCadastro}>Crie aqui</a>
         </p>
         <button className={styles["login-button"]}>

@@ -4,6 +4,7 @@ body {
 }
 
 .titulo-login {
+    margin-top: 80px;
     margin-left: 16%;
     font-size: 48px;
     border-bottom: 4px solid #008816;
@@ -32,7 +33,15 @@ input {
     color: #818080;
 }
 
-.div-login p a {
+/* .div-login p a {
+    margin-top: 0;
+    text-decoration: none;
+    color: #9A9C9A;
+    font-weight: 300;
+    font-size: 24px;
+} */
+
+.div-conta-senha {
     margin-top: 0;
     text-decoration: none;
     color: #9A9C9A;
@@ -41,7 +50,7 @@ input {
 }
 
 .login-button {
-    background-color: #F79A00;
+    background-color: #F57C00;
     color: #FFFFFF;
     border: none;
     font-size: 24px;
@@ -49,23 +58,81 @@ input {
     border-radius: 7px;
     margin-top: 2%;
     width: 40%;
-    height: 5.5vh;
+    height: 7.5vh;
     display: flex;
     align-self: center;
     align-items: center;
     justify-content: center;
 }
 
-.div-login .link{
-    margin-left: 0.4vw;
-    text-decoration: underline;
+.login-button:hover {
+    color: #ffffff;
+    background-color: #F79A00;
+    border: 1px solid #F57C00;
+}
+
+.div-login .link {
     color: #477BFF;
+    margin-left: 0.4vw;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
 }
 
-#forgot-password{
-    margin-right: 23.4vw;
+.div-login .link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #477BFF;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.3s ease-in-out;
 }
 
-.login-button img{
+.div-login .link:hover {
+    color: #0056b3;
+}
+
+.div-login .link:hover::after {
+    width: 100%;
+}
+
+.no-account {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#forgot-password {
+    margin-right: auto;
+    color: #477BFF;
+    position: relative;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+#forgot-password:hover {
+    color: #0056b3;
+}
+
+#forgot-password::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #477BFF;
+    left: 0;
+    bottom: -2px;
+    transition: width 0.3s ease-in-out;
+}
+
+ #forgot-password:hover::after {
+    width: 100%;
+}
+
+.login-button img {
     height: 41px;
 }
