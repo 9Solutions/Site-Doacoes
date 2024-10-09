@@ -34,7 +34,7 @@ function Cadastro() {
         senha,
       })
       .then(() => {
-        toast.success("Cadastro realizado  com sucesso!");
+        toast.success("Cadastro realizado com sucesso!");
         navigate("/login");
       })
       .catch(() => {
@@ -124,23 +124,7 @@ function Cadastro() {
 
         <label className={styles["label-cadastro"]} htmlFor="person-type">Tipo de pessoa:</label>
         <input className={styles["input-cadastro"]} type="text" />
-
-        <button className={styles["botao-cadastro"]}>
-          <img
-            className={styles["imagem-cadastro"]}
-            src={instagramIcon}
-            alt=""
-          />
-          Entrar com Instagram
-        </button>
-        <button className={styles["botao-cadastro"]}>
-          <img
-            className={styles["imagem-cadastro"]}
-            src={facebookIcon}
-            alt=""
-          />
-          Entrar com Facebook
-        </button>
+        
         <button className={styles["botao-cadastro"]} onClick={handleSave}>
           Cadastrar
         </button>
