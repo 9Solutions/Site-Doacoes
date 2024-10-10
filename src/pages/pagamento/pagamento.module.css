@@ -474,13 +474,13 @@ body {
 
     .container-pagamentos {
         display: flex;
-        flex-direction: column-reverse; /* Coloca a imagem embaixo */
+        flex-direction: column-reverse;
         align-items: center;
         gap: 24px;
     }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 700px) and (max-width: 1024px) {
     .div-pagamento {
         margin-left: 30px; 
         margin-right: 30px;
@@ -523,7 +523,7 @@ body {
 
     .container-pagamentos {
         display: flex;
-        flex-direction: column-reverse; /* Coloca a imagem embaixo */
+        flex-direction: column-reverse; 
         align-items: center;
         gap: 24px;
     }
