@@ -1,36 +1,35 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./sobre.module.css";
-import NavBar from "../../component/navbar/navbar";
-import Footer from "../../component/footer/footer";
-import olho from "../../utils/img/olho 1.png";
-import proposito from "../../utils/img/proposito 2.png";
-import Card from "../../component/card/card";
-import Premiacao from "../../component/premiacao/premiacao";
-
-import mochilaIcon from "../../utils/img/o-saco-da-escola (1) 1.png";
-import escovaIcon from "../../utils/img/escovar 1.png";
-import brinquedosIcon from "../../utils/img/brinquedos (1) 1.png";
-import roupasIcon from "../../utils/img/doacao-de-roupas 1.png";
-import graficos from "../../utils/img/Design sem nome 1.png";
-import ods1Image from "../../utils/img/ods-1.svg";
-import ods4Image from "../../utils/img/ods-4.svg";
-import ods10Image from "../../utils/img/ods-10.svg";
-import ods12Image from "../../utils/img/ods-12.svg";
-import ods17Image from "../../utils/img/ods-17.svg";
-import dinamico from "../../utils/img/dinamica 1.png";
-import oportunidade from "../../utils/img/oportunidade 1.png";
-import escalabilidade from "../../utils/img/escalabilidade 2.png";
-import recorrente from "../../utils/img/recorrente 1.png";
-import philipsLogo from "../../utils/img/Philips.png";
-import hpLogo from "../../utils/img/hp.png";
-import mackenzieLogo from "../../utils/img/mackenzie.png";
-import organicoLogo from "../../utils/img/organico.png";
-import tquimLogo from "../../utils/img/tquim.png";
-import hpeLogo from "../../utils/img/hpe.png";
-import projetocaixasapatoLogo from "../../utils/img/Screen Shot 2019-01-19 at 22.49 1.png";
-import criança2 from "../../utils/img/image 93.png";
-import pngeIcon from "../../utils/img/image 94.png"
-import ajudaiIcon from "../../utils/img/image 95.png"
+import NavBar from "../../../component/navbar/navbar";
+import Footer from "../../../component/footer/footer";
+import olho from "../../../utils/img/olho 1.png";
+import proposito from "../../../utils/img/proposito 2.png";
+import Card from "../../../component/card/card";
+import Premiacao from "../../../component/premiacao/premiacao";
+import mochilaIcon from "../../../utils/img/o-saco-da-escola (1) 1.png";
+import escovaIcon from "../../../utils/img/escovar 1.png";
+import brinquedosIcon from "../../../utils/img/brinquedos (1) 1.png";
+import roupasIcon from "../../../utils/img/doacao-de-roupas 1.png";
+import graficos from "../../../utils/img/Design sem nome 1.png";
+import ods1Image from "../../../utils/img/ods-1.svg";
+import ods4Image from "../../../utils/img/ods-4.svg";
+import ods10Image from "../../../utils/img/ods-10.svg";
+import ods12Image from "../../../utils/img/ods-12.svg";
+import ods17Image from "../../../utils/img/ods-17.svg";
+import dinamico from "../../../utils/img/dinamica 1.png";
+import oportunidade from "../../../utils/img/oportunidade 1.png";
+import escalabilidade from "../../../utils/img/escalabilidade 2.png";
+import recorrente from "../../../utils/img/recorrente 1.png";
+import philipsLogo from "../../../utils/img/Philips.png";
+import hpLogo from "../../../utils/img/hp.png";
+import mackenzieLogo from "../../../utils/img/mackenzie.png";
+import organicoLogo from "../../../utils/img/organico.png";
+import tquimLogo from "../../../utils/img/tquim.png";
+import hpeLogo from "../../../utils/img/hpe.png";
+import projetocaixasapatoLogo from "../../../utils/img/Screen Shot 2019-01-19 at 22.49 1.png";
+import criança2 from "../../../utils/img/image 93.png";
+import pngeIcon from "../../../utils/img/image 94.png"
+import ajudaiIcon from "../../../utils/img/image 95.png"
 
 const Sobre = () => {
   const navigate = useNavigate();
