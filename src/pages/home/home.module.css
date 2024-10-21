@@ -1,29 +1,49 @@
-.div-banner{
+/* banner */
+.div-banner {
     position: relative;
     text-align: center;
     color: white;
 }
 
-.div-texto-overlay{
+.div-texto-overlay {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 0 2%; /* Adiciona algum espaçamento nas laterais */
 }
 
-.div-texto-overlay h3{
-    font-size: 70px;
+.div-texto-overlay h3 {
+    font-size: 5vw; /* Usa unidades relativas */
 }
 
-.div-texto-overlay p{
-    font-size: 36px;
+.div-texto-overlay p {
+    font-size: 3vw; /* Usa unidades relativas */
 }
 
 .div-banner img {
     width: 100%;
-    height: 80vh;
+    height: auto; /* Altera para auto para manter a proporção da imagem */
+    max-height: 80vh; /* Limita a altura máxima */
 }
 
+.default-button {
+    font-size: 2vw; /* Usa unidades relativas */
+    background-color: #F79A00;
+    border: none;
+    padding: 1% 2%; /* Ajusta o padding */
+    color: white;
+    border-radius: 8%;
+    cursor: pointer;
+}
+
+.default-button:hover {
+    color: #F79A00;
+    background-color: white;
+    border: #F79A00 2px solid;
+}
+
+/* info banner */
 .div-info-banner ul{
     display: flex;
     flex-direction: row;
@@ -90,22 +110,6 @@
 .div-nav-cards ul li button{
     font-size: 16px;
     margin-bottom: 4%;
-}
-
-.default-button{
-    font-size: 24px;
-    background-color: #F79A00;
-    border: none;
-    padding: 2%;
-    color: white;
-    border-radius: 8%;
-    cursor: pointer;
-}
-
-.default-button:hover{
-    color: #F79A00;
-    background-color: white;
-    border: #F79A00 2px solid;
 }
 
 .div-video{
@@ -193,6 +197,11 @@
   }
 
   @media (max-width: 768px) {
+    .div-texto-overlay {
+        position: absolute;
+        top: 57%;
+    }
+
     .div-equipe-voluntariado {
         font-size: 28px; 
     }
