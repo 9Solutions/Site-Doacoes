@@ -1,7 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import 'swiper/css/autoplay'
 
 import styles from "./home.module.css";
 import NavBar from "../../component/navbar/navbar";
@@ -162,6 +164,7 @@ const Home = () => {
           slidesPerView={3}
           autoplay={{ delay: 3000 }} // Slides trocam automaticamente a cada 3 segundos
           loop={true}
+          modules={[Autoplay]}
         >
           <SwiperSlide><img src={philipsLogo} alt="Philips" /></SwiperSlide>
           <SwiperSlide><img src={hpLogo} alt="HP" /></SwiperSlide>
