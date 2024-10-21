@@ -1,33 +1,87 @@
-body {
+html body {
     margin: 0;
-    font-family: Asap;
+    padding: 0;
+    font-family: Asap, sans-serif;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 .footer {
     background-color: #FDAF2D;
-    justify-content: center;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 15px;
     color: #FFFFFF;
+    width: 100%;
+    overflow: hidden;
 }
 
 .links-endereco {
-    width: 30%;
-    flex-wrap: wrap;
-    padding: 0;
-    margin-left: 2%;
-    align-content: center;}
+    width: 45%;
+    text-align: left;
+    line-height: 1.6;
+}
 
 .links-endereco-item {
     font-weight: 500;
+    margin: 8px 0;
+    word-break: break-word;
+}
+
+.email-cnpj {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    gap: 5px;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .image {
     width: 60px;
+    max-width: 100%;
 }
 
-.images {
-    margin-left: 2%;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-content: center;
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        padding: 15px;
+        gap: 10px;
+    }
+
+    .links-endereco {
+        width: 80%;
+        text-align: center;
+    }
+
+    .images {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 10px;
+    }
+
+    .links-endereco {
+        width: 100%; 
+    }
+
+    .images {
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
 }
