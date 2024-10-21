@@ -32,6 +32,7 @@ html body {
     font-weight: 500;
     margin: 8px 0;
     word-break: break-word;
+    font-size: 20px;
 }
 
 .email-cnpj {
