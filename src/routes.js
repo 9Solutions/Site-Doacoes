@@ -12,7 +12,7 @@ import MenuCaixa from "./pages/menuCaixa/MenuCaixa";
 import Cartinha from "./pages/cartinha/cartinha";
 import FormasDoacao from "./pages/home/formasDoacao/formasDoacao";
 
-import Sobre from "./pages/sobre/sobre";
+import Sobre from "./pages/home/sobre/sobre";
 import Carrinho from "./pages/carrinho/Carrinho";
 import Erro404 from "./pages/erro404/erro404";
 import Erro400 from "./pages/erro400/erro400";
