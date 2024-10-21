@@ -225,17 +225,40 @@ body {
 
     .div-equipe-voluntariado {
         font-weight: 500;
-        font-size: 1.5em;
+        font-size: 36px;
         text-align: center;
         color: #1f1f1f;
         margin-bottom: 5%;
+      }
+      
+      .div-equipe-voluntariado img {
+        width: auto;
+        height: auto;
+        max-width: 400px;
+        display: block;
+        margin: 0 auto;
+      }
+    
+      @media (max-width: 768px) {
+        .div-equipe-voluntariado {
+            font-size: 28px; 
+        }
+    
+        .div-equipe-voluntariado img {
+            max-width: 300px; 
+        }
     }
-
-
-    .div-equipe-voluntariado-imgs {
-        display: flex;
-        justify-content: space-between;
+    
+    @media (max-width: 480px) {
+        .div-equipe-voluntariado {
+            font-size: 24px; 
+        }
+    
+        .div-equipe-voluntariado img {
+            max-width: 250px; 
+        }
     }
+    
 
     .voluntarios-img {
         width: 15%;

@@ -1,3 +1,10 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay'
+
 import { useNavigate } from "react-router-dom";
 import styles from "./sobre.module.css";
 import NavBar from "../../../component/navbar/navbar";
@@ -189,19 +196,40 @@ const Sobre = () => {
       </div>
       <div className={styles["div-equipe-voluntariado"]}>
         <h3>EQUIPES DE VOLUNTARIADO E LOGÍSTICA:</h3>
-        <div className={styles["div-equipe-voluntariado-imgs"]}>
-          <img src={philipsLogo} alt="" />
-          <img src={hpLogo} alt="" />
-          <img src={mackenzieLogo} alt="" />
-          <img
-            src={organicoLogo}
-            alt=""
-            className={styles["voluntarios-img"]}
-          />
-          <img src={tquimLogo} alt="" className={styles["voluntarios-img"]} />
-          <img src={hpeLogo} alt="" className={styles["voluntarios-img"]} />
-          <img src={projetocaixasapatoLogo} alt="" />
-        </div>
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={3} 
+          breakpoints={{
+            768: {
+              slidesPerView: 4,
+            },
+            480: {
+              slidesPerView: 2,
+            },
+          }}
+        >
+          <SwiperSlide>
+            <img src={philipsLogo} alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={hpLogo} alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={mackenzieLogo} alt="" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={organicoLogo} alt="" className={styles["voluntarios-img"]} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={tquimLogo} alt="" className={styles["voluntarios-img"]} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={hpeLogo} alt="" className={styles["voluntarios-img"]} />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={projetocaixasapatoLogo} alt="" />
+          </SwiperSlide>
+        </Swiper>
       </div>
       <div className={styles["div-voluntariado"]}>
         <h5>Voluntariado</h5>
@@ -241,14 +269,14 @@ const Sobre = () => {
         />
       </div>
       <div className={styles["div-video-banner"]}>
-      <iframe
-            width="560"
-            height="315"
-            src="https://youtube.com/embed/lD5JV4r8qmY"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://youtube.com/embed/lD5JV4r8qmY"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
       <Footer />
     </>

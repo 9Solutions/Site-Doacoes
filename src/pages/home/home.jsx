@@ -160,9 +160,9 @@ const Home = () => {
       <div className={styles["div-equipe-voluntariado"]}>
         <h3>EQUIPES DE VOLUNTARIADO E LOGÍSTICA:</h3>
         <Swiper
-          spaceBetween={50}
+          spaceBetween={0}
           slidesPerView={3}
-          autoplay={{ delay: 3000 }} // Slides trocam automaticamente a cada 3 segundos
+          autoplay={{ delay: 3000 }} 
           loop={true}
           modules={[Autoplay]}
         >
