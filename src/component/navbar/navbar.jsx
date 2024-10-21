@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./navbar.module.css";
 import logo from "../../utils/img/logo.png";
 
-const navBar = () => {
+const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <>
       <nav>
         <div className={styles["nav-wrapper"]}>
           <img className={styles["logo"]} src={logo} alt="logo" />
-          <ul className={styles["navbar-list"]}>
+          <ul className={`${styles["navbar-list"]} ${isOpen ? styles["open"] : ""}`}>
             <li>
               <a className={styles["navbar-list-item"]} href="/">HOME</a>
             </li>
@@ -22,10 +28,15 @@ const navBar = () => {
               <a className={styles["navbar-list-item"]} href="/seja-um-anjo">PARTICIPE</a>
             </li>
           </ul>
-          <button className={styles["button"]} onClick={()=> window.location.href = "/menu-caixa"}>DOE</button>
+          <button className={styles["button"]} onClick={() => window.location.href = "/menu-caixa"}>DOE</button>
+          <div className={styles["hamburger"]} onClick={toggleMenu}>
+            <div className={styles["bar"]}></div>
+            <div className={styles["bar"]}></div>
+            <div className={styles["bar"]}></div>
+          </div>
         </div>
       </nav>
     </>
   );
 };
-export default navBar;
+export default NavBar;
