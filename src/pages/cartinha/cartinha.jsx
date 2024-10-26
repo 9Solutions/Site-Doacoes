@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from "../../component/navbar/navbar";
 import styles from './cartinha.module.css';
+import { postImage } from '../../utils/backend/methods';
+import { fileToBase64 } from '../../utils/backend/globals';
 
 function Cartinha({setCarta, carta, setFoto, foto}) {
 
     function handleChange(e) {
         setFoto(URL.createObjectURL(e.target.files[0]));
+        console.log(enviarFoto(e.target.files[0]))
+    }
 
+    async function enviarFoto(fotoArg) {
+        try {
+            const response = await fileToBase64(fotoArg)
+            return await postImage({
+                "content": response 
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const [isActive, setIsActive] = useState(false);
@@ -34,7 +47,10 @@ function Cartinha({setCarta, carta, setFoto, foto}) {
                         <div className={styles['textarea-container']}>
                             <label htmlFor="cartinha-textarea" className={styles['textarea-label']}>Sua carta:</label>
                             <textarea id="cartinha-textarea" placeholder="Escreva sua carta aqui..." value={carta}
-                                      onChange={(e) => {setCarta(e.target.value)}}></textarea>
+                                      onChange={(e) => {
+                                        setCarta(e.target.value)
+                                        sessionStorage.setItem('carta', e.target.value)
+                                        }}></textarea>
                         </div>
                     </div>
                 </div>

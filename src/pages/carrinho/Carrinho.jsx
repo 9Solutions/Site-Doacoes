@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import style from "./Carrinho.module.css";
 import Navbar from "../../component/navbar/navbar";
 import PageTitle from "../../component/pageTitle/PageTitle";
@@ -6,9 +6,98 @@ import caixa from "../../img/caixa.png";
 import styles from "../fluxoMontagemCaixa/FluxoMontagemCaixa.module.css";
 import Footer from "../../component/footer/footer";
 import {useNavigate} from "react-router-dom";
+import { getFaixasEtarias, postCaixa, postCaixas, postPedido } from "../../utils/backend/methods";
+import dayjs from "dayjs";
 
 const Carrinho = () => {
     const navigate = useNavigate();
+
+    const VALOR_CAIXA = 78.99
+    const [quantidadeCaixas, setQuantidadeCaixas] = useState(1)
+    const [faixa, setFaixa] = useState(null)
+    const [genero, setGenero] = useState('')
+
+    useEffect(() => {
+        async function fetchData() {
+            let faixaSession = sessionStorage.getItem('faixa')
+            try{
+                const response = await getFaixasEtarias(faixaSession)
+                console.log(response.data.faixaNome)
+                setFaixa(response.data.faixaNome)
+            } catch (error) {
+                console.log(`Erro ao buscar faixa-etaria: ${error}`)
+            }
+        }
+        fetchData();
+    }, [])
+
+    useEffect(() => {
+        setGenero(
+            sessionStorage.getItem('genero') === 'F' ?
+                'Menina' : 'Menino'
+        )
+    }, [genero])
+
+    const addBox = () => {
+        setQuantidadeCaixas(quantidadeCaixas + 1)
+    }
+
+    const removeBox = () => {
+        if (quantidadeCaixas - 1 === 0) {
+            return;
+        }
+        setQuantidadeCaixas(quantidadeCaixas - 1)
+    }
+
+    const cadastrarPedido = async () => {
+        let auth = JSON.parse(sessionStorage.getItem('auth'))
+        try {
+            const response = await postPedido({
+                "valorTotal": Number.parseFloat((VALOR_CAIXA * quantidadeCaixas).toFixed(2)),
+                "statusPedido": 1,
+                "idDoador": auth.doadorId
+            }) 
+
+            if (response.status === 200) {
+                for(let i = quantidadeCaixas; i > 0; i--) {
+                    await cadastrarCaixa(response.data.id)
+                }
+                navigate("/pagamento")
+            } else {
+                console.log(response)
+            }
+
+        } catch (error) {
+            console.error(`Erro ao enviar pedido: ${error}`)
+        }
+    }
+    
+    const cadastrarCaixa = async (idPedido) => {
+       
+        try {
+            const itens = JSON.parse(sessionStorage.getItem('produtos_selecionados'))
+            const idItens = itens.map(i => i.idProduto)
+
+            const response = await postCaixa({ 
+                "genero": sessionStorage.getItem('genero'),
+                "carta": sessionStorage.getItem('carta'),
+                "url": "aaaaaaaaaaaaaaaa",
+                "quantidade": 1,
+                "dataCriacao": dayjs().format('YYYY-MM-DD'),
+                "idFaixaEtaria": sessionStorage.getItem('faixa'),
+                "itensCaixa": idItens,
+                "idPedido": idPedido
+            })
+
+            if(response.status === 200) {
+                return;
+            }
+
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
 
     return (
         <>
@@ -23,31 +112,31 @@ const Carrinho = () => {
                                 <img src={caixa} alt={"Caixa"}/>
                                 <div className={style["caixa-infos"]}>
                                     <div className={style["infos"]}>
-                                        <h3>1 - Caixa</h3>
-                                        <p>Gênero: </p>
-                                        <p>Idade: </p>
+                                        <h3>Caixa</h3>
+                                        <p>Gênero: {genero}</p>
+                                        <p>Idade: {faixa} </p>
                                     </div>
                                     <div className={style["caixa-buttons"]}>
-                                        <span className="material-symbols-outlined">add</span>
-                                        <span className="material-symbols-outlined">remove</span>
+                                        <span className="material-symbols-outlined" onClick={() => addBox()}>add</span>
+                                        <span className="material-symbols-outlined" onClick={() => removeBox()}>remove</span>
                                     </div>
                                 </div>
                             </div>
                             <div className={style["container-valores"]}>
                                 <div className={style["valores"]}>
                                     <div>
-                                        <p>Quantidade: 1</p>
+                                        <p>Quantidade: {quantidadeCaixas}</p>
                                         <p>Valor Unitário: R$ 78,99</p>
                                     </div>
-                                    <p>Valor Total: R$ 78,99</p>
+                                    <p>Valor Total: R$ {(VALOR_CAIXA * quantidadeCaixas).toFixed(2)}</p>
                                 </div>
                             </div>
                         </div>
-                        <h3>Valor Total: R$ 78,99</h3>
+                        <h3>Valor Total: R$ {(VALOR_CAIXA * quantidadeCaixas).toFixed(2)}</h3>
                     </div>
 
                     <div className={styles["buttons"]}>
-                        <button className={styles['next']} style={{width: "200px"}} onClick={() => {navigate("/pagamento")}}>Pagar</button>
+                        <button className={styles['next']} style={{width: "200px"}} onClick={() => {cadastrarPedido()}}>Pagar</button>
                     </div>
                 </div>
             </main>

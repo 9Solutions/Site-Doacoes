@@ -55,10 +55,22 @@ export const getCategoriasPorEstagio = async (estagio) => {
     return api.get(`/categorias/filter?estagio=${estagio}&condicao=1`);
 }
 
-export const getFaixasEtarias = async () => {
-    return api.get(`/faixa-etaria/`);
+export const getFaixasEtarias = async (id) => {
+    return api.get(`/faixa-etaria/${id}`);
 }
 
 export const getPedidosByUser = async (idDoador) => {
     return api.get(`/pedidos/all-details/buscar-doador/${idDoador}`);
+}
+
+export const postPedido = async (payload) => {
+    return api.post('/pedidos', payload)
+}
+
+export const postCaixa = async (payload) => {
+    return api.post('/caixas', payload)
+}
+
+export const postImage = async (fotoBase64) => {
+    return api.post(`/lambda-services/live/upload-image`, fotoBase64);
 }
