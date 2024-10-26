@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from "../../component/navbar/navbar";
 import styles from './cartinha.module.css';
-import { postImage } from '../../utils/backend/methods';
 import { fileToBase64 } from '../../utils/backend/globals';
 
 function Cartinha({setCarta, carta, setFoto, foto}) {
 
     function handleChange(e) {
         setFoto(URL.createObjectURL(e.target.files[0]));
-        console.log(enviarFoto(e.target.files[0]))
+        tratarImagem(e.target.files[0])
     }
 
-    async function enviarFoto(fotoArg) {
+    async function tratarImagem(file) {
         try {
-            const response = await fileToBase64(fotoArg)
-            return await postImage({
-                "content": response 
-            })
+            const base64 = await fileToBase64(file)
+            sessionStorage.setItem('foto', base64)
         } catch (error) {
-            console.log(error)
+            console.log(`Erro ao tentar converter imagem: ${error}`)
         }
     }
 

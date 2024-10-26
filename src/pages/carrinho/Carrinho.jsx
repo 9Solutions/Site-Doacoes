@@ -6,7 +6,7 @@ import caixa from "../../img/caixa.png";
 import styles from "../fluxoMontagemCaixa/FluxoMontagemCaixa.module.css";
 import Footer from "../../component/footer/footer";
 import {useNavigate} from "react-router-dom";
-import { getFaixasEtarias, postCaixa, postCaixas, postPedido } from "../../utils/backend/methods";
+import { getFaixasEtarias, postCaixa, postImage, postPedido } from "../../utils/backend/methods";
 import dayjs from "dayjs";
 
 const Carrinho = () => {
@@ -59,8 +59,9 @@ const Carrinho = () => {
             }) 
 
             if (response.status === 200) {
+                const image = await sendImage()
                 for(let i = quantidadeCaixas; i > 0; i--) {
-                    await cadastrarCaixa(response.data.id)
+                    await cadastrarCaixa(response.data.id, image)
                 }
                 navigate("/pagamento")
             } else {
@@ -72,7 +73,7 @@ const Carrinho = () => {
         }
     }
     
-    const cadastrarCaixa = async (idPedido) => {
+    const cadastrarCaixa = async (idPedido, urlImage) => {
        
         try {
             const itens = JSON.parse(sessionStorage.getItem('produtos_selecionados'))
@@ -81,7 +82,7 @@ const Carrinho = () => {
             const response = await postCaixa({ 
                 "genero": sessionStorage.getItem('genero'),
                 "carta": sessionStorage.getItem('carta'),
-                "url": "aaaaaaaaaaaaaaaa",
+                "url": urlImage,
                 "quantidade": 1,
                 "dataCriacao": dayjs().format('YYYY-MM-DD'),
                 "idFaixaEtaria": sessionStorage.getItem('faixa'),
@@ -97,6 +98,23 @@ const Carrinho = () => {
             console.log(error)
         }
         
+    }
+
+    const sendImage = async () => {
+        const fotoSession = sessionStorage.getItem('foto')
+        if (fotoSession !== undefined) {
+            const response = await postImage({
+                "content": fotoSession
+            })
+
+            console.log(response)
+
+            if (response.status === 200) {
+                return response.data.body.url
+            }
+        } else {
+            return 'https://bucket-caixadesapato.s3.us-east-1.amazonaws.com/foto-padrao.png'
+        }
     }
 
     return (
