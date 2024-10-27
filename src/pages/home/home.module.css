@@ -10,28 +10,35 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 0 2%; /* Adiciona algum espaçamento nas laterais */
+    padding: 0 2%;
+    /* Adiciona algum espaçamento nas laterais */
 }
 
 .div-texto-overlay h3 {
-    font-size: 5vw; /* Usa unidades relativas */
+    font-size: 5vw;
+    /* Usa unidades relativas */
 }
 
 .div-texto-overlay p {
-    font-size: 3vw; /* Usa unidades relativas */
+    font-size: 3vw;
+    /* Usa unidades relativas */
 }
 
 .div-banner img {
     width: 100%;
-    height: auto; /* Altera para auto para manter a proporção da imagem */
-    max-height: 80vh; /* Limita a altura máxima */
+    height: auto;
+    /* Altera para auto para manter a proporção da imagem */
+    max-height: 80vh;
+    /* Limita a altura máxima */
 }
 
 .default-button {
-    font-size: 2vw; /* Usa unidades relativas */
+    font-size: 2vw;
+    /* Usa unidades relativas */
     background-color: #F79A00;
     border: none;
-    padding: 1% 2%; /* Ajusta o padding */
+    padding: 1% 2%;
+    /* Ajusta o padding */
     color: white;
     border-radius: 8%;
     cursor: pointer;
@@ -44,7 +51,7 @@
 }
 
 /* info banner */
-.div-info-banner ul{
+.div-info-banner ul {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -53,7 +60,7 @@
     margin: 0;
 }
 
-.info-banner-item{
+.info-banner-item {
     width: 15vw;
     height: 15vw;
     color: #1f1f1f;
@@ -63,7 +70,7 @@
     align-items: center;
 }
 
-.info-banner-item img{
+.info-banner-item img {
     width: 40%;
     height: 40%;
 }
@@ -77,11 +84,11 @@
     margin-bottom: 0;
 }
 
-.div-nav-cards{
+.div-nav-cards {
     background-color: #008816;
 }
 
-.div-nav-cards ul{
+.div-nav-cards ul {
     padding: 4% 0% 4% 0%;
     display: flex;
     flex-direction: row;
@@ -97,87 +104,112 @@
     text-align: center;
 }
 
-.div-nav-cards ul h5{
+.div-nav-cards ul h5 {
     margin: 0;
 }
 
-.div-nav-cards ul li img{
+.div-nav-cards ul li img {
     width: 90%;
     height: 12vw;
     padding: 2%;
 }
 
-.div-nav-cards ul li button{
+.div-nav-cards ul li button {
     font-size: 16px;
     margin-bottom: 4%;
 }
 
-.div-video{
+.div-video {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 2% 0 2% 0;
 }
 
-.div-video button{
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    /* 16:9 ratio (height / width * 100) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.div-video button {
     margin-top: 2%;
     padding: 1%;
 }
 
-.header-historias-inspiradoras{
+.header-historias-inspiradoras {
     background-image: url("../../utils/img/imagem 1.png");
     background-repeat: no-repeat;
 }
 
-.texto-overlay-historias-inspiradoras{
+.texto-overlay-historias-inspiradoras {
     color: white;
     padding: 3%;
 }
 
-.texto-overlay-historias-inspiradoras h3{
+.texto-overlay-historias-inspiradoras h3 {
     font-size: 46px;
     font-weight: 600;
     margin: 0 0 3% 0;
 }
 
-.texto-overlay-historias-inspiradoras button{
+.texto-overlay-historias-inspiradoras button {
     background-color: #008816;
 }
 
-.cards-historias-inspiradoras{
+.cards-historias-inspiradoras {
     display: flex;
     color: white;
     font-weight: 500;
     font-size: 40px;
     margin: 2% 0 2% 0;
     justify-content: space-evenly;
+    flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
+    gap: 1em; /* Espaçamento entre os cards */
 }
 
-.cards-historias-inspiradoras div{
+.cards-historias-inspiradoras div {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     border-radius: 15%;
-}
-
-.card-1-historias-inspiradoras{
-    background-image: url("../../utils/img/image\ 86.png");
-    width: 400px;    
+    background-size: cover; /* Ajusta a imagem de fundo */
+    background-position: center; /* Centraliza a imagem de fundo */
+    width: 100%;
+    max-width: 400px; /* Limita o tamanho máximo dos cards */
     height: 268px;
 }
 
-.card-2-historias-inspiradoras{
+.card-1-historias-inspiradoras {
+    background-image: url("../../utils/img/image\ 86.png");
+    width: 400px;
+    height: 268px;
+}
+
+.card-2-historias-inspiradoras {
     background-image: url("../../utils/img/image\ 90.png");
-    width: 383px;    
-    height: 268px;    
+    width: 383px;
+    height: 268px;
 
 }
 
-.card-3-historias-inspiradoras{
+.card-3-historias-inspiradoras {
     background-image: url("../../utils/img/image\ 88.png");
-    width: 383px;    
-    height: 268px;    
+    width: 383px;
+    height: 268px;
 }
 
 .div-equipe-voluntariado {
@@ -186,100 +218,78 @@
     text-align: center;
     color: #1f1f1f;
     margin-bottom: 5%;
-  }
-  
-  .div-equipe-voluntariado img {
+}
+
+.div-equipe-voluntariado img {
     width: auto;
     height: auto;
     max-width: 400px;
     display: block;
     margin: 0 auto;
-  }
-
-  @media (max-width: 768px) {
-    .div-texto-overlay {
-        position: absolute;
-        top: 57%;
-    }
-
-    .div-equipe-voluntariado {
-        font-size: 28px; 
-    }
-
-    .div-equipe-voluntariado img {
-        max-width: 300px; 
-    }
 }
 
-@media (max-width: 480px) {
-    .div-equipe-voluntariado {
-        font-size: 24px; 
-    }
-
-    .div-equipe-voluntariado img {
-        max-width: 250px; 
-    }
-}
-
-.voluntarios-img{
+.voluntarios-img {
     width: 15%;
 }
 
-.div-contato{
+.div-contato {
     display: flex;
     margin: 0 10% 5% 10%;
+    gap: 2%; /* Espaçamento entre as seções */
+    flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
 }
 
-.div-contato div{
+.div-contato div {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.div-contato-forms{
+.div-contato-forms {
     width: 55%;
     align-items: center;
 }
 
-.div-contato-forms button{
+.div-contato-forms button {
     width: 30%;
 }
 
-.div-contato-forms input{
+.div-contato-forms input {
     align-self: self-start;
     width: 98%;
     font-size: 20px;
 }
 
-.div-contato-forms img{
+.div-contato-forms img {
     width: 100%;
 }
 
-.div-contato-qrcode{
+.div-contato-qrcode {
     width: 45%;
     align-items: center;
     margin-right: 5%;
 }
 
-.div-contato-qrcode h4{
+.div-contato-qrcode h4 {
     font-size: 64px;
     margin: 0;
 }
 
-.div-contato-qrcode img{
+.div-contato-qrcode img {
     width: 30%;
 }
 
-.div-contato-qrcode p{
+.div-contato-qrcode p {
     font-size: 20px;
     text-align: left;
 }
 
 
 @media (min-width: 1200px) {
-    .header-historias-inspiradoras{
+    .header-historias-inspiradoras {
         height: 35vh;
     }
+
     .cards-historias-inspiradoras div {
         width: 400px;
         height: 268px;
@@ -287,9 +297,115 @@
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
- 
+
     .cards-historias-inspiradoras div {
         width: 300px;
         height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .div-texto-overlay {
+        position: absolute;
+        top: 57%;
+    }
+
+    .info-banner-item h4 {
+        font-size: 12px;
+    }
+
+    .info-banner-item p {
+        font-size: 12px;
+        margin: 0;
+    }
+
+    .div-nav-cards ul {
+        font-size: 2vw;
+    }
+
+    .div-nav-cards .default-button {
+        font-size: 2vw;
+        padding: 1% 2%;
+        width: 70%;
+    }
+
+    
+    .texto-overlay-historias-inspiradoras{
+        min-height: 100px;
+    }
+
+    .texto-overlay-historias-inspiradoras h3{
+        font-size: 6vw;
+    }
+
+    .div-equipe-voluntariado {
+        font-size: 28px;
+    }
+
+    .div-equipe-voluntariado img {
+        max-width: 300px;
+    }
+
+    .div-contato {
+        flex-direction: column; /* Empilha as seções */
+        align-items: center;
+        margin: 0 5%; /* Reduz a margem para caber em telas menores */
+    }
+    
+    .div-contato-forms, .div-contato-qrcode {
+        width: 100%; /* Expande a largura para ocupar a tela */
+        margin: 0;
+    }
+    
+    .div-contato-forms input {
+        width: 90%; /* Ajusta a largura dos inputs */
+        font-size: 18px;
+    }
+    
+    .div-contato-qrcode h4 {
+        font-size: 2.5em; /* Diminui o tamanho do título */
+    }
+    
+    .div-contato-qrcode p {
+        font-size: 1.1em; /* Diminui o tamanho do texto */
+    }
+}
+
+@media (max-width: 480px) {
+    body{
+        font-size: 12px;
+    }
+
+    .div-equipe-voluntariado {
+        font-size: 24px;
+    }
+
+    .div-equipe-voluntariado img {
+        max-width: 250px;
+    }
+
+    .div-contato {
+        margin: 0 2%; /* Margem ainda menor em dispositivos pequenos */
+    }
+    
+    .div-contato-forms input {
+        width: 100%; /* Largura completa para inputs */
+        font-size: 16px;
+    }
+    
+    .div-contato-forms button {
+        width: 50%; /* Botão maior para toque fácil */
+    }
+    
+    .div-contato-qrcode h4 {
+        font-size: 2rem; /* Reduz título em telas muito pequenas */
+    }
+    
+    .div-contato-qrcode p {
+        font-size: 1rem; /* Ajusta o texto para dispositivos pequenos */
+    }
+    
+    .div-contato-qrcode img {
+        width: 40%; /* Ajusta a largura das imagens do QR code */
     }
 }

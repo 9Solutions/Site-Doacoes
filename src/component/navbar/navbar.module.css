@@ -77,7 +77,6 @@ body {
     .nav-wrapper {
         justify-content: space-between;
         padding: 0 10px;
-        /* Reduz o padding em telas pequenas para manter a proporcionalidade */
     }
 
     .navbar-list {
@@ -106,6 +105,13 @@ body {
         padding: 10px 20px;
         width: 100%;
         text-align: left;
+    }
+
+    .button{
+        width: 50px;
+        height: 30px;
+        font-size: 16px;
+        margin-right: 11%;
     }
 }
 
