@@ -56,6 +56,8 @@ const FluxoMontagemCaixa = () => {
                 setProdutos(produtosFiltrados);
                 setCategorias([])
             });
+            sessionStorage.setItem('genero', genero)
+            sessionStorage.setItem('faixa', faixa)
         }
     }, [genero, faixa]);
 

@@ -7,53 +7,199 @@ body {
     display: flex;
     background-color: #008816;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     min-height: 60px;
-
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     z-index: 9999999;
+    padding: 10px 20px;
+    box-sizing: border-box;
 }
 
 .logo {
     height: 50px;
-    align-content: center;
+    flex-shrink: 0;
 }
 
 .navbar-list {
     list-style-type: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: 20px;
-    gap: 48px;
+    gap: 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 .navbar-list-item {
     text-decoration: none;
-    color: #FFFFFF;
-    font-size: 20px;
+    color: #ffffff;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+.navbar-list-item a {
+    color: #ffffff;
+    text-decoration: none;
 }
 
 .navbar-list-item:hover {
-    border-bottom: 1px solid #FFFFFF;
+    border-bottom: 1px solid #ffffff;
 }
 
 .button {
-    background-color: #F79A00;
-    color: #FFFFFF;
+    background-color: #f79a00;
+    color: #ffffff;
     border: none;
-    width: 70px;
+    width: 80px;
     height: 35px;
-    font-size: 20px;
+    font-size: 16px;
     border-radius: 8%;
     cursor: pointer;
+    margin-left: auto;
 }
 
 .button:hover {
-    background-color: #F57C00;
+    background-color: #f57c00;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.navbar-list.show {
+    display: flex;
+}
+
+.navbar-list.hide {
+    display: none;
+}
+
+.mobile-menu {
+    background-color: #008816;
+    padding: 10px;
+}
+
+.mobile-button {
+    background-color: #f79a00;
+    color: #ffffff;
+    border: none;
+    width: 80px;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 8%;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.mobile-button:hover {
+    background-color: #f57c00;
+}
+
+@media only screen and (min-width: 1024px) {
+    .nav-wrapper {
+        padding: 15px 30px;
+        min-height: 80px;
+    }
+
+    .navbar-list-item {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .button {
+        width: 90px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .nav-wrapper {
+        padding: 10px 15px;
+        min-height: 60px;
+    }
+
+    .navbar-list-item {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .button {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-list {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #008816;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .navbar-list.show {
+        display: flex;
+    }
+}
+
+/* Estilos para telas pequenas (celular) */
+@media only screen and (max-width: 480px) {
+    .nav-wrapper {
+        padding: 10px;
+    }
+
+    .navbar-list-item {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .mobile-button {
+        width: 55px;
+        height: 25px;
+        font-size: 10px;
+        display: block;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .navbar-list {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #008816;
+        padding: 10px;
+    }
 }

@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from "../../component/navbar/navbar";
 import styles from './cartinha.module.css';
+import { fileToBase64 } from '../../utils/backend/globals';
 
 function Cartinha({setCarta, carta, setFoto, foto}) {
 
     function handleChange(e) {
         setFoto(URL.createObjectURL(e.target.files[0]));
+        tratarImagem(e.target.files[0])
+    }
 
+    async function tratarImagem(file) {
+        try {
+            const base64 = await fileToBase64(file)
+            sessionStorage.setItem('foto', base64)
+        } catch (error) {
+            console.log(`Erro ao tentar converter imagem: ${error}`)
+        }
     }
 
     const [isActive, setIsActive] = useState(false);
@@ -34,7 +44,10 @@ function Cartinha({setCarta, carta, setFoto, foto}) {
                         <div className={styles['textarea-container']}>
                             <label htmlFor="cartinha-textarea" className={styles['textarea-label']}>Sua carta:</label>
                             <textarea id="cartinha-textarea" placeholder="Escreva sua carta aqui..." value={carta}
-                                      onChange={(e) => {setCarta(e.target.value)}}></textarea>
+                                      onChange={(e) => {
+                                        setCarta(e.target.value)
+                                        sessionStorage.setItem('carta', e.target.value)
+                                        }}></textarea>
                         </div>
                     </div>
                 </div>
