@@ -18,6 +18,10 @@ body {
     display: flex;
 }
 
+.div-valores-card{
+    background-color: white;
+}
+
 .div-monte-sua-caixa {
     background-color: #008816;
     display: flex;
@@ -50,12 +54,6 @@ body {
     color: #F79A00;
 }
 
-@media screen and (min-width: 576px) {}
-
-@media screen and (min-width: 768px) {}
-
-@media screen and (min-width: 992px) {}
-
 @media screen and (min-width: 1200px) {
     .div-sobre-nos-banner {
         margin: 8% 10% 5% 10%;
@@ -81,7 +79,6 @@ body {
 
     .div-valores-card {
         width: 40%;
-        background-color: white;
         border-radius: 3%;
         padding: 3% 4% 4% 4%;
     }
@@ -309,5 +306,124 @@ body {
         display: flex;
         justify-content: center;
         margin-bottom: 2%;
+    }
+}
+
+@media (max-width: 768px) {
+    .div-sobre-nos-banner {
+        font-size: 4vw;
+        gap: 2%;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .div-sobre-nos-banner h2{
+        position: relative;
+        top: 10%;
+    }
+
+    .div-valores-cards{
+        padding: 5%;
+    }
+
+    .div-valores-card{
+        font-size: 4vw;
+        border-radius: 5%;
+        padding: 1%;
+        margin-top: 2%;
+    }
+
+    .div-impacto-social{
+        text-align: center;
+    }
+
+    .div-impacto-social ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+    }
+
+    .div-acoes-pelo-brasil{
+        text-align: center;
+    }
+
+    .div-acoes-pelo-brasil img {
+        width: 100%;
+    }
+
+    .div-ods{
+        text-align: center;
+    }
+
+    .div-ods-imgs img{
+        width: 40%;
+    }
+
+    .div-projeto-caixa-sapato ul{
+        font-size: 5vw;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+
+    .list-projeto-caixa-sapato {
+        flex-direction: column;
+        align-items: center;
+        font-size: 4vw;
+    }
+
+    .list-projeto-caixa-sapato li h4 {
+        font-size: 1.5em;
+    }
+
+    .list-projeto-caixa-sapato-text {
+        flex-direction: column;
+        margin: 2%;
+    }
+
+    .list-projeto-caixa-sapato-text li p {
+        font-size: 4vw;
+        margin: 2%;
+    }
+
+    .div-monte-sua-caixa ul {
+        flex-direction: column;
+        margin: 5%;
+    }
+
+    .div-monte-sua-caixa ul li {
+        font-size: 4vw;
+    }
+
+    .div-monte-sua-caixa ul li p {
+        padding: 2%;
+        font-size: 1.2em;
+    }
+
+    .div-monte-sua-caixa ul li button {
+        width: 50%;
+    }
+}
+
+@media (max-width: 480px) {
+    .list-projeto-caixa-sapato li h4 {
+        font-size: 1.2em;
+    }
+
+    .list-projeto-caixa-sapato-text li p {
+        font-size: 3.5vw;
+    }
+
+    .div-monte-sua-caixa ul li p {
+        font-size: 1em;
+    }
+
+    .div-monte-sua-caixa ul li button {
+        width: 60%;
+        font-size: 0.9em;
+        padding: 4%;
     }
 }

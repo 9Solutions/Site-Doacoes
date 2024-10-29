@@ -235,8 +235,8 @@
 .div-contato {
     display: flex;
     margin: 0 10% 5% 10%;
-    gap: 2%; /* Espaçamento entre as seções */
-    flex-wrap: wrap; /* Permite que os elementos se ajustem em telas menores */
+    gap: 2%;
+    flex-wrap: wrap;
 }
 
 .div-contato div {
@@ -347,27 +347,27 @@
     }
 
     .div-contato {
-        flex-direction: column; /* Empilha as seções */
+        flex-direction: column;
         align-items: center;
-        margin: 0 5%; /* Reduz a margem para caber em telas menores */
+        margin: 0 5%;
     }
     
     .div-contato-forms, .div-contato-qrcode {
-        width: 100%; /* Expande a largura para ocupar a tela */
+        width: 100%;
         margin: 0;
     }
     
     .div-contato-forms input {
-        width: 90%; /* Ajusta a largura dos inputs */
+        width: 90%;
         font-size: 18px;
     }
     
     .div-contato-qrcode h4 {
-        font-size: 2.5em; /* Diminui o tamanho do título */
+        font-size: 2.5em;
     }
     
     .div-contato-qrcode p {
-        font-size: 1.1em; /* Diminui o tamanho do texto */
+        font-size: 1.1em;
     }
 }
 
@@ -385,27 +385,27 @@
     }
 
     .div-contato {
-        margin: 0 2%; /* Margem ainda menor em dispositivos pequenos */
+        margin: 0 2%;
     }
     
     .div-contato-forms input {
-        width: 100%; /* Largura completa para inputs */
+        width: 100%;
         font-size: 16px;
     }
     
     .div-contato-forms button {
-        width: 50%; /* Botão maior para toque fácil */
+        width: 50%;
     }
     
     .div-contato-qrcode h4 {
-        font-size: 2rem; /* Reduz título em telas muito pequenas */
+        font-size: 2rem;
     }
     
     .div-contato-qrcode p {
-        font-size: 1rem; /* Ajusta o texto para dispositivos pequenos */
+        font-size: 1rem;
     }
     
     .div-contato-qrcode img {
-        width: 40%; /* Ajusta a largura das imagens do QR code */
+        width: 40%;
     }
 }
