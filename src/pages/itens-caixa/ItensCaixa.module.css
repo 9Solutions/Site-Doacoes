@@ -282,4 +282,44 @@ main {
   .view-cart-button:hover {
     background-color: #ff8c00; 
   }
+
+  @media (max-width: 768px) {
+    main {
+        padding: 50px 10%;
+    }
+
+    .estagios ul {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .estagios .connector {
+        width: 3px;
+        height: 30px;
+    }
+
+    .item {
+        width: calc(50% - 10px);
+    }
+
+    .buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .buttons button {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 100%;
+    }
+}
+
   
