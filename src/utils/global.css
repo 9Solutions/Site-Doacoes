@@ -13,9 +13,9 @@
   font-family: Asap, serif;
 }
 
-body, html, main {
+/* body, html, main {
   min-height: 100vh;
-}
+} */
 
 main {
   padding: 100px 20%;
