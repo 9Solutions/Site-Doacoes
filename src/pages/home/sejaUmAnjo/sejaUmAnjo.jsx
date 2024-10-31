@@ -119,7 +119,7 @@ function SejaUmAnjo() {
                 </div>
 
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }

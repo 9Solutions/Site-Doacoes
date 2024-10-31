@@ -1,3 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+
 h2 {
     font-size: 35px;
 }
@@ -162,4 +166,46 @@ h2 {
     justify-content: center;
     align-items: center;
     padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .donation-container, .why-donate-items {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .paypal-pagseguro {
+        flex-direction: column;
+    }
+
+    .donation-block {
+        max-width: 90%;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    .underline, .why-donate .underline {
+        width: 100px;
+    }
+
+    .title-section {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .donation-button {
+        padding: 8px 16px;
+    }
+
+    .donation-logo {
+        width: 80%;
+    }
 }

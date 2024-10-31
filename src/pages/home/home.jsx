@@ -1,9 +1,9 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay'
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 import styles from "./home.module.css";
 import NavBar from "../../component/navbar/navbar";
@@ -45,7 +45,12 @@ const Home = () => {
             É uma oportunidade única de espalhar alegria, amor e esperança para
             alguém que precisa
           </p>
-          <button className={styles["default-button"]} onClick={()=> navigate("montagem-caixa")}>FAÇA SUA CAIXA</button>
+          <button
+            className={styles["default-button"]}
+            onClick={() => navigate("montagem-caixa")}
+          >
+            FAÇA SUA CAIXA
+          </button>
         </div>
       </div>
       <div className={styles["div-info-banner"]}>
@@ -81,7 +86,12 @@ const Home = () => {
               Você pode montar sua caixinha e escrever sua cartinha, tudo
               online!!
             </p>
-            <button className={styles["default-button"]} onClick={()=> navigate("montagem-caixa")}>MONTAR CAIXA</button>
+            <button
+              className={styles["default-button"]}
+              onClick={() => navigate("montagem-caixa")}
+            >
+              MONTAR CAIXA
+            </button>
           </li>
 
           <li>
@@ -120,14 +130,14 @@ const Home = () => {
         </ul>
       </div>
       <div className={styles["div-video"]}>
-        <iframe
-          width="560"
-          height="315"
-          src="https://youtube.com/embed/nMuqIiT6kM8"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+        <div class="video-container">
+          <iframe
+            src="https://youtube.com/embed/nMuqIiT6kM8"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
         <button className={styles["default-button"]}>SAIBA MAIS</button>
       </div>
       <div className={styles["div-historias-inspiradoras"]}>
@@ -140,19 +150,13 @@ const Home = () => {
           </div>
         </div>
         <div className={styles["cards-historias-inspiradoras"]}>
-          <div
-            className={styles["card-1-historias-inspiradoras"]}
-          >
+          <div className={styles["card-1-historias-inspiradoras"]}>
             <h3>Sobre nós</h3>
           </div>
-          <div
-            className={styles["card-2-historias-inspiradoras"]}
-          >
+          <div className={styles["card-2-historias-inspiradoras"]}>
             <h3>Doe</h3>
           </div>
-          <div
-            className={styles["card-3-historias-inspiradoras"]}
-          >
+          <div className={styles["card-3-historias-inspiradoras"]}>
             <h3>Campanha Ilha de Marajó</h3>
           </div>
         </div>
@@ -162,17 +166,31 @@ const Home = () => {
         <Swiper
           spaceBetween={0}
           slidesPerView={3}
-          autoplay={{ delay: 3000 }} 
+          autoplay={{ delay: 3000 }}
           loop={true}
           modules={[Autoplay]}
         >
-          <SwiperSlide><img src={philipsLogo} alt="Philips" /></SwiperSlide>
-          <SwiperSlide><img src={hpLogo} alt="HP" /></SwiperSlide>
-          <SwiperSlide><img src={mackenzieLogo} alt="Mackenzie" /></SwiperSlide>
-          <SwiperSlide><img src={organicoLogo} alt="Orgânico" /></SwiperSlide>
-          <SwiperSlide><img src={tquimLogo} alt="TQUIM" /></SwiperSlide>
-          <SwiperSlide><img src={hpeLogo} alt="Hewlett Packard Enterprise" /></SwiperSlide>
-          <SwiperSlide><img src={projetocaixasapatoLogo} alt="Projeto Caixa de Sapato" /></SwiperSlide>
+          <SwiperSlide>
+            <img src={philipsLogo} alt="Philips" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={hpLogo} alt="HP" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={mackenzieLogo} alt="Mackenzie" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={organicoLogo} alt="Orgânico" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={tquimLogo} alt="TQUIM" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={hpeLogo} alt="Hewlett Packard Enterprise" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src={projetocaixasapatoLogo} alt="Projeto Caixa de Sapato" />
+          </SwiperSlide>
         </Swiper>
       </div>
       <div className={styles["div-contato"]}>
@@ -195,7 +213,6 @@ const Home = () => {
         </div>
       </div>
 
-      
       <Footer />
     </>
   );
