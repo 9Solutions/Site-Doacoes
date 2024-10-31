@@ -140,3 +140,39 @@ h2{
 .buttons .next:not(:disabled):hover {
     background-color: #F57C00;
 }
+
+@media (max-width: 768px) {
+    main {
+        padding: 100px 5%;
+    }
+}
+
+@media (max-width: 768px) {
+    .estagios ul {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .estagios .connector {
+        width: 3px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .produto {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons button {
+        width: 100%;
+        max-width: 300px;
+    }
+}

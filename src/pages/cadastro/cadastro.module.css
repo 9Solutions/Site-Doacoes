@@ -1,6 +1,17 @@
+html,
 body {
     margin: 0;
-    font-family: Asap;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Asap, sans-serif;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .titulo {
@@ -8,19 +19,21 @@ body {
     margin-left: 16%;
     font-size: 48px;
     border-bottom: 4px solid #008816;
-    width: 9%;
+    width: fit-content;
     font-weight: 500;
+    align-self: center;
 }
 
 .div-cadastro {
-    margin-left: 14%;
-    margin-right: 14%;
-    color: #008816;
+    margin: 0 14%;
+    padding: 3% 4%;
+    border: 2px solid #008816;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
-    border: 2px solid #008816;
-    padding: 3% 4% 3% 4%;
-    margin-bottom: 10%;
+    flex-grow: 1;
+    background-color: #fff;
+    gap: 1rem;
 }
 
 .label-cadastro {
@@ -29,19 +42,16 @@ body {
 }
 
 .input-cadastro {
-    margin-bottom: 2%;
-    margin-top: 2%;
+    margin: 0.5rem 0;
     padding: 1%;
     border: 1px solid #C1C1C1;
     color: #818080;
 }
 
-.a-cadastro {
-    margin-top: 0;
-    text-decoration: none;
-    color: #000000;
-    font-weight: 300;
-    font-size: 24px;
+.titulo-medio {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 1rem;
 }
 
 .botao-cadastro {
@@ -51,33 +61,45 @@ body {
     font-size: 24px;
     font-weight: 300;
     border-radius: 7px;
-    margin-top: 2%;
-    width: 30%;
-    display: flex;
+    width: 40%;
     align-self: center;
-    align-items: center;
-    justify-content: center;
     height: 7.5vh;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
-.botao-cadastro:hover{
+.botao-cadastro:hover {
     color: #F79A00;
     background-color: #FFFFFF;
     border: 1px solid #F79A00;
 }
 
-.link {
-    text-decoration: none;
-    color: #477BFF;
-    font-weight: 300;
-    font-size: 24px;
-    position: relative;
-    cursor: pointer;
-    transition: color 0.3s ease-in-out;
+.p-cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 18px;
+    margin-top: 1rem;
 }
 
-.link::after {
+.a-cadastro {
+    color: #477BFF;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+    font-weight: 500;
+}
+
+.a-cadastro:hover {
+    color: #0056b3;
+}
+
+.a-cadastro::after {
     content: '';
     position: absolute;
     width: 0;
@@ -88,28 +110,56 @@ body {
     transition: width 0.3s ease-in-out;
 }
 
-.link:hover {
-    color: #0056b3; 
-}
-
-.link:hover::after {
+/* .a-cadastro:hover::after {
     width: 100%;
-}
-
-#forgot-passaword {
-    margin-right: 30%;
-}
-
-/* .imagem-cadastro {
-    height: 4.5vh;
-    margin-right: 10px;
 } */
 
-.titulo-medio {
-    font-size: 36px;
-    font-weight: 500;
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 36px;
+        margin-left: 8%;
+    }
+
+    .div-cadastro {
+        margin: 0 5%;
+        padding: 5%;
+    }
+
+    .label-cadastro {
+        font-size: 20px;
+    }
+
+    .input-cadastro {
+        font-size: 18px;
+    }
+
+    .botao-cadastro {
+        width: 80%;
+    }
+
+    .p-cadastro {
+        font-size: 16px;
+        flex-direction: column;
+        gap: 4px;
+    }
 }
 
-.p-cadastro {
-    align-self: center;
+/* Tablets */
+@media (max-width: 768px) {
+    .titulo {
+        font-size: 40px;
+        margin-left: 10%;
+    }
+
+    .div-cadastro {
+        margin: 0 10%;
+    }
+
+    .botao-cadastro {
+        width: 60%;
+    }
+
+    .p-cadastro {
+        font-size: 18px;
+    }
 }

@@ -69,7 +69,7 @@ function Cadastro() {
         <input
           className={styles["input-cadastro"]}
           value={nomeCompleto}
-          placeholder= "Ex. Ana"
+          placeholder="Ex. Ana"
           type="text"
           onChange={(e) => handleInputChange(e, setNomeCompleto)}
         />
@@ -78,7 +78,7 @@ function Cadastro() {
         <input
           className={styles["input-cadastro"]}
           value={identificador}
-          placeholder= "11122233344"
+          placeholder="11122233344"
           type="text"
           onChange={(e) => handleInputChange(e, setIdentificador)}
         />
@@ -89,19 +89,19 @@ function Cadastro() {
         <input
           className={styles["input-cadastro"]}
           value={email}
-          placeholder= "ana@email.com"
+          placeholder="ana@email.com"
           type="text"
           onChange={(e) => handleInputChange(e, setEmail)}
         />
 
         <label className={styles["label-cadastro"]} htmlFor="repetir-email">Repetir E-mail:</label>
-        <input className={styles["input-cadastro"]} type="text" placeholder= "ana@email.com"/>
+        <input className={styles["input-cadastro"]} type="text" placeholder="ana@email.com" />
         <label className={styles["label-cadastro"]} htmlFor="senha">Senha:</label>
         <input
           className={styles["input-cadastro"]}
           value={senha}
           type="password"
-          placeholder="********" 
+          placeholder="********"
           onChange={(e) => handleInputChange(e, setSenha)}
         />
 
@@ -124,15 +124,13 @@ function Cadastro() {
 
         <label className={styles["label-cadastro"]} htmlFor="person-type">Tipo de pessoa:</label>
         <input className={styles["input-cadastro"]} type="text" />
-        
+
         <button className={styles["botao-cadastro"]} onClick={handleSave}>
           Cadastrar
         </button>
         <p className={styles["p-cadastro"]}>
-          <a className={styles["a-cadastro"]} href="">
-            Já possui uma conta?
-          </a>
-          <a className={styles["a-cadastro", "link"]} onClick={toLogin}>
+          <span>Já possui uma conta? </span>
+          <a className={`${styles["a-cadastro"]} ${styles["link"]}`} onClick={toLogin}>
             Entre aqui
           </a>
         </p>

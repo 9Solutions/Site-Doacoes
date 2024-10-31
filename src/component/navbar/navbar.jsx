@@ -3,10 +3,10 @@ import styles from "./navbar.module.css";
 import logo from "../../utils/img/logo.png";
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setMenuOpen(!menuOpen);
   };
 
   return (
@@ -14,7 +14,9 @@ const NavBar = () => {
       <nav>
         <div className={styles["nav-wrapper"]}>
           <img className={styles["logo"]} src={logo} alt="logo" />
-          <ul className={`${styles["navbar-list"]} ${isOpen ? styles["open"] : ""}`}>
+          <ul
+            className={`${styles["navbar-list"]} ${menuOpen ? styles["show"] : ""}`}
+          >
             <li>
               <a className={styles["navbar-list-item"]} href="/">HOME</a>
             </li>
@@ -28,13 +30,32 @@ const NavBar = () => {
               <a className={styles["navbar-list-item"]} href="/seja-um-anjo">PARTICIPE</a>
             </li>
           </ul>
-          <button className={styles["button"]} onClick={() => window.location.href = "/menu-caixa"}>DOE</button>
-          <div className={styles["hamburger"]} onClick={toggleMenu}>
-            <div className={styles["bar"]}></div>
-            <div className={styles["bar"]}></div>
-            <div className={styles["bar"]}></div>
+
+
+          <button
+            className={styles["button"]}
+            onClick={() => (window.location.href = "/menu-caixa")}
+          >
+            DOE
+          </button>
+
+          <div className={styles.hamburger} onClick={toggleMenu}>
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
         </div>
+
+        {menuOpen && (
+          <div className={styles["mobile-menu"]}>
+            <button
+              className={styles["mobile-button"]}
+              onClick={() => (window.location.href = "/menu-caixa")}
+            >
+              DOE
+            </button>
+          </div>
+        )}
       </nav>
     </>
   );
