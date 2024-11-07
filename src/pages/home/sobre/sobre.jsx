@@ -100,7 +100,7 @@ const Sobre = () => {
           <Card
             img={mochilaIcon}
             title="4000"
-            content="Kits escolares distribuídos"
+            content="Kits escolares distribuídos" className={styles["class-img"]}
           />
           <Card
             img={escovaIcon}

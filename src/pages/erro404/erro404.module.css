@@ -61,3 +61,40 @@ body {
     text-decoration: underline;
     color: #477BFF;
 }
+
+@media (max-width: 768px) {
+    .div-erro-404 img {
+        width: 300px; /* Reduz a largura da imagem */
+        height: 300px;
+    }
+
+    .Not-found {
+        font-size: 1.5rem; /* Reduz o tamanho do texto */
+        text-align: center;
+    }
+
+    .return-button {
+        font-size: 18px;
+        width: 60%;
+        height: 6vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .div-erro-404 img {
+        width: 80%;
+        height: 100%;
+    }
+
+    .Not-found {
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .return-button {
+        font-size: 16px;
+        width: 80%;
+        height: 6vh;
+    }
+}

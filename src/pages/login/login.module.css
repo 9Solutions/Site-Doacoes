@@ -21,6 +21,7 @@ body {
     padding: 3% 4%;
     border-radius: 8px;
     background-color: #fff;
+    margin-bottom: 10%;
 }
 
 .label-login {
@@ -119,6 +120,7 @@ input {
     #forgot-password {
         font-size: 15px;
     }
+
 }
 
 @media (max-width: 768px) {
@@ -127,11 +129,13 @@ input {
         margin-left: 0;
         width: 50%;
         margin: 60px auto;
+        margin-bottom: 5%;
     }
 
     .div-login {
         margin: 0 10%;
         padding: 4%;
+        margin-bottom: 10%;
     }
 
     input {
@@ -139,8 +143,8 @@ input {
     }
 
     .login-button {
-        width: 80%;
-        font-size: 20px;
+        width: 60%;
+        font-size: 19px;
     }
 }
 
@@ -153,5 +157,6 @@ input {
     .div-login {
         margin: 0 14%;
         padding: 3% 4%;
+        margin-bottom: 5%;
     }
 }

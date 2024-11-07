@@ -313,6 +313,7 @@ body {
 }
 
 @media (max-width: 768px) {
+    
     .banner-section{
         margin: 0;
         display: flex;
@@ -320,5 +321,9 @@ body {
     }
     .project-intro-section{
         padding-left: 0;
+    }
+
+    .qr-code-container img{
+        margin-bottom: 50%;
     }
 }

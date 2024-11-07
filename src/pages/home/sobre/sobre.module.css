@@ -60,6 +60,7 @@ body {
         text-align: center;
     }
 
+
     .div-sobre-nos-left-banner {
         margin-right: 5%;
         font-size: 1em;
@@ -336,6 +337,7 @@ body {
 
     .div-impacto-social{
         text-align: center;
+        width: 100%;
     }
 
     .div-impacto-social ul{
