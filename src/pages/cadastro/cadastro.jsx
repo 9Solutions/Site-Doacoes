@@ -1,4 +1,4 @@
-import api from "../../api";
+import api, { postDoador } from "../../api";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -25,19 +25,21 @@ function Cadastro() {
       senha,
     };
 
-    api
-      .post(`/doadores`, {
-        nomeCompleto,
-        identificador,
-        email,
-        telefone,
-        senha,
-      })
+
+    postDoador( {
+      nomeCompleto: nomeCompleto,
+      identificador: identificador,
+      email: email,
+      telefone: telefone,
+      senha: senha,
+      permissao: 'user'
+    })
       .then(() => {
         toast.success("Cadastro realizado com sucesso!");
         navigate("/login");
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error)
         toast.error(
           "Ocorreu um erro ao salvar os dados, por favor, tente novamente."
         );
