@@ -35,7 +35,12 @@ function Cadastro() {
     })
       .then(() => {
         toast.success("Cadastro realizado com sucesso!");
-        navigate("/login");
+        if (window.location.search.includes("redirect")) {
+            let params = new URLSearchParams(window.location.search);
+            const redirect = params.get("redirect");
+            window.location.href = `/${redirect}`;
+        }
+
       })
       .catch((error) => {
         console.log(error)

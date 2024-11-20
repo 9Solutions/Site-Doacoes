@@ -14,7 +14,6 @@ const NavBar = () => {
       <nav>
         <div className={styles["nav-wrapper"]}>
           <img className={styles["logo"]} src={logo} alt="logo" />
-
           <ul
             className={`${styles["navbar-list"]} ${menuOpen ? styles["show"] : ""}`}
           >
@@ -31,6 +30,7 @@ const NavBar = () => {
               <a className={styles["navbar-list-item"]} href="/seja-um-anjo">PARTICIPE</a>
             </li>
           </ul>
+
 
           <button
             className={styles["button"]}
@@ -60,5 +60,4 @@ const NavBar = () => {
     </>
   );
 };
-
 export default NavBar;

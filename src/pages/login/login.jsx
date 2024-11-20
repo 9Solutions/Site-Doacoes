@@ -27,6 +27,12 @@ const Login = () => {
 
         sessionStorage.setItem("auth", JSON.stringify(response.data));
 
+        if (window.location.search.includes("redirect")) {
+          let params = new URLSearchParams(window.location.search);
+          const redirect = params.get("redirect");
+          window.location.href = `/${redirect}`;
+        }
+
         window.location.href = "/menu-caixa";
       })
       .catch((error) => {
@@ -36,7 +42,7 @@ const Login = () => {
   };
 
   const toCadastro = () => {
-    navigate("/cadastro");
+    window.location.href = `/cadastro?redirect=login${window.location.search}`;
   };
 
   return (

@@ -187,3 +187,15 @@ textarea {
 .next-button:hover {
     background-color: #218838;
 }
+
+@media (min-width: 768px) {
+    .content-row {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+    .buttons {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

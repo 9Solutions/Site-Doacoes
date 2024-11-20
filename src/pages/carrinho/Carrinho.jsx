@@ -51,6 +51,12 @@ const Carrinho = () => {
 
     const cadastrarPedido = async () => {
         let auth = JSON.parse(sessionStorage.getItem('auth'))
+
+        if (auth === null) {
+            navigate("/login?redirect=carrinho")
+            return;
+        }
+
         try {
             const response = await postPedido({
                 "valorTotal": Number.parseFloat((VALOR_CAIXA * quantidadeCaixas).toFixed(2)),
@@ -102,7 +108,6 @@ const Carrinho = () => {
 
     const sendImage = async () => {
         const fotoSession = sessionStorage.getItem('foto')
-        console.log(fotoSession)
         if (fotoSession) {
             const response = await postImage({
                 "content": fotoSession

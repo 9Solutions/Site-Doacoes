@@ -1,9 +1,9 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/autoplay'
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
 
 import { useNavigate } from "react-router-dom";
 import styles from "./sobre.module.css";
@@ -35,8 +35,8 @@ import tquimLogo from "../../../utils/img/tquim.png";
 import hpeLogo from "../../../utils/img/hpe.png";
 import projetocaixasapatoLogo from "../../../utils/img/Screen Shot 2019-01-19 at 22.49 1.png";
 import criança2 from "../../../utils/img/image 93.png";
-import pngeIcon from "../../../utils/img/image 94.png"
-import ajudaiIcon from "../../../utils/img/image 95.png"
+import pngeIcon from "../../../utils/img/image 94.png";
+import ajudaiIcon from "../../../utils/img/image 95.png";
 
 const Sobre = () => {
   const navigate = useNavigate();
@@ -57,14 +57,14 @@ const Sobre = () => {
           </p>
         </div>
         <div className={styles["div-sobre-nos-right-banner"]}>
-          <iframe
-            width="560"
-            height="315"
-            src="https://youtube.com/embed/U7wbXL9ngBE"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          <div class="video-container">
+            <iframe
+              src="https://youtube.com/embed/U7wbXL9ngBE"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       </div>
       <div className={styles["div-valores"]}>
@@ -100,7 +100,7 @@ const Sobre = () => {
           <Card
             img={mochilaIcon}
             title="4000"
-            content="Kits escolares distribuídos"
+            content="Kits escolares distribuídos" className={styles["class-img"]}
           />
           <Card
             img={escovaIcon}
@@ -198,7 +198,7 @@ const Sobre = () => {
         <h3>EQUIPES DE VOLUNTARIADO E LOGÍSTICA:</h3>
         <Swiper
           spaceBetween={0}
-          slidesPerView={3} 
+          slidesPerView={3}
           breakpoints={{
             768: {
               slidesPerView: 4,
@@ -218,7 +218,11 @@ const Sobre = () => {
             <img src={mackenzieLogo} alt="" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src={organicoLogo} alt="" className={styles["voluntarios-img"]} />
+            <img
+              src={organicoLogo}
+              alt=""
+              className={styles["voluntarios-img"]}
+            />
           </SwiperSlide>
           <SwiperSlide>
             <img src={tquimLogo} alt="" className={styles["voluntarios-img"]} />

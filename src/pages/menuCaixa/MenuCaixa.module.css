@@ -50,3 +50,56 @@ h2{
 .bt:hover {
     background-color: #F57C00;
 }
+
+@media (max-width: 768px) {
+    main {
+        padding: 50px 10%;
+    }
+
+    .container_menu {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .menu_item {
+        min-width: 300px;
+        min-height: 250px;
+    }
+
+    .menu_item img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .bt {
+        font-size: 14px;
+        padding: 8px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        padding: 20px 5%;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .menu_item {
+        min-width: 250px;
+        min-height: 200px;
+        padding: 10px;
+    }
+
+    .menu_item img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .bt {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+}

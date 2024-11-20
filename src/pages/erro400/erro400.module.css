@@ -56,3 +56,41 @@ body {
     text-decoration: underline;
     color: #477BFF;
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .div-erro img {
+        width: 300px; /* Reduz o tamanho da imagem */
+        height: 240px;
+    }
+
+    .bad-request {
+        font-size: 1.5rem; /* Ajusta o tamanho do texto */
+        text-align: center;
+    }
+
+    .return-button {
+        font-size: 18px;
+        width: 60%;
+        height: 6vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .div-erro img {
+        width: 80%;
+        height: 100%;
+    }
+
+    .bad-request {
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .return-button {
+        font-size: 19px;
+        width: 60%;
+        height: 6vh;
+    }
+}
