@@ -64,14 +64,14 @@ const Carrinho = () => {
                 "idDoador": auth.doadorId
             }) 
 
+            console.log(response)
+
             if (response.status === 200) {
                 const image = await sendImage()
                 for(let i = quantidadeCaixas; i > 0; i--) {
                     await cadastrarCaixa(response.data.id, image)
                 }
                 navigate("/pagamento")
-            } else {
-                console.log(response)
             }
 
         } catch (error) {
@@ -107,19 +107,17 @@ const Carrinho = () => {
     }
 
     const sendImage = async () => {
-        const fotoSession = sessionStorage.getItem('foto') || undefined
-        if (fotoSession !== undefined) {
+        const fotoSession = sessionStorage.getItem('foto')
+        if (fotoSession) {
             const response = await postImage({
                 "content": fotoSession
             })
-
-            console.log(response)
 
             if (response.status === 200) {
                 return response.data.body.url
             }
         } else {
-            return 'https://bucket-caixadesapato.s3.us-east-1.amazonaws.com/foto-padrao.png'
+            return 'https://bucket-caixadesapato-prd.s3.us-east-1.amazonaws.com/foto-padrao.png'
         }
     }
 
