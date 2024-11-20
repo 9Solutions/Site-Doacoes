@@ -25,7 +25,6 @@ function Cadastro() {
       senha,
     };
 
-
     postDoador( {
       nomeCompleto: nomeCompleto,
       identificador: identificador,

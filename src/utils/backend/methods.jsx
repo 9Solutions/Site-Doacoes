@@ -64,6 +64,7 @@ export const getPedidosByUser = async (idDoador) => {
 }
 
 export const postPedido = async (payload) => {
+    console.log('aqui')
     return api.post('/java-api/pedidos', payload)
 }
 
