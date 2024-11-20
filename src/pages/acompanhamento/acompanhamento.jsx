@@ -4,7 +4,7 @@ import Footer from "../../component/footer/footer";
 import caixaImg from "../../img/caixa.png"
 import React, {useEffect, useState} from "react";
 import {getPedidosByUser} from "../../utils/backend/methods";
-// import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {tranformDate} from "../../utils/global";
 
 
