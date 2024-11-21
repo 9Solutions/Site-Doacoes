@@ -61,6 +61,8 @@ const Sobre = () => {
             <iframe
               src="https://youtube.com/embed/U7wbXL9ngBE"
               frameborder="0"
+              width={500}
+              height={300}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>

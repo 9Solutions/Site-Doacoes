@@ -134,6 +134,8 @@ const Home = () => {
           <iframe
             src="https://youtube.com/embed/nMuqIiT6kM8"
             frameborder="0"
+            width={700}
+            height={350}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
