@@ -319,6 +319,14 @@ body {
         text-align: center;
     }
 
+    .div-sobre-nos-left-banner{
+        margin-top: 15%;
+    }
+
+    .div-sobre-nos-right-banner{
+        display: none;
+    }
+
 
     .div-sobre-nos-banner h2{
         position: relative;
