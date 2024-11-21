@@ -156,6 +156,7 @@
 .texto-overlay-historias-inspiradoras {
     color: white;
     padding: 3%;
+    background-size: cover;
 }
 
 .texto-overlay-historias-inspiradoras h3 {
