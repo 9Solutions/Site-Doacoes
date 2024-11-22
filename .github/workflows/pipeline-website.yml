@@ -1,0 +1,89 @@
+name: Build website application for EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Atualização do código
+      uses: actions/checkout@v2
+    
+    - name: Versão do node
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+      
+    - name: Build da aplicação
+      run: npm run build
+
+    - name: Gerar artefato do build
+      uses: actions/upload-artifact@v4
+      with:
+        name: aplicacao
+        path: Site-Doacoes/build/*
+    
+    - name: Gerar artefato do Docker
+      uses: actions/upload-artifact@v4
+      with:
+        name: docker-scripts
+        path: .github/scripts/* 
+    
+
+  deploy: 
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Recuperar arquivos
+      uses: actions/download-artifact@v4
+      with:
+        name: aplicacao
+        path: ./build
+
+    - name: Recuperar scripts
+      uses: actions/download-artifact@v4
+      with:
+        name: docker-scripts
+        path: ./build
+      
+    - name: Enviar arquivos da aplicacao - webserver 1
+      uses: aapleboy/scp-action@master
+      with:
+        host: ${{secrets.IP_SERVER_1}}
+        username: ubuntu
+        key: ${{secrets.DEPLOY_KEY}}
+        source: "./build/*"
+        target: "/home/ubuntu/webiste"
+
+    - name: Enviar arquivos da aplicacao - webserver 2
+      uses: aapleboy/scp-action@master
+      with:
+        host: ${{secrets.IP_SERVER_2}}
+        username: ubuntu
+        key: ${{secrets.DEPLOY_KEY}}
+        source: "./build/*"
+        target: "/home/ubuntu/webiste"
+
+    - name: Criar arquivo .pem
+      id: geracao-arquivo-pem
+      run: |
+        echo "${{secrets.DEPLOY_KEY}}" >> $HOME/deploy-key.pem
+        chmod 400 $HOME/deploy-key.pem
+
+    - name: Conectar webserver 1
+      run: |
+        ssh -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} << 'EOF'
+          ssh -i deploy-key.pem  ubuntu@${{secrets.IP_SERVER_1}} "sudo docker-compose -f /home/ubuntu/deploy-api/docker-compose.yml up -d --build"
+        EOF
+    
+    - name: Conectar webserver 2
+      run: |
+        ssh -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_2}} << 'EOF'
+          ssh -i deploy-key.pem  ubuntu@${{secrets.IP_SERVER_2}} "sudo docker-compose -f /home/ubuntu/deploy-api/docker-compose.yml up -d --build"
+        EOF
+  
