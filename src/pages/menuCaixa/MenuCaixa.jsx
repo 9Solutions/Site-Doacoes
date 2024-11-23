@@ -5,10 +5,8 @@ import PageTitle from "../../component/pageTitle/PageTitle";
 import styles from "./MenuCaixa.module.css";
 import caixa from "../../img/caixa.png";
 import track from "../../img/track.png";
-import {useNavigate} from "react-router-dom";
-const MenuCaixa = () => {
-    const navigate = useNavigate();
 
+const MenuCaixa = () => {
     return (
         <>
             <Navbar/>
@@ -21,11 +19,11 @@ const MenuCaixa = () => {
 
                 <div className={styles["container_menu"]}>
                     <div className={styles["menu_item"]}>
-                        <img src={caixa}/>
+                        <img src={caixa} alt=""/>
                         <button onClick={() => window.location.href = "/montagem-caixa"} className={styles['bt']}>Montar Caixa</button>
                     </div>
                     <div className={styles["menu_item"]}>
-                        <img src={track}/>
+                        <img src={track} alt=""/>
                         <button onClick={() => window.location.href = "/acompanhamento"} className={styles['bt']}>Acompanhar Doação</button>
                     </div>
                 </div>

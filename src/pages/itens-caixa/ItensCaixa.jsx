@@ -9,7 +9,8 @@ import {useNavigate} from "react-router-dom";
 
 function ItensCaixa() {
 
-    const [isActive, setIsActive] = useState(false);
+    // eslint-disable-next-line
+    const [isActive ,setIsActive] = useState(false);
     const produtosSelecionados = JSON.parse(sessionStorage.getItem("produtos_selecionados"));
     const [produtos, setProdutos] = useState([]);
     const navigate = useNavigate();
@@ -23,11 +24,11 @@ function ItensCaixa() {
             let produtosFiltrados = response.data.filter(produto => produtosSelecionados.some(p => p.idProduto === produto.id))
             setProdutos(produtosFiltrados);
         });
-    }, []);
+    });
 
     useEffect(() => {
         setIsActive(true);
-    }, []);
+    }, [isActive]);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 

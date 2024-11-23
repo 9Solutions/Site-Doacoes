@@ -1,6 +1,5 @@
 import React from 'react';
 import NavBar from "../../../component/navbar/navbar";
-import Footer from "../../../component/footer/footer";
 import styles from './sejaUmAnjo.module.css';
 import bolha1 from '../../../img/bolhas-criancas.png';
 import bolha2 from '../../../img/bolhas-criancas2.png';
@@ -109,6 +108,7 @@ function SejaUmAnjo() {
                 <p className={styles['thank-you-message']}>Agradecemos por fazer parte deste projeto e ser um anjo para nossas crianças!</p>
 
                 <div className={styles['media-container']}>
+                    {/* eslint-disable-next-line */}
                     <iframe
                         src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
                         frameBorder="0"

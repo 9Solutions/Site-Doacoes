@@ -27,7 +27,7 @@ const Footer = () => {
       </ul>
       <div className={styles["email-cnpj"]}>
         <p>
-          Email: <a href="">atendimento@projetocaixadesapato.org</a>
+          Email: <a href="#email">atendimento@projetocaixadesapato.org</a>
         </p>
         <p>CNPJ: 36.293.262/0001-39</p>
       </div>

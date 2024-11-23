@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import styles from "./login.module.css";
-import { useNavigate } from "react-router-dom";
 import NavBar from "../../component/navbar/navbar";
 import Footer from "../../component/footer/footer";
 import instagramIcon from "../../utils/img/Instagram-Icon.png";
@@ -10,7 +9,6 @@ import { login } from "../../utils/backend/methods";
 
 
 const Login = () => {
-  const navigate = useNavigate();
   const emailRef = useRef(null);
   const senhaRef = useRef(null);
 
@@ -59,8 +57,10 @@ const Login = () => {
         </label>
         <input type="password" placeholder="****************" ref={senhaRef} />
         <p className={styles["no-account"]}>
+          {/* eslint-disable-next-line */}
           <a id={styles["forgot-password"]}>Esqueci minha senha</a>
           <span>Não possui uma conta? </span>
+          {/* eslint-disable-next-line */}
           <a className={styles["link"]} onClick={toCadastro}>Crie aqui</a>
         </p>
         <button className={styles["login-button"]}>
