@@ -47,7 +47,7 @@ const Home = () => {
             className={styles["default-button"]}
             onClick={() => navigate("montagem-caixa")}
           >
-            FAÇA SUA CAIXA
+            MONTAR UMA CAIXA
           </button>
         </div>
       </div>

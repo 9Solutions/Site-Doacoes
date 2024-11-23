@@ -15,12 +15,12 @@
 }
 
 .div-texto-overlay h3 {
-    font-size: 5vw;
+    font-size: 4vw;
     /* Usa unidades relativas */
 }
 
 .div-texto-overlay p {
-    font-size: 3vw;
+    font-size: 2vw;
     /* Usa unidades relativas */
 }
 
@@ -33,11 +33,11 @@
 }
 
 .default-button {
-    font-size: 2vw;
+    font-size: 1.5vw;
     /* Usa unidades relativas */
     background-color: #F79A00;
     border: none;
-    padding: 1% 2%;
+    padding: 2% 3%;
     /* Ajusta o padding */
     color: white;
     border-radius: 8%;
