@@ -80,9 +80,7 @@ jobs:
     - name: Conectar webserver 1
       run: |
         ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} << 'EOF'
-          echo "${{ secrets.ACCESS_WEBSERVER_KEY }}" >> $HOME/deploy-key.pem
-          chmod 400 $HOME/deploy-key.pem
-          ssh -i $HOME/deploy-key.pem  ubuntu@${{secrets.IP_SERVER_1}} "cd /home/ubuntu/website && ls"
+          cd /home/ubuntu/website && ls
         EOF
     
     # - name: Conectar webserver 2
