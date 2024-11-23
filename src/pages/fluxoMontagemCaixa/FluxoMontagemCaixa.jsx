@@ -7,7 +7,6 @@ import {getCategoriasPorEstagio, getProdutos} from "../../utils/backend/methods"
 import {toast} from "react-toastify";
 import EscolhaGenero from "../../component/componentsMontagemCaixa/EscolhaGenero";
 import EscolhaIdade from "../../component/componentsMontagemCaixa/EscolhaIdade";
-import {useNavigate} from "react-router-dom";
 import Cartinha from "../cartinha/cartinha";
 import pessoa from '../../utils/img/pessoa.png'
 
@@ -22,8 +21,6 @@ const FluxoMontagemCaixa = () => {
     const [foto, setFoto] = useState(pessoa)
     const quantTotalEsperadaRef = useRef({});
 
-    const navigate = useNavigate();
-
     useEffect(() => {
         window.scrollTo(0, 0)
         if (estagio > 1 && estagio <= 4) {
@@ -37,7 +34,7 @@ const FluxoMontagemCaixa = () => {
             window.location.href = '/itens-caixa'
         }
 
-    }, [estagio]);
+    }, [produtosSelecionados, estagio]);
 
     useEffect(() => {
         produtosSelecionados.forEach((produto) => {
@@ -46,7 +43,7 @@ const FluxoMontagemCaixa = () => {
                 produtoElement.classList.add(styles["selected"]);
             }
         });
-    }, [categorias]);
+    }, [produtosSelecionados, categorias]);
 
     useEffect(() => {
         if (faixa !== -1 && genero !== '') {
@@ -63,7 +60,7 @@ const FluxoMontagemCaixa = () => {
 
     useEffect(() => {
         quantTotalEsperadaRef.current["est"+estagio] = categorias.reduce((total, categoria) => total + categoria.qtdeProdutos, 0);
-    }, [categorias]);
+    }, [estagio, categorias]);
 
     const selectProduto = (id, quantMax, idCategoria) => {
 

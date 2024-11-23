@@ -19,11 +19,12 @@ function Cartinha({setCarta, carta, setFoto, foto}) {
         }
     }
 
+    // eslint-disable-next-line
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
         setIsActive(true);
-    }, []);
+    }, [isActive]);
 
     return (
         <>
@@ -36,7 +37,7 @@ function Cartinha({setCarta, carta, setFoto, foto}) {
                     <div className={styles['content-row']}>
                         <label className={styles['upload-photo']} for={'selecao-arquivo'}>
                             <div className={styles['photo-placeholder']}>
-                                <img src={foto} />
+                                <img src={foto} alt="Foto da pessoa doadora"/>
                             </div>
                             <input id={"selecao-arquivo"} type="file" onChange={handleChange} />
                         </label>
