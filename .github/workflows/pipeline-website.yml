@@ -45,13 +45,13 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: aplicacao
-        path: ./build
+        path: ./build/
 
     - name: Recuperar scripts
       uses: actions/download-artifact@v4
       with:
         name: docker-scripts
-        path: ./build
+        path: ./build/
       
     - name: Enviar arquivos da aplicacao - webserver 1
       uses: appleboy/scp-action@master
