@@ -79,17 +79,17 @@ jobs:
 
     - name: Conectar webserver 1
       run: |
-        ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} '
+        ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} << 'EOF'
           echo "${{ secrets.ACCESS_WEBSERVER_KEY }}" >> $HOME/deploy_key.pem
           chmod 400 $HOME/deploy_key.pem
           ssh -i $HOME/deploy-key.pem  ubuntu@${{secrets.IP_SERVER_1}} "sudo docker-compose -f /home/ubuntu/deploy-api/docker-compose.yml up -d --build"
-        '
+        EOF
     
     - name: Conectar webserver 2
       run: |
-        ssh -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_2}} '
+        ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_2}} << 'EOF'
           echo "${{ secrets.ACCESS_WEBSERVER_KEY }}" >> $HOME/deploy_key.pem
           chmod 400 $HOME/deploy_key.pem
           ssh -i $HOME/deploy-key.pem  ubuntu@${{secrets.IP_SERVER_2}} "sudo docker-compose -f /home/ubuntu/deploy-api/docker-compose.yml up -d --build"
-        '
+        EOF
   
