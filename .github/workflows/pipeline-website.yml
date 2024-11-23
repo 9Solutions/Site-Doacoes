@@ -27,7 +27,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: aplicacao
-        path: Site-Doacoes/build/*
+        path: ./build/*
     
     - name: Gerar artefato do Docker
       uses: actions/upload-artifact@v4
