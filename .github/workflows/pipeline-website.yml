@@ -17,19 +17,29 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
+    
+    - name: Build da aplicação
+      run: | 
+        npm install
+        npm run build
+
+    -name: Gerar artefato dependências
+      uses: actions/upload-artifact@v4
+      with:
+        name: dependencias
+        path: ./package.json
 
     - name: Gerar artefato do build
       uses: actions/upload-artifact@v4
       with:
         name: aplicacao
-        path: ./*
+        path: ./build
     
     - name: Gerar artefato do Docker
       uses: actions/upload-artifact@v4
       with:
         name: docker-scripts
         path: .github/scripts/* 
-    
 
   deploy: 
     needs: build
@@ -46,6 +56,12 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: docker-scripts
+        path: ./
+    
+    - name: Recuperar dependencias
+      uses: actions/download-artifact@v4
+      with:
+        name: dependencias
         path: ./
       
     - name: Enviar arquivos da aplicacao - webserver 1
@@ -72,11 +88,11 @@ jobs:
         echo "${{secrets.ACCESS_WEBSERVER_KEY}}" >> $HOME/deploy-key.pem
         chmod 400 $HOME/deploy-key.pem
 
-    - name: Conectar webserver 1
-      run: |
-        ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} << 'EOF'
-          cd ./website && sudo docker-compose -f docker-compose.yml up -d --build
-        EOF
+    # - name: Conectar webserver 1
+    #   run: |
+    #     ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} << 'EOF'
+    #       cd ./website && sudo docker-compose -f docker-compose.yml up -d --build
+    #     EOF
     
     # - name: Conectar webserver 2
     #   run: |
