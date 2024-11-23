@@ -74,18 +74,22 @@ jobs:
     - name: Criar arquivo .pem
       id: geracao-arquivo-pem
       run: |
-        echo "${{secrets.DEPLOY_KEY}}" >> $HOME/deploy-key.pem
+        echo "${{secrets.ACCESS_WEBSERVER_KEY}}" >> $HOME/deploy-key.pem
         chmod 400 $HOME/deploy-key.pem
 
     - name: Conectar webserver 1
       run: |
-        ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}}
+        ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} << 'EOF'
+          echo "${{ secrets.ACCESS_WEBSERVER_KEY }}" >> $HOME/deploy-key.pem
+          chmod 400 $HOME/deploy-key.pem
+          ssh -i $HOME/deploy-key.pem  ubuntu@${{secrets.IP_SERVER_1}} "sudo docker-compose -f /home/ubuntu/webiste/docker-compose.yml up -d --build"
+        EOF
     
-    # - name: Conectar webserver 2
-    #   run: |
-    #     ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_2}} << 'EOF'
-    #       echo "${{ secrets.ACCESS_WEBSERVER_KEY }}" >> $HOME/deploy-key.pem
-    #       chmod 400 $HOME/deploy-key.pem
-    #       ssh -i $HOME/deploy-key.pem  ubuntu@${{secrets.IP_SERVER_2}} "sudo docker-compose -f /home/ubuntu/webiste/docker-compose.yml up -d --build"
-    #     EOF
+    - name: Conectar webserver 2
+      run: |
+        ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_2}} << 'EOF'
+          echo "${{ secrets.ACCESS_WEBSERVER_KEY }}" >> $HOME/deploy-key.pem
+          chmod 400 $HOME/deploy-key.pem
+          ssh -i $HOME/deploy-key.pem  ubuntu@${{secrets.IP_SERVER_2}} "sudo docker-compose -f /home/ubuntu/webiste/docker-compose.yml up -d --build"
+        EOF
   
