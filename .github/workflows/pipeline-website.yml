@@ -17,17 +17,12 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '20.x'
-      
-    - name: Build da aplicação
-      run: | 
-        npm install
-        npm run build
 
     - name: Gerar artefato do build
       uses: actions/upload-artifact@v4
       with:
         name: aplicacao
-        path: ./build/*
+        path: ./*
     
     - name: Gerar artefato do Docker
       uses: actions/upload-artifact@v4
