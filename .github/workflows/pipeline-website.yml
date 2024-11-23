@@ -64,8 +64,8 @@ jobs:
       with:
         host: ${{secrets.IP_SERVER_1}}
         username: ubuntu
-        key: ${{secrets.DEPLOY_KEY}}
-        source: "./build/*"
+        key: $HOME/deploy-key.pem
+        source: "./build/"
         target: "/home/ubuntu/webiste"
 
     - name: Enviar arquivos da aplicacao - webserver 2
@@ -73,7 +73,7 @@ jobs:
       with:
         host: ${{secrets.IP_SERVER_2}}
         username: ubuntu
-        key: ${{secrets.DEPLOY_KEY}}
+        key: $HOME/deploy-key.pem
         source: "./build/"
         target: "/home/ubuntu/webiste"
 
