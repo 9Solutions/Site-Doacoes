@@ -45,13 +45,13 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: aplicacao
-        path: ./build/
+        path: ./
 
     - name: Recuperar scripts
       uses: actions/download-artifact@v4
       with:
         name: docker-scripts
-        path: ./build/
+        path: ./
       
     - name: Enviar arquivos da aplicacao - webserver 1
       uses: appleboy/scp-action@master
@@ -59,7 +59,7 @@ jobs:
         host: ${{secrets.IP_SERVER_1}}
         username: ubuntu
         key: ${{secrets.ACCESS_WEBSERVER_KEY}}
-        source: "./build/*"
+        source: "./*"
         target: "/home/ubuntu/website/"
 
     - name: Enviar arquivos da aplicacao - webserver 2
@@ -68,7 +68,7 @@ jobs:
         host: ${{secrets.IP_SERVER_2}}
         username: ubuntu
         key: ${{secrets.ACCESS_WEBSERVER_KEY}}
-        source: "./build/*"
+        source: "./*"
         target: "/home/ubuntu/website/"
 
     - name: Criar arquivo .pem
