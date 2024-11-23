@@ -81,6 +81,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} << 'EOF'
           echo "${{ secrets.ACCESS_WEBSERVER_KEY }}" >> $HOME/deploy_key.pem
+          chmod 400 $HOME/deploy_key.pem
           ssh -i deploy-key.pem  ubuntu@${{secrets.IP_SERVER_1}} "sudo docker-compose -f /home/ubuntu/deploy-api/docker-compose.yml up -d --build"
         EOF
     
@@ -88,6 +89,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_2}} << 'EOF'
           echo "${{ secrets.ACCESS_WEBSERVER_KEY }}" >> $HOME/deploy_key.pem
+          chmod 400 $HOME/deploy_key.pem
           ssh -i deploy-key.pem  ubuntu@${{secrets.IP_SERVER_2}} "sudo docker-compose -f /home/ubuntu/deploy-api/docker-compose.yml up -d --build"
         EOF
   
