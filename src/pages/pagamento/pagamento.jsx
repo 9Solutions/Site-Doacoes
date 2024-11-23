@@ -1,7 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../pagamento/pagamento.module.css";
-import api from "../../api";
 import NavBar from "../../component/navbar/navbar";
 import Footer from "../../component/footer/footer";
 import pix from '../../img/pix.png';
@@ -9,43 +8,39 @@ import cartaodecredito from '../../img/cartao-de-credito.png';
 import codigobarras from '../../img/codigo-de-barras.png';
 import caixa from '../../img/caixa.png';
 import qrcode from '../../img/qrcode.png';
-import { toast } from "react-toastify";
-import caixaAnimada from '../../img/caixaAnimation.gif'
-import caixaAnimada2 from '../../img/caixaAnimada2.gif'
 import check from '../../img/check.gif'
 import PageTitle from "../../component/pageTitle/PageTitle";
 import Button from "../../component/button/Button";
 
-const validar = async (email, senha) => {
-  if (email.length === 0 || senha.length === 0) return;
-  return api.post(`/doadores/login`, { email: email, senha: senha });
-};
+// const validar = async (email, senha) => {
+//   if (email.length === 0 || senha.length === 0) return;
+//   return api.post(`/doadores/login`, { email: email, senha: senha });
+// };
 
 const Pagamento = () => {
   const [activeTab, setActiveTab] = useState('Dados'); // Define 'Dados' como valor padrão
   const [showLabel, setShowLabel] = useState({ cartao: false, boleto: false, pix: false });
   const navigate = useNavigate();
   const emailRef = useRef(null);
-  const senhaRef = useRef(null);
 
-  const handleLogin = async () => {
-    const email = emailRef.current.value;
-    const senha = senhaRef.current.value;
+  // const handleLogin = async () => {
+  //   const email = emailRef.current.value;
+  //   const senha = senhaRef.current.value;
 
-    validar(email, senha)
-      .then((response) => {
-        if (response.status !== 200) {
-          toast.error("Email ou Senha Inválidos!");
-          return;
-        }
+  //   validar(email, senha)
+  //     .then((response) => {
+  //       if (response.status !== 200) {
+  //         toast.error("Email ou Senha Inválidos!");
+  //         return;
+  //       }
 
-        navigate("");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error("Email ou Senha Inválidos!");
-      });
-  };
+  //       navigate("");
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       toast.error("Email ou Senha Inválidos!");
+  //     });
+  // };
 
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -251,7 +246,7 @@ const Pagamento = () => {
                           </label><br></br>
                           <input type="text" placeholder="fulano.silva@gmail.com" ref={emailRef} />
                           <div className={styles["container-email-confirm"]}>
-                            <a>Não recebi meu email</a>
+                            <a href="#foo">Não recebi meu email</a>
                             <Button className={styles["ok-button"]} title={"OK"}></Button>
                           </div>
                         </div>

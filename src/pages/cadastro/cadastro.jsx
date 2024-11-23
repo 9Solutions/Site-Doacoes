@@ -1,4 +1,4 @@
-import api, { postDoador } from "../../api";
+import { postDoador } from "../../api";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -6,8 +6,6 @@ import { toast } from "react-toastify";
 import styles from "./cadastro.module.css";
 import NavBar from "../../component/navbar/navbar";
 import Footer from "../../component/footer/footer";
-import instagramIcon from "../../utils/img/Instagram-Icon.png";
-import facebookIcon from "../../utils/img/Facebook-Icon.png";
 
 function Cadastro() {
   const navigate = useNavigate();
@@ -17,13 +15,13 @@ function Cadastro() {
   const [telefone, setTelefone] = useState("");
   const [senha, setSenha] = useState("");
   const handleSave = () => {
-    const objetoAdicionado = {
-      nomeCompleto,
-      identificador,
-      email,
-      telefone,
-      senha,
-    };
+    // const objetoAdicionado = {
+    //   nomeCompleto,
+    //   identificador,
+    //   email,
+    //   telefone,
+    //   senha,
+    // };
 
     postDoador( {
       nomeCompleto: nomeCompleto,
@@ -54,9 +52,9 @@ function Cadastro() {
     setStateFunction(event.target.value);
   };
 
-  const handleBack = () => {
-    navigate("http://localhost:3000/");
-  };
+  // const handleBack = () => {
+  //   navigate("http://localhost:3000/");
+  // };
 
   const toLogin = () => {
     navigate("/login");
@@ -136,7 +134,8 @@ function Cadastro() {
         </button>
         <p className={styles["p-cadastro"]}>
           <span>Já possui uma conta? </span>
-          <a className={`${styles["a-cadastro"]} ${styles["link"]}`} onClick={toLogin}>
+          {/* eslint-disable-next-line */}
+          <a className={`${styles["a-cadastro"]} ${styles["link"]}`} onClick={toLogin} href="javascript:void(0)">
             Entre aqui
           </a>
         </p>

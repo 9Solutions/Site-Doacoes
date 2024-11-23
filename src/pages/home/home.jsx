@@ -10,7 +10,6 @@ import NavBar from "../../component/navbar/navbar";
 import Footer from "../../component/footer/footer";
 import { useNavigate } from "react-router-dom";
 
-import banner from "../../utils/img/pexels-rebecca-zaal-252062-764681 1.png";
 import teste from "../../utils/img/imagem-home.jpg";
 import equipe from "../../utils/img/equipe.png";
 import criancas from "../../utils/img/criancas.png";
@@ -20,7 +19,6 @@ import caixa from "../../utils/img/pexels-cup-of-couple-8015700 1.png";
 import facilitador from "../../utils/img/69555ee342bbe0ef1058bd96ead77ed5 2.png";
 import anjo from "../../utils/img/image 83.png";
 import parceiro from "../../utils/img/69555ee342bbe0ef1058bd96ead77ed5.png";
-import historiasInspiradoras from "../../utils/img/imagem 1.png";
 import philipsLogo from "../../utils/img/Philips.png";
 import hpLogo from "../../utils/img/hp.png";
 import mackenzieLogo from "../../utils/img/mackenzie.png";
@@ -131,6 +129,7 @@ const Home = () => {
       </div>
       <div className={styles["div-video"]}>
         <div class="video-container">
+          {/* eslint-disable-next-line */}
           <iframe
             src="https://youtube.com/embed/nMuqIiT6kM8"
             frameborder="0"

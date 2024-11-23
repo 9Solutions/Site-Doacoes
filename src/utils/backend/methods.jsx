@@ -1,6 +1,5 @@
 import axios from "axios";
 
-const endpoint = process.env.REACT_APP_API_URL;
 const { token } = JSON.parse(sessionStorage.getItem("auth")) || {};
 const api = axios.create({
     //baseURL: endpoint,

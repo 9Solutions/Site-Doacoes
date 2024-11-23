@@ -19,11 +19,11 @@ function Cartinha({setCarta, carta, setFoto, foto}) {
         }
     }
 
-    const [isActive, setIsActive] = useState(false);
+    const [setIsActive] = useState(false);
 
     useEffect(() => {
         setIsActive(true);
-    }, []);
+    });
 
     return (
         <>
@@ -36,7 +36,7 @@ function Cartinha({setCarta, carta, setFoto, foto}) {
                     <div className={styles['content-row']}>
                         <label className={styles['upload-photo']} for={'selecao-arquivo'}>
                             <div className={styles['photo-placeholder']}>
-                                <img src={foto} />
+                                <img src={foto} alt="Foto da pessoa doadora"/>
                             </div>
                             <input id={"selecao-arquivo"} type="file" onChange={handleChange} />
                         </label>

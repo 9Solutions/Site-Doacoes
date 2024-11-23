@@ -1,11 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
 
-import { useNavigate } from "react-router-dom";
 import styles from "./sobre.module.css";
 import NavBar from "../../../component/navbar/navbar";
 import Footer from "../../../component/footer/footer";
@@ -39,7 +37,6 @@ import pngeIcon from "../../../utils/img/image 94.png";
 import ajudaiIcon from "../../../utils/img/image 95.png";
 
 const Sobre = () => {
-  const navigate = useNavigate();
   return (
     <>
       <NavBar />
@@ -58,6 +55,7 @@ const Sobre = () => {
         </div>
         <div className={styles["div-sobre-nos-right-banner"]}>
           <div class="video-container">
+            {/* eslint-disable-next-line */}
             <iframe
               src="https://youtube.com/embed/U7wbXL9ngBE"
               frameborder="0"
@@ -189,7 +187,7 @@ const Sobre = () => {
           </li>
           <li>
             <p>
-              Uma grande oportunidade de ensinar <a>generosidade</a> para a
+              Uma grande oportunidade de ensinar <a href="foo">generosidade</a> para a
               próxima geração. Faça sua caixa você também clicando no botão!
             </p>
             <button>MONTAR MINHA CAIXA</button>
@@ -275,6 +273,7 @@ const Sobre = () => {
         />
       </div>
       <div className={styles["div-video-banner"]}>
+        {/* eslint-disable-next-line */}
         <iframe
           width="560"
           height="315"
