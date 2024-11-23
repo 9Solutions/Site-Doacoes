@@ -80,7 +80,7 @@ jobs:
     - name: Conectar webserver 1
       run: |
         ssh -T -o StrictHostKeyChecking=no -i $HOME/deploy-key.pem ubuntu@${{secrets.IP_SERVER_1}} << 'EOF'
-          cd ./website && ls
+          cd ./website && sudo docker-compose -f docker-compose.yml up -d --build
         EOF
     
     # - name: Conectar webserver 2
