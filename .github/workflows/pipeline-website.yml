@@ -64,7 +64,7 @@ jobs:
       with:
         host: ${{secrets.IP_SERVER_1}}
         username: ubuntu
-        key: $HOME/deploy-key.pem
+        key: ./deploy-key.pem
         source: "./build/"
         target: "/home/ubuntu/webiste"
 
@@ -73,7 +73,7 @@ jobs:
       with:
         host: ${{secrets.IP_SERVER_2}}
         username: ubuntu
-        key: $HOME/deploy-key.pem
+        key: ./deploy-key.pem
         source: "./build/"
         target: "/home/ubuntu/webiste"
 
