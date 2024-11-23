@@ -19,11 +19,12 @@ function Cartinha({setCarta, carta, setFoto, foto}) {
         }
     }
 
-    const [setIsActive] = useState(false);
+    // eslint-disable-next-line
+    const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
         setIsActive(true);
-    });
+    }, [isActive]);
 
     return (
         <>
