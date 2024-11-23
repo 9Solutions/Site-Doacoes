@@ -23,17 +23,11 @@ jobs:
         npm install
         npm run build
 
-    - name: Gerar artefato dependências
-      uses: actions/upload-artifact@v4
-      with:
-        name: dependencias
-        path: ./package.json
-
-    - name: Gerar artefato do build
+    - name: Gerar artefato da aplicação
       uses: actions/upload-artifact@v4
       with:
         name: aplicacao
-        path: ./build
+        path: ./
     
     - name: Gerar artefato do Docker
       uses: actions/upload-artifact@v4
@@ -56,12 +50,6 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: docker-scripts
-        path: ./
-    
-    - name: Recuperar dependencias
-      uses: actions/download-artifact@v4
-      with:
-        name: dependencias
         path: ./
       
     - name: Enviar arquivos da aplicacao - webserver 1
