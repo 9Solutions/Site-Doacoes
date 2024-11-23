@@ -54,7 +54,7 @@ jobs:
         path: ./build
       
     - name: Enviar arquivos da aplicacao - webserver 1
-      uses: aapleboy/scp-action@master
+      uses: appleboy/scp-action@master
       with:
         host: ${{secrets.IP_SERVER_1}}
         username: ubuntu
@@ -63,7 +63,7 @@ jobs:
         target: "/home/ubuntu/webiste"
 
     - name: Enviar arquivos da aplicacao - webserver 2
-      uses: aapleboy/scp-action@master
+      uses: appleboy/scp-action@master
       with:
         host: ${{secrets.IP_SERVER_2}}
         username: ubuntu
