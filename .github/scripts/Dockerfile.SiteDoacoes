@@ -6,8 +6,10 @@ WORKDIR /app
 
 COPY package.json ./
 
-RUN npm install
+COPY ./src ./
 
-COPY build ./
+COPY ./public ./
+
+RUN npm install
 
 CMD ["npm", "run", "start"] 
