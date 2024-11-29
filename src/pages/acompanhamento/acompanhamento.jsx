@@ -20,22 +20,24 @@ const Acompanhamento = () => {
 
 
   useEffect(() => {
-    getPedidosByUser(doadorId).then((response) => {
-      if(response.data.length > 0) {
-        setCaixas(response.data.map(pedido => {
-          let caixasLen = pedido.caixas.length
-          caixasLen = caixasLen === 0 ? 1 : pedido.caixas.length
+    if(sessionStorage.getItem("auth") !== null) {
+      getPedidosByUser(doadorId).then((response) => {
+        if(response.data.length > 0) {
+          setCaixas(response.data.map(pedido => {
+            let caixasLen = pedido.caixas.length
+            caixasLen = caixasLen === 0 ? 1 : pedido.caixas.length
+    
+            pedido.caixas.map(caixa => {
+                return caixa["valorUn"] = pedido.valorTotal / caixasLen
+            });
+    
+            return pedido.caixas
+    
+          }).flat());
+        }
   
-          pedido.caixas.map(caixa => {
-              return caixa["valorUn"] = pedido.valorTotal / caixasLen
-          });
-  
-          return pedido.caixas
-  
-        }).flat());
-      }
-
-    })
+      })
+    }
   }, [doadorId]);
 
 
