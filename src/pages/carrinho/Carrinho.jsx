@@ -8,6 +8,7 @@ import Footer from "../../component/footer/footer";
 import {useNavigate} from "react-router-dom";
 import { getFaixasEtarias, postCaixa, postImage, postPedido } from "../../utils/backend/methods";
 import dayjs from "dayjs";
+import {toast} from "react-toastify";
 
 const Carrinho = () => {
     const navigate = useNavigate();
@@ -64,8 +65,6 @@ const Carrinho = () => {
                 "idDoador": auth.doadorId
             }) 
 
-            console.log(response)
-
             if (response.status === 200) {
                 const image = await sendImage()
                 for(let i = quantidadeCaixas; i > 0; i--) {
@@ -76,6 +75,7 @@ const Carrinho = () => {
 
         } catch (error) {
             console.error(`Erro ao enviar pedido: ${error}`)
+            toast.error("Algo inesperado ocorreu durante o registro da(s) caixa(s).")
         }
     }
     
@@ -101,7 +101,7 @@ const Carrinho = () => {
             }
 
         } catch (error) {
-            console.log(error)
+            throw new Error("Erro durante o cadastro da caixa")
         }
         
     }
@@ -117,7 +117,7 @@ const Carrinho = () => {
                 return response.data.body.url
             }
         } else {
-            return 'https://bucket-caixadesapato-prd.s3.us-east-1.amazonaws.com/foto-padrao.png'
+            return 'https://caixadesapato-public.s3.us-east-1.amazonaws.com/foto-padrao.png'
         }
     }
 
