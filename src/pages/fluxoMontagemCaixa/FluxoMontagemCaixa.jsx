@@ -34,7 +34,8 @@ const FluxoMontagemCaixa = () => {
             window.location.href = '/itens-caixa'
         }
 
-    }, [produtosSelecionados, estagio]);
+        //eslint-disable-next-line
+    }, [estagio]);
 
     useEffect(() => {
         produtosSelecionados.forEach((produto) => {
