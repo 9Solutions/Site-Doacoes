@@ -29,9 +29,10 @@ const Login = () => {
           let params = new URLSearchParams(window.location.search);
           const redirect = params.get("redirect");
           window.location.href = `/${redirect}`;
+        }else{
+          window.location.href = "/menu-caixa";
         }
 
-        window.location.href = "/menu-caixa";
       })
       .catch((error) => {
         console.log(error);
